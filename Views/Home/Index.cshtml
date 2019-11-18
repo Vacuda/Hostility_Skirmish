@@ -1,6 +1,36 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using Hostility_Skirmish.Models
+@model User
 
-    <h1>Welcome Froggie</h1>
-
+<div class="jumbotron">
+    <h1>Please Register</h1>
+    <a class="btn btn-secondary" asp-action="LoginPage" asp-controller="Home">Login</a>
+    <div class="card">
+        <form asp-action="Register" asp-controller="Home" method="POST">
+        <div class="row">
+            <div class="col">
+                <label asp-for="FirstName"></label><br>
+                <span asp-validation-for="FirstName"></span>
+                <input class="form-control" asp-for="FirstName">
+                <label asp-for="LastName"></label><br>
+                <span asp-validation-for="LastName"></span>
+                <input class="form-control" asp-for="LastName">
+                <label asp-for="Email"></label><br>
+                <span asp-validation-for="Email"></span>
+                <input class="form-control" asp-for="Email">
+                <input style="margin-top: 20px;" class="btn btn-dark" type="submit" value="Register">
+            </div>
+            <div class="col">
+                <label asp-for="Password"></label><br>
+                <span asp-validation-for="Password"></span>
+                <input class="form-control" asp-for="Password">
+                <label asp-for="Confirm"></label>
+                <span asp-validation-for="Confirm"></span><br>
+                <input class="form-control" asp-for="Confirm">
+            </div>
+        </div>
+    </form>
+    </div>
+</div>

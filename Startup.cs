@@ -26,7 +26,7 @@ namespace Hostility_Skirmish
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSession();
-            services.AddDbContext<HomeContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
+            services.AddDbContext<MyContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
