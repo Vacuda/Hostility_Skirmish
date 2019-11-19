@@ -14,8 +14,8 @@ namespace Hostility_Skirmish.Controllers
             public string FirstName;
             public string LastName;
             public TempUser(string f, string l){
-                string FirstName = f;
-                string LastName = l;
+                FirstName = f;
+                LastName = l;
             } 
         }
     public class LobbyController : Controller
@@ -43,13 +43,24 @@ namespace Hostility_Skirmish.Controllers
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(user)); 
         }
 
-        // [HttpGet]
-        // [Route("[controller]/getlogs")] //returns all logged in users
-        // public JsonResult LobbyCheck()
-        // {
-        //     List<User> AllUsers = dbContext.Users.Where(x => x.logged=true).ToList();
-            
-        //     return Json(Newtonsoft.Json.JsonConvert.SerializeObject(AllUsers)); 
-        // }
+        [HttpGet]
+        [Route("[controller]/getlogs")] //returns all logged in users
+        public JsonResult LobbyCheck()
+        {
+            //List<User> AllUsers = dbContext.Users.Where(x => x.Logged==true).ToList();
+            //List<User> AllUsers = dbContext.Users.ToList();
+            List<TempUser> AllUsers = new List<TempUser>();
+            AllUsers.Add(new TempUser("Walter", "Morgan"));
+            AllUsers.Add(new TempUser("Billy", "Mitchell"));
+            AllUsers.Add(new TempUser("Sarah", "Sanders"));
+            foreach(var thing in AllUsers){
+                System.Console.WriteLine(thing.FirstName);
+            }
+            System.Console.WriteLine("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            System.Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(AllUsers
+            ));
+            return Json(Newtonsoft.Json.JsonConvert.SerializeObject(AllUsers
+            )); 
+        }
     }
 }
