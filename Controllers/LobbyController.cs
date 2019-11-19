@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Hostility_Skirmish.Controllers
 {
@@ -18,6 +20,12 @@ namespace Hostility_Skirmish.Controllers
         }
     public class LobbyController : Controller
     {
+        private MyContext dbContext;
+        public LobbyController(MyContext context)
+        {
+            dbContext = context;
+        }
+
         [HttpGet]
         [Route("/lobby")]
         public IActionResult Lobby(){
@@ -29,9 +37,19 @@ namespace Hostility_Skirmish.Controllers
         public JsonResult GimieJson()
         {
             TempUser user = new TempUser("Walter", "Morgan");
+
             user.FirstName = DateTime.Now.ToString("ss");
             System.Console.WriteLine($"$$$$$$$$$$$$$$$$$$$${user.FirstName}$$$$$$$$$$$$$$$$$$$$");
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(user)); 
         }
+
+        // [HttpGet]
+        // [Route("[controller]/getlogs")] //returns all logged in users
+        // public JsonResult LobbyCheck()
+        // {
+        //     List<User> AllUsers = dbContext.Users.Where(x => x.logged=true).ToList();
+            
+        //     return Json(Newtonsoft.Json.JsonConvert.SerializeObject(AllUsers)); 
+        // }
     }
 }

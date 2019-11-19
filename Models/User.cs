@@ -30,8 +30,8 @@ namespace Hostility_Skirmish.Models
         public string Confirm {get;set;}
         // DateTime CreatedAt {get;set;} DateTime.Now();
 
-
-
+        //true if logged in false if logged out.
+        public bool Logged {get;set;} = false; 
 
         //Characters created List<Character>
         //Parties created List<Party>
