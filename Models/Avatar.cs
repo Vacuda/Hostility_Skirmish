@@ -21,6 +21,5 @@ namespace Hostility_Skirmish.Models
 //METHODS
 
 
-
-
+    }
 }

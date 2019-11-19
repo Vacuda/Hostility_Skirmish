@@ -62,7 +62,7 @@ namespace Hostility_Skirmish.Controllers
             char_3.Avatar_Slot[0]=p3_avatar;
             Ability p3_ability = FH.GetAbility(party.P3_Ability);
             char_3.Ability_Slot[0]=p3_ability;
-            Item p3_item = GetItem(party.P3_Item);
+            Item p3_item = FH.GetItem(party.P3_Item);
             char_3.Item_Slot[0]=p3_item;
             dbContext.Characters.Add(char_3);
             dbContext.SaveChanges();
