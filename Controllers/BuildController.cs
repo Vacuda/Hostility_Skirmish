@@ -22,6 +22,7 @@ namespace Hostility_Skirmish.Controllers
         {            
             return View("BuildTeamPage");
         }
+      
 
     }
 

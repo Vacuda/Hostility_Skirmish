@@ -69,11 +69,45 @@ span{
   color: red;
   font-size: 12px;
 }
-.home {
+.char-img {
   left: 20px;
   width: 46px;
-  background: url('~/images/finalfantasy6sheet1.gif') 0 0;
+  /* background: url('~/images/finalfantasy6sheet1.gif') 0 0; */
 }
+
+.info{
+  border-bottom: 2px solid black;
+}
+
+input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+.abil{
+  margin-top: 10px;
+  border: 2px solid black;
+}
+.btn{
+  margin-top: 10px;
+}
+.box{
+  border: 1px solid black;
+}
+
+/* .char-card:hover {
+  border: 3px solid red;
+} */
+
+
+/* .item{
+  width: 
+} */
+
+
 
 
 
