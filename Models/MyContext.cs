@@ -14,5 +14,4 @@ namespace Hostility_Skirmish.Models
          public DbSet<Item> Items {get;set;}
          public DbSet<Avatar> Avatars {get;set;}
     }
-    }
 }
