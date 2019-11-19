@@ -37,10 +37,14 @@ namespace Hostility_Skirmish.Models
 
         public int UserId {get;set;}
 
+        public int PartyId {get;set;}
+
 
 //NAVIGATIONS
 
         public User User {get;set;}
+
+        public Party Party {get;set;}
 
 
 
@@ -55,10 +59,6 @@ namespace Hostility_Skirmish.Models
             
         }
 
-
-
-
-//Party slot = 
 
 //ailments?
 
