@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Hostility_Skirmish.Models
@@ -26,7 +27,6 @@ namespace Hostility_Skirmish.Models
         }
 
 
-
 //RELATIONSHIPS
 
         public int UserId {get;set;}
@@ -35,6 +35,8 @@ namespace Hostility_Skirmish.Models
 //NAVIGATION
 
         public User User {get;set;}
+
+        public List<Character> Characters {get;set;}
 
 
 //DISPLAY

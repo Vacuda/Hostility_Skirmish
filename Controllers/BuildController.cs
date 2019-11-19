@@ -100,7 +100,7 @@ namespace Hostility_Skirmish.Controllers {
 
             return Redirect ("/");
         }
-
     }
-
 }
+
+
