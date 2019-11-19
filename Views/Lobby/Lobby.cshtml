@@ -1,0 +1,29 @@
+<p>hi</p>
+<div id="hi"></div>
+<div id="hi2"></div>
+<div id="hi3"></div>
+
+<script>
+    setInterval(function()
+    { 
+        fetch("/Lobby/gettime", { 
+      headers: { "Content-Type": "application/json" },
+      credentials: 'include'
+    })
+      .then(response => {
+          if (!response.ok) {
+              throw response;
+          }
+          return response.json();
+      })
+      .then(json => {
+          console.log("Done! It's all good");
+          console.log(json.FirstName);
+          player = JSON.parse(json);
+          document.getElementById("hi").innerHTML = player;
+          document.getElementById("hi2").innerHTML = player.FirstName;
+          document.getElementById("hi3").innerHTML = player.LastName;
+      })
+      .catch(response => console.log(response));
+    }, 3000);
+  </script>
