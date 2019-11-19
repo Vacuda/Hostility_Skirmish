@@ -1,50 +1,113 @@
-* {
-    margin: 0;
-    border: 0;
-    box-sizing: border-box;
-    vertical-align: top;
-    /* outline: 1px dotted red; */
-    color: black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
 }
 
-.container {
-    width: 970px;
-    height: 900px;
-    margin: 0 auto;
-    padding: 60px;
-    font-size: 15px;
-    background-color: rgb(160, 163, 154);
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media only screen and (max-width: 480px) {
-
- 
-    
+.border-top {
+  border-top: 1px solid #e5e5e5;
 }
-    
-@media only screen and (min-width: 481px) {
-
-
-
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
 }
-    
-@media only screen and (min-width: 1024px) {
 
-
-
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+}
+.card{
+  padding: 20px;
+  box-shadow: 2px 2px 2px 2px slategray;
+}
+.btn-secondary{
+  /* display: inline-block; */
+  float: right;
+}
+h1{
+  display: inline-block;
+}
+span{
+  color: red;
+  font-size: 12px;
+}
+.char-img {
+  left: 20px;
+  width: 46px;
+  /* background: url('~/images/finalfantasy6sheet1.gif') 0 0; */
+}
+
+.info{
+  border-bottom: 2px solid black;
+}
+
+input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+.abil{
+  margin-top: 10px;
+  border: 2px solid black;
+}
+.btn{
+  margin-top: 10px;
+}
+.box{
+  border: 1px solid black;
+}
+
+/* .char-card:hover {
+  border: 3px solid red;
+} */
+
+
+/* .item{
+  width: 
+} */
+
+
+
+
+
