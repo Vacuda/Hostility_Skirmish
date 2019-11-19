@@ -48,10 +48,11 @@ namespace Hostility_Skirmish.Models
 //CONSTRUCTOR
 
 
-        public Character(int attack, int defense, int health){
+        public Character(int health, int attack, int defense){
+            Health = health;
             AttackPower = attack;
             DefensePower = defense;
-            Health = health;
+            
         }
 
 
@@ -83,17 +84,6 @@ namespace Hostility_Skirmish.Models
             IsAlive = false;
             Health = 0;
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
