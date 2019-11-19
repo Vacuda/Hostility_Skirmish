@@ -22,7 +22,14 @@ namespace Hostility_Skirmish.Controllers
         {            
             return View("Index");
         }
+        [HttpGet("Lobby")]
+        public IActionResult Lobby()
+        {            
+            return View("Lobby");
+        }
 
+     
+       
         [HttpGet("LoginPage")]
         public IActionResult LoginPage()
         {            
