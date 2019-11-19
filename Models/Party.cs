@@ -21,6 +21,10 @@ namespace Hostility_Skirmish.Models
         public Character[] Position4 {get;set;} = new Character[1];
         public Character[] Position5 {get;set;} = new Character[1];
 
+        public Party(string name){
+            PartyName = name;
+        }
+
 
 
 //RELATIONSHIPS

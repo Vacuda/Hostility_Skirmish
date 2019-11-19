@@ -17,5 +17,10 @@ namespace Hostility_Skirmish.Models
         //I think all of this info will be static, not customizable.
 
 
-    }
+
+//METHODS
+
+
+
+
 }
