@@ -27,6 +27,7 @@ namespace Hostility_Skirmish.Models
         }
 
 
+
 //RELATIONSHIPS
 
         public int UserId {get;set;}
