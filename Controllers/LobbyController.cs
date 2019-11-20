@@ -29,7 +29,8 @@ namespace Hostility_Skirmish.Controllers
         [HttpGet]
         [Route("/lobby")]
         public IActionResult Lobby(){
-            return View("Lobby");
+            List<User> AllUsers = dbContext.Users.ToList();
+            return View("Lobby", AllUsers);
         }
 
         [HttpGet]
@@ -37,7 +38,6 @@ namespace Hostility_Skirmish.Controllers
         public JsonResult GimieJson()
         {
             TempUser user = new TempUser("Walter", "Morgan");
-
             user.FirstName = DateTime.Now.ToString("ss");
             System.Console.WriteLine($"$$$$$$$$$$$$$$$$$$$${user.FirstName}$$$$$$$$$$$$$$$$$$$$");
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(user)); 
@@ -49,18 +49,16 @@ namespace Hostility_Skirmish.Controllers
         {
             //List<User> AllUsers = dbContext.Users.Where(x => x.Logged==true).ToList();
             //List<User> AllUsers = dbContext.Users.ToList();
-            List<TempUser> AllUsers = new List<TempUser>();
-            AllUsers.Add(new TempUser("Walter", "Morgan"));
-            AllUsers.Add(new TempUser("Billy", "Mitchell"));
-            AllUsers.Add(new TempUser("Sarah", "Sanders"));
-            foreach(var thing in AllUsers){
-                System.Console.WriteLine(thing.FirstName);
-            }
-            System.Console.WriteLine("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-            System.Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(AllUsers
-            ));
-            return Json(Newtonsoft.Json.JsonConvert.SerializeObject(AllUsers
-            )); 
+            List<User> AllUsers = dbContext.Users.ToList();
+            return Json(Newtonsoft.Json.JsonConvert.SerializeObject(AllUsers)); 
+        }
+
+        [Produces("application/json")]
+        [HttpPost]
+        [Route("[controller]/send_here")]
+        public JsonResult ImHereJsonMe([FromBody] string json){
+            System.Console.WriteLine($"@@@@@@@@@@@{json}@@@@@@@@@@@@");
+            return Json("'well_done':well done!");
         }
     }
 }
