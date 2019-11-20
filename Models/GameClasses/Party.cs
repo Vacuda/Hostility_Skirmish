@@ -18,11 +18,9 @@ namespace Hostility_Skirmish.Models.GameClasses
         public int Wins {get;set;}
 
 
-        public Character[] Position {get;set;} = new Character[5];
-
-
 //RELATIONSHIPS
 
+        
         public int UserId {get;set;}
 
 
@@ -30,7 +28,7 @@ namespace Hostility_Skirmish.Models.GameClasses
 
         public User User {get;set;}
 
-        [NotMapped]
+
         public List<Character> Characters {get;set;}
 
 

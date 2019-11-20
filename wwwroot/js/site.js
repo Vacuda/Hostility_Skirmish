@@ -81,8 +81,8 @@ $('.char-card6').click(function () {
     });
     clickedCard = ".char-card6"
     clicked = "#card-char-6"
-    clicked2 = "#abilText6"
-    clicked3 = "#ItemText6"
+    clicked2 = "#abilText5"
+    clicked3 = "#ItemText5"
     console.log(clicked)
     return clicked
 });
@@ -166,10 +166,11 @@ $('#check-btn').click(function () {
     console.log(totalBuild)
     if(275-totalBuild==0)
     {
-        $("#build-btn").css({
-            'display': 'block'
+        // $("#build-btn").prop("disabled", false);
+        // $("#build-btn").css({
+        //     'display': 'block'
             
-        });
+        // });
         $("#check-btn").css({
             'display': 'none'
             

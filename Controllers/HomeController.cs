@@ -73,7 +73,7 @@ namespace Hostility_Skirmish.Controllers
                 HttpContext.Session.SetString("Name",NewUser.FirstName);
                 HttpContext.Session.SetString("Email",NewUser.Email);
 
-                return RedirectToAction("BuildTeamPage","Build");
+                return RedirectToAction("BuildTeam","Build");
             }
             return View("Index",NewUser);
         }
@@ -97,7 +97,7 @@ namespace Hostility_Skirmish.Controllers
                 }
                 HttpContext.Session.SetString("Name",CurrentUser.FirstName);
                 HttpContext.Session.SetString("Email",CurrentUser.Email);
-                return RedirectToAction("BuildTeamPage","Build");
+                return RedirectToAction("BuildTeam","Build");
             }
                return View("LoginPage",NewLogin);
         }
