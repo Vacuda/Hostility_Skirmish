@@ -10,6 +10,29 @@ let clickedCard = "";
 let newDefense1 = 0;
 let newDefense2 = 0;
 let newDefense3 = 0;
+let check = 0;
+function CheckItem()
+{
+
+
+    if( !$('#abilText1').val() || !$('#abilText2').val() || !$('#abilText3').val() || !$('#abilText4').val() || !$('#abilText5').val() ){
+        check = 0
+    } 
+    else
+    {
+        check = 1
+    }
+
+    if( !$('#ItemText1').val() || !$('#ItemText2').val() || !$('#ItemText3').val() || !$('#ItemText4').val() || !$('#ItemText5').val() ){
+        check = 0
+    } 
+    else
+    {
+        check = 1
+    }
+    return check
+
+}
 
 
 
@@ -95,8 +118,8 @@ $('.char-card7').click(function () {
     });
     clickedCard = ".char-card7"
     clicked = "#card-char-7"
-    clicked2 = "#abilText7"
-    clicked3 = "#ItemText7"
+    clicked2 = "#abilText5"
+    clicked3 = "#ItemText5"
     console.log(clicked)
     return clicked
 });
@@ -164,7 +187,9 @@ $('#check-btn').click(function () {
 $('#check-btn').click(function () {
     var totalBuild = newDefense1+newDefense2+newDefense3
     console.log(totalBuild)
-    if(275-totalBuild==0)
+    CheckItem();
+    console.log(CheckItem())
+    if(275-totalBuild==0 && check==1)
     {
         $("#build-btn").css({
             'display': 'block'
