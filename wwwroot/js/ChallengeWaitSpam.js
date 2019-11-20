@@ -19,12 +19,13 @@
       .catch(response => console.log(response));
     }, 1000);
 
+    var timer = 0;
+    function increment_time(){
+        timer += 1;
+        document.getElementById("timer").innerHTML = "Seconds: "+timer;
+        console.log(timer);
+    }
 
-var timer = 0;
-    setInterval(timer = function(timer)
-    { 
-      timer += 1;
-      document.getElementById("timer").innerHTML = timer;
-      return timer;
-    }, 1000);
+    setInterval(increment_time, 1000);
+    alert("hi");
     
