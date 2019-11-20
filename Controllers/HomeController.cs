@@ -54,6 +54,7 @@ namespace Hostility_Skirmish.Controllers
             if ( session_email != null){
                 var CurrentUser = dbContext.Users.FirstOrDefault(a => a.Email == session_email);           
                 CurrentUser.Logged = false;
+                dbContext.SaveChanges();
             }
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
