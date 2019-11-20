@@ -14,8 +14,8 @@ namespace Hostility_Skirmish.Controllers
             public string FirstName;
             public string LastName;
             public TempUser(string f, string l){
-                string FirstName = f;
-                string LastName = l;
+                FirstName = f;
+                LastName = l;
             } 
         }
     public class LobbyController : Controller
@@ -29,7 +29,8 @@ namespace Hostility_Skirmish.Controllers
         [HttpGet]
         [Route("/lobby")]
         public IActionResult Lobby(){
-            return View("Lobby");
+            List<User> AllUsers = dbContext.Users.ToList();
+            return View("Lobby", AllUsers);
         }
 
         [HttpGet]
@@ -37,19 +38,27 @@ namespace Hostility_Skirmish.Controllers
         public JsonResult GimieJson()
         {
             TempUser user = new TempUser("Walter", "Morgan");
-
             user.FirstName = DateTime.Now.ToString("ss");
             System.Console.WriteLine($"$$$$$$$$$$$$$$$$$$$${user.FirstName}$$$$$$$$$$$$$$$$$$$$");
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(user)); 
         }
 
-        // [HttpGet]
-        // [Route("[controller]/getlogs")] //returns all logged in users
-        // public JsonResult LobbyCheck()
-        // {
-        //     List<User> AllUsers = dbContext.Users.Where(x => x.logged=true).ToList();
-            
-        //     return Json(Newtonsoft.Json.JsonConvert.SerializeObject(AllUsers)); 
-        // }
+        [HttpGet]
+        [Route("[controller]/getlogs")] //returns all logged in users
+        public JsonResult LobbyCheck()
+        {
+            //List<User> AllUsers = dbContext.Users.Where(x => x.Logged==true).ToList();
+            //List<User> AllUsers = dbContext.Users.ToList();
+            List<User> AllUsers = dbContext.Users.ToList();
+            return Json(Newtonsoft.Json.JsonConvert.SerializeObject(AllUsers)); 
+        }
+
+        [Produces("application/json")]
+        [HttpPost]
+        [Route("[controller]/send_here")]
+        public JsonResult ImHereJsonMe([FromBody] string json){
+            System.Console.WriteLine($"@@@@@@@@@@@{json}@@@@@@@@@@@@");
+            return Json("'well_done':well done!");
+        }
     }
 }

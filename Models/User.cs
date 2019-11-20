@@ -1,3 +1,4 @@
+
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,6 +10,7 @@ namespace Hostility_Skirmish.Models
     {
         [Key]
         public int UserId {get;set;}
+
         [Required]
         [MinLength(2, ErrorMessage = "Must Be Longer then 2 Charecters")]
         [Display(Name="First Name")]
@@ -33,18 +35,17 @@ namespace Hostility_Skirmish.Models
         // DateTime CreatedAt {get;set;} DateTime.Now();
 
         //true if logged in false if logged out.
-        public bool Logged {get;set;} = false; 
+        public bool Logged {get;set;} = false;
 
+        public bool Challenged {get;set;} = false; 
 
     //Navigations
 
         public List<Party> Parties {get;set;}
 
 
-
         //Games Won List<string> - Include User.username
         //Games Lost List<string> - Include User.username
-
 
     }
 }

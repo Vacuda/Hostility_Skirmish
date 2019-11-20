@@ -1,36 +1,32 @@
-using Microsoft.EntityFrameworkCore;
+
+using System.Collections.Generic;
+using System.Linq;
 using Hostility_Skirmish.Models;
 using Hostility_Skirmish.Models.GameClasses;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // Other using statements
-namespace Hostility_Skirmish.Controllers
-{
-    [Route("Build")]
-    public class BuildController : Controller
-    {
+namespace Hostility_Skirmish.Controllers {
+    [Route ("Build")]
+    public class BuildController : Controller {
         private MyContext dbContext;
-        public BuildController(MyContext context)
-        {
+        public BuildController (MyContext context) {
             dbContext = context;
         }
         // ---------------------------------------------
-        [HttpGet("BuildTeam")]
-        public IActionResult BuildTeam()
-        {            
-            return View("BuildTeamPage");
+        [HttpGet ("BuildTeam")]
+        public IActionResult BuildTeam () {
+            return View ("BuildTeamPage");
         }
 
-
-
         [HttpPost]
-        public IActionResult Create_Party(BuildParty party){
+        public IActionResult Create_Party (BuildParty party) {
 
             //build each character
+
             Character char_1 = new Character();
             char_1.Health = party.P1_Health;
             char_1.AttackPower = party.P1_AttackPower;
@@ -93,12 +89,12 @@ namespace Hostility_Skirmish.Controllers
             dbContext.Parties.Add(party_build);
             dbContext.SaveChanges();
 
-            return Redirect("/");
+
+
+            return Redirect ("/");
         }
 
-    
-
-
     }
-
 }
+
+
