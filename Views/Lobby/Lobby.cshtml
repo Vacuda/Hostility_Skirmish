@@ -4,10 +4,6 @@ ViewData["Title"] = "Home Page";
 @using Hostility_Skirmish.Models
 @model List<User>
 
-<div id="hi"> </div>
-<div id="hi2"></div>
-<div id="hi3"></div>
-
 <div class="row">
         <div class="col-sm-6">
             <div class="card">
@@ -35,21 +31,7 @@ ViewData["Title"] = "Home Page";
         </div>
 
         <div class="col-sm-5">
-            <div class="card">
-                @foreach(User user in @Model){
-                    <div class="media border p-3" id="@user.UserId">
-                            <img src="~/images/fight.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
-                            <div class="media-body">
-                              <h4>User: @user.FirstName @user.LastName</h4>
-                              <p>User logged? @user.Logged</p>
-                              <!-- <small><i>Last Logged-in on February 19, 2016</i></small> -->
-                            </div>
-                          </div>
-                }
-            </div>
-            <div class="card">
-                <h2>Test</h2>
-            </div>
+            <div class="card" id="user_display"></div>
         </div>
       </div>
 

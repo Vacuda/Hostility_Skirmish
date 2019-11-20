@@ -49,7 +49,12 @@ namespace Hostility_Skirmish.Controllers
         // }
         [HttpGet("LogOut")]
         public IActionResult LogOut()
-        {            
+        {
+            string session_email = HttpContext.Session.GetString("Email");
+            if ( session_email != null){
+                var CurrentUser = dbContext.Users.FirstOrDefault(a => a.Email == session_email);           
+                CurrentUser.Logged = false;
+            }
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
         }
@@ -67,13 +72,13 @@ namespace Hostility_Skirmish.Controllers
                     }
                 PasswordHasher<User> Hasher = new PasswordHasher<User>();
                 NewUser.Password = Hasher.HashPassword(NewUser, NewUser.Password);
+                NewUser.Logged = true;
                 dbContext.Add(NewUser);
                 dbContext.SaveChanges();
-
                 HttpContext.Session.SetString("Name",NewUser.FirstName);
                 HttpContext.Session.SetString("Email",NewUser.Email);
 
-                return RedirectToAction("BuildTeamPage","Build");
+                return RedirectToAction("BuildTeam","Build");
             }
             return View("Index",NewUser);
         }
@@ -97,7 +102,8 @@ namespace Hostility_Skirmish.Controllers
                 }
                 HttpContext.Session.SetString("Name",CurrentUser.FirstName);
                 HttpContext.Session.SetString("Email",CurrentUser.Email);
-                return RedirectToAction("BuildTeamPage","Build");
+                CurrentUser.Logged = true;
+                return RedirectToAction("BuildTeam","Build");
             }
                return View("LoginPage",NewLogin);
         }

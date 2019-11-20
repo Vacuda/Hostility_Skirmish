@@ -29,7 +29,7 @@ namespace Hostility_Skirmish.Controllers
         [HttpGet]
         [Route("/lobby")]
         public IActionResult Lobby(){
-            List<User> AllUsers = dbContext.Users.ToList();
+            List<User> AllUsers = dbContext.Users.Where(x=>x.Logged==true).ToList();
             return View("Lobby", AllUsers);
         }
 
@@ -44,11 +44,28 @@ namespace Hostility_Skirmish.Controllers
         }
 
         [HttpGet]
+        [Route("[controller]/{user_id}")]
+        public IActionResult ChallengeDeck(int user_id){
+            User ChallengedUser = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
+            ChallengedUser.Challenged = true;
+            return View(ChallengedUser);
+        }
+
+        [HttpGet]
+        [Route("[controller]/{user_id}/cancel")]
+        public IActionResult CancelChallenge(int user_id){
+            User ChallengedUser = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
+            ChallengedUser.Challenged = false;
+            return RedirectToAction("Lobby");
+        }
+
+        [HttpGet]
         [Route("[controller]/getlogs")] //returns all logged in users
         public JsonResult LobbyCheck()
         {
             //List<User> AllUsers = dbContext.Users.Where(x => x.Logged==true).ToList();
             //List<User> AllUsers = dbContext.Users.ToList();
+            //.Where(x=>x.Logged==true)
             List<User> AllUsers = dbContext.Users.ToList();
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(AllUsers)); 
         }

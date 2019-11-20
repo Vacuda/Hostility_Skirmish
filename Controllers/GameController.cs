@@ -13,6 +13,12 @@ namespace Hostility_Skirmish.Controllers
         //read game state whose turn is it? default user1's turn.
 
         [HttpGet]
+        [Route("[controller]/get")]
+        public JsonResult GetGameState(){
+            return Json("PLACEHOLDER");
+        }
+
+        [HttpPost]
         [Route("[controller]/character_action")]
         public JsonResult UserOneCharacterAction([FromBody] string ActionTarget){
             return Json("PLACEHOLDER!!!!");
