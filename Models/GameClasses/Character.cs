@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Hostility_Skirmish.Models
+namespace Hostility_Skirmish.Models.GameClasses
 {
     public class Character
     {
@@ -21,51 +21,35 @@ namespace Hostility_Skirmish.Models
         public int DefensePower {get;set;}
 
 
+        public bool TurnTaken {get;set;}
+
+
 //SLOTS
 
-        public Item[] Item_Slot {get;set;} = new Item[1];
+        public string Item_Slot {get;set;} = "";
 
 
-        public Ability[] Ability_Slot {get;set;} = new Ability[1];
+        public string Ability_Slot {get;set;} = "";
 
 
-        public Avatar[] Avatar_Slot {get;set;} = new Avatar[1];
+        public string Avatar_Slot {get;set;} = "";
 
 
 //RELATIONSHIPS
-
-
-        public int UserId {get;set;}
 
         public int PartyId {get;set;}
 
 
 //NAVIGATIONS
 
-        public User User {get;set;}
-
         public Party Party {get;set;}
 
 
 
 
-//CONSTRUCTOR
-
-
-        public Character(int health, int attack, int defense){
-            Health = health;
-            AttackPower = attack;
-            DefensePower = defense;
-            
-        }
-
-
 //ailments?
 
 //Defender slot=[4]
-
-
-
 
 
 
@@ -85,10 +69,23 @@ namespace Hostility_Skirmish.Models
             Health = 0;
         }
 
+        public void AbilityUse(Character target){
+            Ability.AbilityUse(target, Ability_Slot);
+        }
 
+        public string AbilityDescription(){
+            string desc = Ability.Description(Ability_Slot);
+            return desc;
+        }
 
+        public void ItemUse(Character target){
+            Item.ItemUse(target, Item_Slot);
+        }
 
-
+        public string ItemDescription(){
+            string desc = Item.Description(Item_Slot);
+            return desc;
+        }
 
 
     }

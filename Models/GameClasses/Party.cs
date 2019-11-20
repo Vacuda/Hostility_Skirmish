@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Hostility_Skirmish.Models;
 
-namespace Hostility_Skirmish.Models
+namespace Hostility_Skirmish.Models.GameClasses
 {
     public class Party
     {
@@ -16,15 +18,7 @@ namespace Hostility_Skirmish.Models
         public int Wins {get;set;}
 
 
-        public Character[] Position1 {get;set;} = new Character[1];
-        public Character[] Position2 {get;set;} = new Character[1];
-        public Character[] Position3 {get;set;} = new Character[1];
-        public Character[] Position4 {get;set;} = new Character[1];
-        public Character[] Position5 {get;set;} = new Character[1];
-
-        public Party(string name){
-            PartyName = name;
-        }
+        public Character[] Position {get;set;} = new Character[5];
 
 
 //RELATIONSHIPS
@@ -36,6 +30,7 @@ namespace Hostility_Skirmish.Models
 
         public User User {get;set;}
 
+        [NotMapped]
         public List<Character> Characters {get;set;}
 
 

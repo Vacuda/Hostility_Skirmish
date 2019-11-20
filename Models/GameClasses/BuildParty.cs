@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Hostility_Skirmish.Models
+namespace Hostility_Skirmish.Models.GameClasses
 {
     public class BuildParty
     {
@@ -8,7 +8,7 @@ namespace Hostility_Skirmish.Models
 ///////
 
         [NotMapped]
-        public int P1_Avatar {get;set;}
+        public string P1_Avatar {get;set;}
 
         [NotMapped]
         public int P1_Health {get;set;}
@@ -28,7 +28,7 @@ namespace Hostility_Skirmish.Models
 ///////
 
         [NotMapped]
-        public int P2_Avatar {get;set;}
+        public string P2_Avatar {get;set;}
 
         [NotMapped]
         public int P2_Health {get;set;}
@@ -48,7 +48,7 @@ namespace Hostility_Skirmish.Models
 ///////
 
         [NotMapped]
-        public int P3_Avatar {get;set;}
+        public string P3_Avatar {get;set;}
 
         [NotMapped]
         public int P3_Health {get;set;}
@@ -68,7 +68,7 @@ namespace Hostility_Skirmish.Models
 ///////
 
         [NotMapped]
-        public int P4_Avatar {get;set;}
+        public string P4_Avatar {get;set;}
 
         [NotMapped]
         public int P4_Health {get;set;}
@@ -88,7 +88,7 @@ namespace Hostility_Skirmish.Models
 ///////
 
         [NotMapped]
-        public int P5_Avatar {get;set;}
+        public string P5_Avatar {get;set;}
 
         [NotMapped]
         public int P5_Health {get;set;}

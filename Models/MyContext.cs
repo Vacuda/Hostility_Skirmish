@@ -1,3 +1,5 @@
+using Hostility_Skirmish.Models.GameClasses;
+using Hostility_Skirmish.Models;
 using Microsoft.EntityFrameworkCore;
  
 namespace Hostility_Skirmish.Models
@@ -10,8 +12,6 @@ namespace Hostility_Skirmish.Models
          public DbSet<User> Users {get;set;}
          public DbSet<Party> Parties {get;set;}
          public DbSet<Character> Characters {get;set;}
-         public DbSet<Ability> Abilities {get;set;}
-         public DbSet<Item> Items {get;set;}
-         public DbSet<Avatar> Avatars {get;set;}
+
     }
 }
