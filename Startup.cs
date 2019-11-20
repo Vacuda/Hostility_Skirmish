@@ -27,7 +27,11 @@ namespace Hostility_Skirmish
         {
             services.AddSession();
             services.AddDbContext<MyContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options =>
+                    {
+                        options.InputFormatters.Insert(0, new RawJsonBodyInputFormatter());
+                    }
+                ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
