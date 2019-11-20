@@ -293,6 +293,6 @@ MigrationBackup/
 # Ignore all local history of files
 .history
 ### Migrations and DB Connection String####
-/Migrations
+# /Migrations
 appsettings.json
 # End of https://www.gitignore.io/api/csharp,visualstudiocode
