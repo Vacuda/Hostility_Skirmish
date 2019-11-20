@@ -37,7 +37,7 @@ ViewData["Title"] = "Home Page";
         <div class="col-sm-5">
             <div class="card">
                 @foreach(User user in @Model){
-                    <div class="media border p-3" id="@user.id">
+                    <div class="media border p-3" id="@user.UserId">
                             <img src="~/images/fight.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                             <div class="media-body">
                               <h4>User: @user.FirstName @user.LastName</h4>
