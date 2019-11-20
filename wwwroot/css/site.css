@@ -91,6 +91,12 @@ input {
   margin-top: 10px;
   border: 2px solid black;
 }
+
+input{
+  color: red;
+  font-weight: bold;
+}
+
 .btn{
   margin-top: 10px;
 }
