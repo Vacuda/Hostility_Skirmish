@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Hostility_Skirmish.Models.GameClasses
 {
@@ -37,11 +38,13 @@ namespace Hostility_Skirmish.Models.GameClasses
 
 //RELATIONSHIPS
 
+
         public int PartyId {get;set;}
 
 
 //NAVIGATIONS
 
+        
         public Party Party {get;set;}
 
 

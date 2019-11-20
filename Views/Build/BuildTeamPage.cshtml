@@ -1,8 +1,12 @@
 ﻿@{
 ViewData["Title"] = "Home Page";
 }
-@using Hostility_Skirmish.Models
-@model User
+
+@model Hostility_Skirmish.Models.GameClasses.BuildParty
+
+<form asp-action="Create_Party" asp-controller="Build" method="POST">
+
+
 
 <div class="row">
     <div class="col">
@@ -10,17 +14,16 @@ ViewData["Title"] = "Home Page";
             <img id="card-char-1" class="card-img-top char-img" src="~/images/1.png" alt="Card image">
             <div class="card-body">
                 <h4 class="card-title">John Doe</h4>
-                <label  for="">Health</label><br>
-                <input id="HealthText1"  type="text" value="50">
-                <label for="">Attack</label><br>
-                <input id="AttackText1" type="text" value="3">
-                <label for="">Defense</label><br>
-                <input id="DefenseText1" type="text" value="2">
-                <label for="">Item</label><br>
-                <input id="ItemText1" type="text">
-                <label for="">Ability</label><br>
-                <input id="abilText1" type="text">
-
+                <label asp-for="P1_Health">Health</label><br>
+                <input asp-for="P1_Health" id="HealthText1" value="50">
+                <label asp-for="P1_AttackPower">Attack</label><br>
+                <input asp-for="P1_AttackPower" id="AttackText1" type="text" value="3">
+                <label asp-for="P1_DefensePower">Defense</label><br>
+                <input asp-for="P1_DefensePower" id="DefenseText1" type="text" value="2">
+                <label asp-for="P1_Item">Item</label><br>
+                <input asp-for="P1_Item" id="ItemText1" type="text">
+                <label asp-for="P1_Ability">Ability</label><br>
+                <input asp-for="P1_Ability" id="abilText1" type="text">
             </div>
         </div>
     </div>
@@ -32,16 +35,16 @@ ViewData["Title"] = "Home Page";
             <img id="card-char-2" class="card-img-top char-img" src="~/images/2.png" alt="Card image">
             <div class="card-body">
                     <h4 class="card-title">John Doe</h4>
-                    <label for="">Health</label><br>
-                    <input id="HealthText2" type="text" value="50">
-                    <label for="">Attack</label><br>
-                    <input id="AttackText2" type="text" value="3">
-                    <label for="">Defense</label><br>
-                    <input id="DefenseText2" type="text" value="2">
-                    <label for="">Item</label><br>
-                    <input id="ItemText2" type="text">
-                    <label for="">Ability</label><br>
-                    <input id="abilText2" type="text">
+                    <label asp-for="P2_Health">Health</label><br>
+                    <input asp-for="P2_Health" id="HealthText2" type="text" value="50">
+                    <label asp-for="P2_AttackPower">Attack</label><br>
+                    <input asp-for="P2_AttackPower" id="AttackText2" type="text" value="3">
+                    <label asp-for="P2_DefensePower">Defense</label><br>
+                    <input asp-for="P2_DefensePower" id="DefenseText2" type="text" value="2">
+                    <label asp-for="P2_Item">Item</label><br>
+                    <input asp-for="P2_Item" id="ItemText2" type="text">
+                    <label asp-for="P2_Ability">Ability</label><br>
+                    <input asp-for="P2_Ability" id="abilText2" type="text">
     
             </div>
         </div>
@@ -51,16 +54,16 @@ ViewData["Title"] = "Home Page";
             <img id="card-char-3" class="card-img-top char-img" src="~/images/3.png" alt="Card image">
             <div class="card-body">
                     <h4 class="card-title">John Doe</h4>
-                    <label for="">Health</label><br>
-                    <input id="HealthText3" type="text" value="50">
-                    <label for="">Attack</label><br>
-                    <input id="AttackText3" type="text" value="3">
-                    <label for="">Defense</label><br>
-                    <input id="DefenseText3" type="text" value="2">
-                    <label for="">Item</label><br>
-                    <input id="ItemText3" type="text">
-                    <label for="">Ability</label><br>
-                    <input id="abilText3" type="text">
+                    <label asp-for="P3_Health">Health</label><br>
+                    <input asp-for="P3_Health" id="HealthText3" type="text" value="50">
+                    <label asp-for="P3_AttackPower">Attack</label><br>
+                    <input asp-for="P3_AttackPower" id="AttackText3" type="text" value="3">
+                    <label asp-for="P3_DefensePower">Defense</label><br>
+                    <input asp-for="P3_DefensePower" id="DefenseText3" type="text" value="2">
+                    <label asp-for="P3_Item">Item</label><br>
+                    <input asp-for="P3_Item" id="ItemText3" type="text">
+                    <label asp-for="P3_Ability">Ability</label><br>
+                    <input asp-for="P3_Ability" id="abilText3" type="text">
             </div>
         </div>
     </div>
@@ -70,16 +73,16 @@ ViewData["Title"] = "Home Page";
             <img id="card-char-4" class="card-img-top char-img" src="~/images/4.png" alt="Card image">
             <div class="card-body">
                     <h4 class="card-title">John Doe</h4>
-                    <label for="">Health</label><br>
-                    <input id="HealthText4" type="text" value="50">
-                    <label for="">Attack</label><br>
-                    <input id="AttackText4" type="text" value="3">
-                    <label for="">Defense</label><br>
-                    <input id="DefenseText4" type="text" value="2">
-                    <label for="">Item</label><br>
-                    <input id="ItemText4" type="text">
-                    <label for="">Ability</label><br>
-                    <input id="abilText4" type="text">
+                    <label asp-for="P4_Health">Health</label><br>
+                    <input asp-for="P4_Health" id="HealthText4" type="text" value="50">
+                    <label asp-for="P4_AttackPower">Attack</label><br>
+                    <input asp-for="P4_AttackPower" id="AttackText4" type="text" value="3">
+                    <label asp-for="P4_DefensePower">Defense</label><br>
+                    <input asp-for="P4_DefensePower" id="DefenseText4" type="text" value="2">
+                    <label asp-for="P4_Item">Item</label><br>
+                    <input asp-for="P4_Item" id="ItemText4" type="text">
+                    <label asp-for="P4_Ability">Ability</label><br>
+                    <input asp-for="P4_Ability" id="abilText4" type="text">
 
     
             </div>
@@ -90,16 +93,16 @@ ViewData["Title"] = "Home Page";
             <img id="card-char-6" class="card-img-top char-img" src="~/images/6.png" alt="Card image">
             <div class="card-body">
                     <h4 class="card-title">John Doe</h4>
-                    <label for="">Health</label><br>
-                    <input id="HealthText5" type="text" value="50">
-                    <label for="">Attack</label><br>
-                    <input id="AttackText5" type="text" value="3">
-                    <label for="">Defense</label><br>
-                    <input id="DefenseText5" type="text" value="2">
-                    <label for="">Item</label><br>
-                    <input id="ItemText5" type="text">
-                    <label for="">Ability</label><br>
-                    <input id="abilText5" type="text">
+                    <label asp-for="P5_Health">Health</label><br>
+                    <input asp-for="P5_Health" id="HealthText5" type="text" value="50">
+                    <label asp-for="P5_AttackPower">Attack</label><br>
+                    <input asp-for="P5_AttackPower" id="AttackText5" type="text" value="3">
+                    <label asp-for="P5_DefensePower">Defense</label><br>
+                    <input asp-for="P5_DefensePower" id="DefenseText5" type="text" value="2">
+                    <label asp-for="P5_Item">Item</label><br>
+                    <input asp-for="P5_Item" id="ItemText5" type="text">
+                    <label asp-for="P5_Ability">Ability</label><br>
+                    <input asp-for="P5_Ability" id="abilText5" type="text">
     
             </div>
         </div>
@@ -127,9 +130,13 @@ ViewData["Title"] = "Home Page";
 
                 <a id="check-btn" href="#" class="btn btn-danger">Check</a>
                 <a id="edit-btn" style="display: none;" href="#" class="btn btn-danger">Edit</a>
-                <a id="build-btn" style="display: none;" href="#" class="btn btn-danger">Build Team</a>
+                <button type="submit" id="build-btn" class="btn btn-danger">Build Team</button>
             </div>
 
+            </form>
+            <!-- <button type="submit" class="btn btn-danger">Build Team</button>
+            </form> -->
+             <!-- id="build-btn" style="display: none;"  -->
 
 
         </div>
@@ -174,18 +181,18 @@ ViewData["Title"] = "Home Page";
             <h4>Abiliter</h4>
             <div class="row">
                 <div class="col">
-                    <div id="abil1" class="abil"><p>Ability1111</p></div>
-                    <div id="abil2" class="abil"><p>Ability2</p></div>
+                    <div id="abil1" class="abil"><p>Heal</p></div>
+                    <!-- <div id="abil2" class="abil"><p>Ability2</p></div>
                     <div id="abil3" class="abil"><p>Ability3</p></div>
                     <div id="abil4" class="abil"><p>Ability4</p></div>
-                    <div id="abil5" class="abil"><p>Ability5</p> </div>
+                    <div id="abil5" class="abil"><p>Ability5</p> </div> -->
                 </div>
                 <div class="col">
-                    <div id="abil6" class="abil"><p>Ability6</p> </div>
+                    <!-- <div id="abil6" class="abil"><p>Ability6</p> </div>
                     <div id="abil7" class="abil"><p>Ability7</p> </div>
                     <div id="abil8" class="abil"><p>Ability8</p> </div>
                     <div id="abil9" class="abil"><p>Ability9</p> </div>
-                    <div id="abil10" class="abil"><p>Ability10</p> </div>
+                    <div id="abil10" class="abil"><p>Ability10</p> </div> -->
                 </div>
             </div>
 
@@ -196,11 +203,11 @@ ViewData["Title"] = "Home Page";
             <h4>Items</h4>
             <div class="row">
                 <div class="col">
-                    <div id="item1" class="abil item">Item1</div>
-                    <div id="item2" class="abil item">Item2</div>
+                    <div id="item1" class="abil item">Heal</div>
+                    <!-- <div id="item2" class="abil item">Item2</div>
                     <div id="item3" class="abil item">Item3</div>
                     <div id="item4" class="abil item">Item4</div>
-                    <div id="item5" class="abil item">Item5</div>
+                    <div id="item5" class="abil item">Item5</div> -->
                 </div>
             </div>
         </div>
