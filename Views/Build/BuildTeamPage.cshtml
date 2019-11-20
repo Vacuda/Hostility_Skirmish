@@ -10,14 +10,17 @@ ViewData["Title"] = "Home Page";
             <img id="card-char-1" class="card-img-top char-img" src="~/images/1.png" alt="Card image">
             <div class="card-body">
                 <h4 class="card-title">John Doe</h4>
-                <label for="">Health</label><br>
-                <input  type="number" step="5">
+                <label  for="">Health</label><br>
+                <input id="HealthText1"  type="text" value="50">
                 <label for="">Attack</label><br>
-                <input type="text">
+                <input id="AttackText1" type="text" value="3">
                 <label for="">Defense</label><br>
-                <input id="defense" type="number" step="5">
-                <a href="#" class="btn btn-secondary">Item</a>
-                <a href="#" class="btn btn-secondary">Ability</a>
+                <input id="DefenseText1" type="text" value="2">
+                <label for="">Item</label><br>
+                <input id="ItemText1" type="text">
+                <label for="">Ability</label><br>
+                <input id="abilText1" type="text">
+
             </div>
         </div>
     </div>
@@ -30,13 +33,15 @@ ViewData["Title"] = "Home Page";
             <div class="card-body">
                     <h4 class="card-title">John Doe</h4>
                     <label for="">Health</label><br>
-                    <input type="text">
+                    <input id="HealthText2" type="text" value="50">
                     <label for="">Attack</label><br>
-                    <input type="text">
+                    <input id="AttackText2" type="text" value="3">
                     <label for="">Defense</label><br>
-                    <input type="text">
-                    <a href="#" class="btn btn-secondary">Item</a>
-                    <a href="#" class="btn btn-secondary">Ability</a>
+                    <input id="DefenseText2" type="text" value="2">
+                    <label for="">Item</label><br>
+                    <input id="ItemText2" type="text">
+                    <label for="">Ability</label><br>
+                    <input id="abilText2" type="text">
     
             </div>
         </div>
@@ -47,14 +52,15 @@ ViewData["Title"] = "Home Page";
             <div class="card-body">
                     <h4 class="card-title">John Doe</h4>
                     <label for="">Health</label><br>
-                    <input type="text">
+                    <input id="HealthText3" type="text" value="50">
                     <label for="">Attack</label><br>
-                    <input type="text">
+                    <input id="AttackText3" type="text" value="3">
                     <label for="">Defense</label><br>
-                    <input type="text">
-                    <a href="#" class="btn btn-secondary">Item</a>
-                    <a href="#" class="btn btn-secondary">Ability</a>
-    
+                    <input id="DefenseText3" type="text" value="2">
+                    <label for="">Item</label><br>
+                    <input id="ItemText3" type="text">
+                    <label for="">Ability</label><br>
+                    <input id="abilText3" type="text">
             </div>
         </div>
     </div>
@@ -65,13 +71,16 @@ ViewData["Title"] = "Home Page";
             <div class="card-body">
                     <h4 class="card-title">John Doe</h4>
                     <label for="">Health</label><br>
-                    <input type="text">
+                    <input id="HealthText4" type="text" value="50">
                     <label for="">Attack</label><br>
-                    <input type="text">
+                    <input id="AttackText4" type="text" value="3">
                     <label for="">Defense</label><br>
-                    <input type="text">
-                    <a href="#" class="btn btn-secondary">Item</a>
-                    <a href="#" class="btn btn-secondary">Ability</a>
+                    <input id="DefenseText4" type="text" value="2">
+                    <label for="">Item</label><br>
+                    <input id="ItemText4" type="text">
+                    <label for="">Ability</label><br>
+                    <input id="abilText4" type="text">
+
     
             </div>
         </div>
@@ -82,15 +91,15 @@ ViewData["Title"] = "Home Page";
             <div class="card-body">
                     <h4 class="card-title">John Doe</h4>
                     <label for="">Health</label><br>
-                    <input type="text">
+                    <input id="HealthText5" type="text" value="50">
                     <label for="">Attack</label><br>
-                    <input type="text">
+                    <input id="AttackText5" type="text" value="3">
                     <label for="">Defense</label><br>
-                    <input type="text">
+                    <input id="DefenseText5" type="text" value="2">
                     <label for="">Item</label><br>
-                    <input type="text">
+                    <input id="ItemText5" type="text">
                     <label for="">Ability</label><br>
-                    <input id="abilText" type="text" value="0">
+                    <input id="abilText5" type="text">
     
             </div>
         </div>
@@ -100,22 +109,25 @@ ViewData["Title"] = "Home Page";
 
 
             <div class="card-body">
-                <p>Health</p>
+                <p id="LbHealth">Health</p>
                 <div id="health" class="info">
-                    250
+                        <p id="total-health"></p>
                 </div>
 
-                <p>Attack</p>
+                <p id="LbAttack">Attack</p>
                 <div id="attack" class="info">
-                    15
+                        <p id="total-attack"></p>
+                    
                 </div>
 
-                <p>Defense</p>
+                <p id="LbDefense">Defense</p>
                 <div class="info">
-                    <p id="total-defense">10</p>
+                    <p id="total-defense"></p>
                 </div>
 
-                <a href="#" class="btn btn-danger">Build Team</a>
+                <a id="check-btn" href="#" class="btn btn-danger">Check</a>
+                <a id="edit-btn" style="display: none;" href="#" class="btn btn-danger">Edit</a>
+                <a id="build-btn" style="display: none;" href="#" class="btn btn-danger">Build Team</a>
             </div>
 
 
@@ -162,18 +174,18 @@ ViewData["Title"] = "Home Page";
             <h4>Abiliter</h4>
             <div class="row">
                 <div class="col">
-                    <div id="abil1" class="abil"><p>Ability2</p></div>
-                    <div class="abil"><p>Ability1</p></div>
-                    <div class="abil">Ability3</div>
-                    <div class="abil">Ability</div>
-                    <div class="abil">Ability</div>
+                    <div id="abil1" class="abil"><p>Ability1111</p></div>
+                    <div id="abil2" class="abil"><p>Ability2</p></div>
+                    <div id="abil3" class="abil"><p>Ability3</p></div>
+                    <div id="abil4" class="abil"><p>Ability4</p></div>
+                    <div id="abil5" class="abil"><p>Ability5</p> </div>
                 </div>
                 <div class="col">
-                    <div class="abil">Ability4</div>
-                    <div class="abil">Ability5</div>
-                    <div class="abil">Ability6</div>
-                    <div class="abil">Ability7</div>
-                    <div class="abil">Ability8</div>
+                    <div id="abil6" class="abil"><p>Ability6</p> </div>
+                    <div id="abil7" class="abil"><p>Ability7</p> </div>
+                    <div id="abil8" class="abil"><p>Ability8</p> </div>
+                    <div id="abil9" class="abil"><p>Ability9</p> </div>
+                    <div id="abil10" class="abil"><p>Ability10</p> </div>
                 </div>
             </div>
 
@@ -184,11 +196,11 @@ ViewData["Title"] = "Home Page";
             <h4>Items</h4>
             <div class="row">
                 <div class="col">
-                    <div class="abil item">Item1</div>
-                    <div class="abil item">Item2</div>
-                    <div class="abil item">Item3</div>
-                    <div class="abil item">Item4</div>
-                    <div class="abil item">Item5</div>
+                    <div id="item1" class="abil item">Item1</div>
+                    <div id="item2" class="abil item">Item2</div>
+                    <div id="item3" class="abil item">Item3</div>
+                    <div id="item4" class="abil item">Item4</div>
+                    <div id="item5" class="abil item">Item5</div>
                 </div>
             </div>
         </div>
