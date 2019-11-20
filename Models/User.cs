@@ -31,13 +31,13 @@ namespace Hostility_Skirmish.Models
         // DateTime CreatedAt {get;set;} DateTime.Now();
 
         //true if logged in false if logged out.
-        public bool Logged {get;set;} = false; 
+        public bool Logged {get;set;} = false;
+
+        public bool Challenged {get;set;} = false; 
 
         //Characters created List<Character>
         //Parties created List<Party>
         //Games Won List<string> - Include User.username
         //Games Lost List<string> - Include User.username
-
-
     }
 }
