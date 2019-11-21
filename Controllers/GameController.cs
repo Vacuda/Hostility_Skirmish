@@ -54,11 +54,39 @@ namespace Hostility_Skirmish.Controllers
         [HttpPost]
         [Route("[controller]/character_action")]
         public JsonResult UserOneCharacterAction([FromBody] string ActionTarget){
+        //parse string
+            
+            string Team = "XXX";
+            int break1 = 0;
+            string Character = "XXX";
+            int break2 = 0;
+            string Action = "XXX";
+            int break3 = 0;
+            string Target = "XXX";
+            int break4 = 0;
+
+            for(var x=0; x<ActionTarget.Length; x++){
+                if(ActionTarget == ":" && break1 == 0){ //team
+                    break1 = x;
+                }
+                if(ActionTarget == ":" && break2 == 0){ //character
+                    break2 = x;
+                }
+                if(ActionTarget == ":" && break3 == 0){ //action
+                    break3 += x;
+                }
+                Team = ActionTarget.Substring(0, break1);
+                Character = ActionTarget.Substring(break1 + 1, break2);
+                Action = ActionTarget.Substring(break2 + 1, break3);
+                Target = ActionTarget.Substring(break2 + 1, ActionTarget.Length);
+                System.Console.WriteLine($"{Team} {Character} {Action} {Target}");
+            }    
+        
             //Team          (A or B)
             //Character     (1,2,3,4,5)
             //Action        (attack, defend, ability, item)
             //Target        (A1,A2,A3,A4,A5,B1,B2,B3,B4,B5)
-            //ParseFromString();
+            
 
             return Json("PLACEHOLDER!!!!");
         }
