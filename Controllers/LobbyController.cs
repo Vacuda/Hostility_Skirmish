@@ -45,6 +45,7 @@ namespace Hostility_Skirmish.Controllers
         public IActionResult ChallengeDeck(int user_id){
             User ChallengedUser = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
             ChallengedUser.Challenged = true;
+            dbContext.SaveChanges();
             return View(ChallengedUser);
         }
 
@@ -52,13 +53,14 @@ namespace Hostility_Skirmish.Controllers
         [Route("[controller]/check_challengers")]
         public JsonResult GetChallenger(){
             string session_email = HttpContext.Session.GetString("Email");
+            System.Console.WriteLine($"####################{session_email}#######################");
+
             if ( session_email != null){
                 User CurrentUser = dbContext.Users.FirstOrDefault(a => a.Email == session_email);
-                User challenger = dbContext.Users.FirstOrDefault(x=>x.Challenged == true && x.UserId != CurrentUser.UserId);
-                if (challenger != null){ //whether it's null or not we don't care!
-                    return Json(Newtonsoft.Json.JsonConvert.SerializeObject(challenger)); //only one challenge may occour on the server at any given time!
+                if (CurrentUser != null){ //whether it's null or not we don't care!
+                    return Json(Newtonsoft.Json.JsonConvert.SerializeObject(CurrentUser)); //only one challenge may occour on the server at any given time!
                 }else{
-                    return Json(Newtonsoft.Json.JsonConvert.SerializeObject(challenger)); //only one challenge may occour on the server at any given time!
+                    return Json(Newtonsoft.Json.JsonConvert.SerializeObject(CurrentUser)); //only one challenge may occour on the server at any given time!
                 }
             }else{
                 return Json(Newtonsoft.Json.JsonConvert.SerializeObject("Sorry!"));

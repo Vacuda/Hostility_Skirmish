@@ -1,7 +1,7 @@
 
-    setInterval(function()
+    setInterval(function() 
     { 
-      fetch("/Lobby/getlogs", { 
+      fetch("/Lobby/getstate", { 
       headers: { "Content-Type": "application/json" },
       credentials: 'include'
     })
@@ -11,11 +11,9 @@
           }
           return response.json();
       })
-      .then(json => {
-          console.log(json.FirstName);
-          console.log(json);
+      .then(json => { //main game loop
           
-          player_list = JSON.parse(json);
+          game_state = JSON.parse(json);
           console.log(player_list);
           console.log(player_list.length);
           
