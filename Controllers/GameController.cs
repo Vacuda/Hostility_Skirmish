@@ -16,7 +16,7 @@ namespace Hostility_Skirmish.Controllers
             dbContext = context;
         }
 
-        [HttpGet]
+        [HttpGet] //TEAM A
         [Route("[controller]/{user_id}")] //challenge has been made waiting for acceptance!
         public IActionResult ChallengeDeck(int user_id){
             string session_email = HttpContext.Session.GetString("Email");
@@ -30,7 +30,7 @@ namespace Hostility_Skirmish.Controllers
             return View("GameStage");
         }
 
-        [HttpGet]
+        [HttpGet] //TEAM B
         [Route("[controller]")] //challenger has entered the arena! Let the game begin!
         public IActionResult EnterGame(){
             string session_email = HttpContext.Session.GetString("Email");
@@ -54,6 +54,12 @@ namespace Hostility_Skirmish.Controllers
         [HttpPost]
         [Route("[controller]/character_action")]
         public JsonResult UserOneCharacterAction([FromBody] string ActionTarget){
+            //Team          (A or B)
+            //Character     (1,2,3,4,5)
+            //Action        (attack, defend, ability, item)
+            //Target        (A1,A2,A3,A4,A5,B1,B2,B3,B4,B5)
+            //ParseFromString();
+
             return Json("PLACEHOLDER!!!!");
         }
         //user1 turn
