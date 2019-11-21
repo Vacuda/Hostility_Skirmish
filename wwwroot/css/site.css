@@ -145,6 +145,22 @@ input{
   margin-top: 84px;
 }
 
+#game-img{
+  background-size: cover;
+  position: relative;
+}
+#game-stage{
+  position: absolute;
+}
+
+.challenged{
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 150px;
+  left: 500px;
+}
+
 /* .char-card:hover {
   border: 3px solid red;
 } */

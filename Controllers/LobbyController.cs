@@ -45,6 +45,7 @@ namespace Hostility_Skirmish.Controllers
         public IActionResult ChallengeDeck(int user_id){
             User ChallengedUser = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
             ChallengedUser.Challenged = true;
+            dbContext.SaveChanges();
             return View(ChallengedUser);
         }
 
