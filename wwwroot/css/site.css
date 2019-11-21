@@ -108,6 +108,7 @@ input{
   width: 150px;
   position: absolute;
   padding: 0;
+  z-index: 1;
 }
 .lobby:hover{
   left: -32px;
@@ -160,6 +161,63 @@ input{
   top: 150px;
   left: 300px;
 }
+
+.event-card{
+  border: 1px solid black;
+  margin: 5px;
+  text-align: center;
+  box-shadow:2px 2px 2px 2px slategray;
+
+}
+.player-item{
+  border: 1px solid black;
+  margin: 5px;
+  text-align: center;
+  box-shadow:2px 2px 2px 2px slategray;
+
+}
+.bottom{
+  margin-top: 20px;
+}
+.game-img{
+  margin-top: 30px;
+}
+
+#container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+#navi,
+#infoi {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#infoi {
+  z-index: 10;
+}
+
+#game-img2{
+  position:absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 20%;
+  height:100%;
+}
+#P1Fight{
+  margin-top: 180px;
+}
+#P2Fight{
+  margin-top: 180px;
+}
+.player-col{
+  margin-top: 64px;
+}
+
 
 /* .char-card:hover {
   border: 3px solid red;
