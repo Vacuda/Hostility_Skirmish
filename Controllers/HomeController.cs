@@ -105,6 +105,7 @@ namespace Hostility_Skirmish.Controllers
                 HttpContext.Session.SetString("Email",CurrentUser.Email);
 
                 CurrentUser.Logged = true;
+                dbContext.SaveChanges();
 
                 return RedirectToAction("BuildTeam","Build");
             }
