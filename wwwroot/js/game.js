@@ -30,11 +30,11 @@
     }, 10000);
 
 
-    fetch("/Lobby/send_here", { 
+    fetch("/Game/character_action", { 
       headers: { "Content-Type": "application/json" },
       credentials: 'include',
       method: "POST",
-      body: "RAW STRING MADAFAKA!"
+      body: "A:1:attack:A1"  //of the form xxx:xxx:xxx:xxx
     })
       .then(response => {
           if (!response.ok) {
