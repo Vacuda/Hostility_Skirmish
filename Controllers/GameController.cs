@@ -10,6 +10,22 @@ namespace Hostility_Skirmish.Controllers
 {
     public class GameController : Controller
     {
+        private MyContext dbContext;
+        public GameController(MyContext context)
+        {
+            dbContext = context;
+        }
+
+        [HttpGet]
+        [Route("[controller]")]
+        public IActionResult EnterGame(){
+            string session_email = HttpContext.Session.GetString("Email");
+            if ( session_email != null){
+                var CurrentUser = dbContext.Users.FirstOrDefault(a => a.Email == session_email);
+                CurrentUser.Challenged = false;
+            }
+            return View("GameStage");
+        }
         //read game state whose turn is it? default user1's turn.
 
         [HttpGet]
