@@ -10,24 +10,27 @@ namespace Hostility_Skirmish.Models.GameClasses
         public int CharacterId{get;set;}
 
 
+        public bool TurnTaken {get;set;}
+        public bool IsAlive {get;set;} = true;
+
+
+        public int _Health {get;set;}
         public int Health {get;set;}
 
 
-        public bool IsAlive {get;set;} = true;
-        
-
+        public int _AttackPower {get;set;}
         public int AttackPower {get;set;}
 
 
+        public int _DefensePower {get;set;}
         public int DefensePower {get;set;}
-
-
-        public bool TurnTaken {get;set;}
 
 
 //SLOTS
 
+        public string _Item_Slot {get;set;} = "";
         public string Item_Slot {get;set;} = "";
+
 
 
         public string Ability_Slot {get;set;} = "";
