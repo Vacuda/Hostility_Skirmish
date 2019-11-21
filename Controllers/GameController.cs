@@ -30,20 +30,32 @@ namespace Hostility_Skirmish.Controllers
             dbContext.SaveChanges();
 
             //find users
-                User UserA = dbContext.Users.FirstOrDefault(a => a.Email == session_email);
-                User UserB = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
+            User UserA = dbContext.Users.FirstOrDefault(a => a.Email == session_email);
+            System.Console.WriteLine($"#############{UserA.LastName}#############333");
+            User UserB = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
+            System.Console.WriteLine($"#############{UserB.LastName}#############333");
 
             //find parties
+
             Party partyA = dbContext.Parties.FirstOrDefault(e=>e.UserId == UserA.UserId);
+            System.Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@{partyA.PartyName}@@@@@@@@@@@@@@@@@@@@");
             Party partyB = dbContext.Parties.FirstOrDefault(e=>e.UserId == UserB.UserId);
+            System.Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@{partyB.PartyName}@@@@@@@@@@@@@@@@@@@@");
 
             //build gamestate
             GameState gamestate = new GameState();
-            gamestate.Parties.Add(partyA);
-            gamestate.Parties.Add(partyB);
             gamestate.CurrentTeam = "A";
             dbContext.GameStates.Add(gamestate);
             dbContext.SaveChanges();
+
+            //change gamestateid on both parties.  Needs to be in this order.
+            int gamestate_id = dbContext.GameStates.Last().GameStateId;
+            partyA.GameStateId = gamestate_id;
+            dbContext.SaveChanges();
+            partyB.GameStateId = gamestate_id;
+            dbContext.SaveChanges();
+
+            System.Console.WriteLine($"@@@@@@@@@@88888@@@@@@@@@@@@@@@888888@@@@@@");
 
             //build big object
             GameState context = dbContext.GameStates
@@ -51,11 +63,9 @@ namespace Hostility_Skirmish.Controllers
                             .ThenInclude(e=>e.Characters)
                             .Include(e=>e.Parties)
                             .ThenInclude(e=>e.User)
-                            .Where(e=>e.Parties[0].PartyId == partyA.PartyId)
-                            .Where(e=>e.Parties[1].PartyId == partyB.PartyId)
-                            .FirstOrDefault();
+                            .FirstOrDefault(e=>e.GameStateId == gamestate_id);
 
-            return View("GameStage");
+            return View("../Build/GamePlayPage", context);
         }
 
         [HttpGet] //TEAM B
@@ -93,7 +103,7 @@ namespace Hostility_Skirmish.Controllers
                 }
             }
 
-            return View("GameStage", context);
+            return View("../Build/GamePlayPage", context);
         }
         //read game state whose turn is it? default user1's turn.
 
