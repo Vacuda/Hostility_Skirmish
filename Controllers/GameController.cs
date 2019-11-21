@@ -51,11 +51,16 @@ namespace Hostility_Skirmish.Controllers
             return Json("PLACEHOLDER");
         }
 
+        [Produces("application/json")] //for posts I guess?
         [HttpPost]
         [Route("[controller]/character_action")]
         public JsonResult UserOneCharacterAction([FromBody] string ActionTarget){
+          //Team          (A or B)
+            //Character     (1,2,3,4,5)
+            //Action        (attack, defend, ability, item)
+            //Target        (A1,A2,A3,A4,A5,B1,B2,B3,B4,B5)
+
         //parse string
-            
             string Team = "XXX";
             int break1 = 0;
             string Character = "XXX";
@@ -63,32 +68,39 @@ namespace Hostility_Skirmish.Controllers
             string Action = "XXX";
             int break3 = 0;
             string Target = "XXX";
-            int break4 = 0;
+            int counter = 0;
 
             for(var x=0; x<ActionTarget.Length; x++){
-                if(ActionTarget == ":" && break1 == 0){ //team
-                    break1 = x;
+                
+                string cursor = "" + ActionTarget[x]; //make char a string you monsterous language
+
+                if(cursor == ":" && break3 == 0 && break2 != 0 && break1 != 0){ //action
+                    System.Console.WriteLine($"Break3: {x}");
+                    break3 = x;
+                    Action = ActionTarget.Substring(break2 + 1, counter-1);
+                    Target = ActionTarget.Substring(break3+1);
+                    counter = 0;
                 }
-                if(ActionTarget == ":" && break2 == 0){ //character
+                
+                if(cursor == ":" && break1 != 0 && break2 == 0 && break3 == 0){ //character
+                    System.Console.WriteLine($"Break2: {x}");
+                    Character = ActionTarget.Substring(break1 + 1, counter-1);
+                    counter = 0;
                     break2 = x;
                 }
-                if(ActionTarget == ":" && break3 == 0){ //action
-                    break3 += x;
-                }
-                Team = ActionTarget.Substring(0, break1);
-                Character = ActionTarget.Substring(break1 + 1, break2);
-                Action = ActionTarget.Substring(break2 + 1, break3);
-                Target = ActionTarget.Substring(break2 + 1, ActionTarget.Length);
-                System.Console.WriteLine($"{Team} {Character} {Action} {Target}");
-            }    
-        
-            //Team          (A or B)
-            //Character     (1,2,3,4,5)
-            //Action        (attack, defend, ability, item)
-            //Target        (A1,A2,A3,A4,A5,B1,B2,B3,B4,B5)
-            
 
-            return Json("PLACEHOLDER!!!!");
+                if(cursor == (string)":" && break1 == 0 && break2 == 0 && break3 == 0){ //team
+                    System.Console.WriteLine($"Break1: {x}");
+                    counter = 0;
+                    break1 = x;
+                    Team = ActionTarget.Substring(0, break1);
+                }
+                counter += 1;
+                System.Console.WriteLine("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+            }
+            
+            System.Console.WriteLine($"{Team} {Character} {Action} {Target}");
+            return Json(Newtonsoft.Json.JsonConvert.SerializeObject($"{Team} {Character} {Action} {Target}"));
         }
         //user1 turn
         //wait on user1 character/action/target
