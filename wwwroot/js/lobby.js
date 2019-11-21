@@ -16,7 +16,7 @@
         document.getElementById("user_display").innerHTML = "";
         
         for(var x=0; x<player_list.length; x++){
-            $('#user_display').append('<div><div class="media border p-3" id="@user.UserId"><img src="~/images/fight.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;"><div class="media-body"><h4>User: '+player_list[x].LastName+'</h4><p>User logged? @user.Logged</p><!-- <small><i>Last Logged-in on February 19, 2016</i></small> --></div></div></div><form action="/lobby/'+player_list[x].UserId+'" asp-controller="Home"><input Name='+player_list[x].UserId+' type=submit value="Challenge!"></form>');
+            $('#user_display').append('<div><div class="media border p-3" id="@user.UserId"><img src="~/images/fight.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;"><div class="media-body"><h4>User: '+player_list[x].LastName+'</h4><p>User logged? @user.Logged</p><!-- <small><i>Last Logged-in on February 19, 2016</i></small> --></div></div></div><form action="/game/'+player_list[x].UserId+'" ><input Name='+player_list[x].UserId+' type=submit value="Challenge!"></form>');
         } 
       })
       .catch(response => console.log("ignore "+response));
@@ -34,8 +34,8 @@
       })
       .then(json => {
           user = JSON.parse(json);
-          console.log(challenger);
-          console.log(challenger.Challenged);
+          console.log(user);
+          console.log(user.Challenged);
           if(user.Challenged){
                 $('#test').css({
                     'display': 'block',

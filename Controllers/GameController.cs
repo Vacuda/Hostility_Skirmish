@@ -17,12 +17,29 @@ namespace Hostility_Skirmish.Controllers
         }
 
         [HttpGet]
-        [Route("[controller]")]
-        public IActionResult EnterGame(){
+        [Route("[controller]/{user_id}")] //challenge has been made waiting for acceptance!
+        public IActionResult ChallengeDeck(int user_id){
             string session_email = HttpContext.Session.GetString("Email");
             if ( session_email != null){
                 var CurrentUser = dbContext.Users.FirstOrDefault(a => a.Email == session_email);
-                CurrentUser.Challenged = false;
+                CurrentUser.Challenged = true;
+            }
+            User ChallengedUser = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
+            ChallengedUser.Challenged = true;
+            dbContext.SaveChanges();
+            return View("GameStage");
+        }
+
+        [HttpGet]
+        [Route("[controller]")] //challenger has entered the arena! Let the game begin!
+        public IActionResult EnterGame(){
+            string session_email = HttpContext.Session.GetString("Email");
+            if ( session_email != null){
+                List<User> ChallengedUsers = dbContext.Users.Where(a => a.Challenged == true).ToList();
+                foreach(User user in ChallengedUsers){
+                    user.Challenged = false;
+                    dbContext.SaveChanges();
+                }
             }
             return View("GameStage");
         }
