@@ -3,10 +3,23 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Hostility_Skirmish.Migrations
 {
-    public partial class FirstMigrations : Migration
+    public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "GameStates",
+                columns: table => new
+                {
+                    GameStateId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CurrentTeam = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GameStates", x => x.GameStateId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
@@ -33,11 +46,18 @@ namespace Hostility_Skirmish.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     PartyName = table.Column<string>(nullable: true),
                     Wins = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: false)
+                    UserId = table.Column<int>(nullable: false),
+                    GameStateId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Parties", x => x.PartyId);
+                    table.ForeignKey(
+                        name: "FK_Parties_GameStates_GameStateId",
+                        column: x => x.GameStateId,
+                        principalTable: "GameStates",
+                        principalColumn: "GameStateId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Parties_Users_UserId",
                         column: x => x.UserId,
@@ -52,14 +72,20 @@ namespace Hostility_Skirmish.Migrations
                 {
                     CharacterId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Health = table.Column<int>(nullable: false),
-                    IsAlive = table.Column<bool>(nullable: false),
-                    AttackPower = table.Column<int>(nullable: false),
-                    DefensePower = table.Column<int>(nullable: false),
                     TurnTaken = table.Column<bool>(nullable: false),
+                    IsAlive = table.Column<bool>(nullable: false),
+                    _Health = table.Column<int>(nullable: false),
+                    Health = table.Column<int>(nullable: false),
+                    _AttackPower = table.Column<int>(nullable: false),
+                    AttackPower = table.Column<int>(nullable: false),
+                    _DefensePower = table.Column<int>(nullable: false),
+                    DefensePower = table.Column<int>(nullable: false),
+                    _Item_Slot = table.Column<string>(nullable: true),
                     Item_Slot = table.Column<string>(nullable: true),
                     Ability_Slot = table.Column<string>(nullable: true),
-                    Avatar_Slot = table.Column<string>(nullable: true),
+                    Avatar_Name = table.Column<string>(nullable: true),
+                    _Avatar_Image = table.Column<string>(nullable: true),
+                    Avatar_Image = table.Column<string>(nullable: true),
                     PartyId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -79,6 +105,11 @@ namespace Hostility_Skirmish.Migrations
                 column: "PartyId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Parties_GameStateId",
+                table: "Parties",
+                column: "GameStateId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Parties_UserId",
                 table: "Parties",
                 column: "UserId");
@@ -91,6 +122,9 @@ namespace Hostility_Skirmish.Migrations
 
             migrationBuilder.DropTable(
                 name: "Parties");
+
+            migrationBuilder.DropTable(
+                name: "GameStates");
 
             migrationBuilder.DropTable(
                 name: "Users");
