@@ -157,8 +157,8 @@ input{
   display: none;
   position: absolute;
   z-index: 1;
-  top: 550px;
-  left: 500px;
+  top: 150px;
+  left: 300px;
 }
 
 /* .char-card:hover {
