@@ -145,6 +145,22 @@ input{
   margin-top: 84px;
 }
 
+#game-img{
+  background-size: cover;
+  position: relative;
+}
+#game-stage{
+  position: absolute;
+}
+
+#test{
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 550px;
+  left: 500px;
+}
+
 /* .char-card:hover {
   border: 3px solid red;
 } */

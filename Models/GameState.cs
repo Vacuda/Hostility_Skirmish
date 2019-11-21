@@ -1,15 +1,15 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Hostility_Skirmish.Models.GameClasses;
 
 namespace Hostility_Skirmish.Models
 {
-    public class GameState //this is just a class!!! No direct entity interaction.
+    public class GameState
     {
-
+        [Key]
         public int GameStateId {get;set;}
 
         public string CurrentTeam{get;set;}
-
 
 //Navigations
         public List<Party> Parties {get;set;}
