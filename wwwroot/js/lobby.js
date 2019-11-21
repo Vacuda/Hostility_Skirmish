@@ -1,7 +1,7 @@
 
     setInterval(function()
     { 
-      fetch("/Lobby/getlogs", { 
+      fetch("/Lobby/getlogs", {    //UPDATE LOGINS
       headers: { "Content-Type": "application/json" },
       credentials: 'include'
     })
@@ -22,24 +22,14 @@
         } 
       })
       .catch(response => console.log(response));
-    }, 1000);
-
-    setInterval(function(){ 
-        //var challengables = document.getElementsByClassName("media border p-3");
-            console.log(challengables[x].id.toString());
-     
-  
-     }, 500);
-
-     var challengables = document.getElementsByClassName("media border p-3");
     
 
-    fetch("/Lobby/send_here", { 
-      headers: { "Content-Type": "application/json" },
-      credentials: 'include',
-      method: "POST",
-      body: "RAW STRING MADAFAKA!"
-    })
+
+
+      fetch("/Lobby/check_challengers", {   //UPDATE CHALLENGER!
+        headers: { "Content-Type": "application/json" },
+        credentials: 'include'
+      })
       .then(response => {
           if (!response.ok) {
               throw response;
@@ -47,7 +37,40 @@
           return response.json();
       })
       .then(json => {
-          json = JSON.parse(json);
-          console.log(json);
-      })
-      .catch(response => console.log(response));
+          challenger= JSON.parse(json);
+          console.log(challenger);
+          console.log(challenger.Challenged);
+          if(challenger.Challenged){
+              if(confirm("You have been challenged, Do you Accept?")){
+                  fetch("/Game", {   //UPDATE CHALLENGER!
+                    headers: { "Content-Type": "application/json" },
+                    credentials: 'include'
+                  })
+                  .then(response => {
+                      if (!response.ok) {
+                          throw response;
+                      }
+                      return response.json();
+                  }).catch(response => console.log(response));
+                }
+            }
+        }).catch(response => console.log(response));
+    }, 1000);
+
+    // fetch("/Lobby/send_here", { 
+    //   headers: { "Content-Type": "application/json" },
+    //   credentials: 'include',
+    //   method: "POST",
+    //   body: "RAW STRING MADAFAKA!"
+    // })
+    //   .then(response => {
+    //       if (!response.ok) {
+    //           throw response;
+    //       }
+    //       return response.json();
+    //   })
+    //   .then(json => {
+    //       json = JSON.parse(json);
+    //       console.log(json);
+    //   })
+    //   .catch(response => console.log(response));
