@@ -22,6 +22,10 @@ namespace Hostility_Skirmish.Controllers {
         public IActionResult BuildTeam () {
             return View ("BuildTeamPage");
         }
+        [HttpGet ("GamePage")]
+        public IActionResult GamePage () {
+            return View ("GamePlayPage");
+        }
 
         [HttpPost("Create_Party")]
         public IActionResult Create_Party (BuildParty party) {

@@ -6,6 +6,7 @@
 let clicked = "";
 let clicked2 = "";
 let clicked3 = "";
+let clicked4 = "";
 let clickedCard = "";
 let newDefense1 = 0;
 let newDefense2 = 0;
@@ -49,6 +50,7 @@ $('.char-card1').click(function () {
     clicked = "#card-char-1"
     clicked2 = "#abilText1"
     clicked3 = "#ItemText1"
+    clicked4 = "#char-name1"
     console.log(clicked)
     return clicked
 });
@@ -64,6 +66,7 @@ $('.char-card2').click(function () {
     clicked = "#card-char-2"
     clicked2 = "#abilText2"
     clicked3 = "#ItemText2"
+    clicked4 = "#char-name2"
     console.log(clicked)
     return clicked
 });
@@ -78,6 +81,7 @@ $('.char-card3').click(function () {
     clicked = "#card-char-3"
     clicked2 = "#abilText3"
     clicked3 = "#ItemText3"
+    clicked4 = "#char-name3"
     console.log(clicked)
     return clicked
 });
@@ -92,6 +96,7 @@ $('.char-card4').click(function () {
     clicked = "#card-char-4"
     clicked2 = "#abilText4"
     clicked3 = "#ItemText4"
+    clicked4 = "#char-name4"
     console.log(clicked)
     return clicked
 });
@@ -106,6 +111,7 @@ $('.char-card6').click(function () {
     clicked = "#card-char-6"
     clicked2 = "#abilText5"
     clicked3 = "#ItemText5"
+    clicked4 = "#char-name5"
     console.log(clicked)
     return clicked
 });
@@ -140,7 +146,13 @@ $('#check-btn').click(function () {
             'color': 'green',
             'font-weight': 'bold',
         });
-
+   }
+   else
+   {
+        $('#LbDefense').css({
+            'color': 'red',
+            'font-weight': 'bold',
+        });
    }
     $("#total-defense").html(10 - newDefense1);
     return newDefense1
@@ -159,7 +171,13 @@ $('#check-btn').click(function () {
             'color': 'green',
             'font-weight': 'bold',
         });
-
+   }
+   else
+   {
+        $('#LbHealth').css({
+            'color': 'red',
+            'font-weight': 'bold',
+        });
    }
     $("#total-health").html(250-newDefense2);
     return newDefense2
@@ -178,8 +196,14 @@ $('#check-btn').click(function () {
             'color': 'green',
             'font-weight': 'bold',
         });
-       
    }
+   else
+   {
+        $('#LbAttack').css({
+            'color': 'red',
+            'font-weight': 'bold',
+        });   
+    }
     $("#total-attack").html(15-newDefense3);
     return newDefense3
 });
@@ -191,11 +215,10 @@ $('#check-btn').click(function () {
     console.log(CheckItem())
     if(275-totalBuild==0 && check==1)
     {
-        // $("#build-btn").prop("disabled", false);
-        // $("#build-btn").css({
-        //     'display': 'block'
+        $("#build-btn").css({
+            'display': 'block'
             
-        // });
+        });
         $("#check-btn").css({
             'display': 'none'
             
@@ -205,7 +228,7 @@ $('#check-btn').click(function () {
             
         });
 
-        $("input").prop("disabled", true);
+        $("input").prop("readonly", true);
     }
 });
 $('#edit-btn').click(function () {
@@ -225,7 +248,7 @@ $('#edit-btn').click(function () {
             'display': 'none'
             
         });
-        $("input").prop("disabled", false);
+        $("input").prop("readonly", false);
     }
 });
 
@@ -234,40 +257,73 @@ $('#edit-btn').click(function () {
 // ADD CHAR IMG TO CLICK CARD
 //-----------------------------
 $('#char-1').click(function () {
+    $(clicked4).html("Brian");
     $(clicked).prop('src', "/images/1.png");
 });
 $('#char-2').click(function () {
+    $(clicked4).html("Yarn");
+
     $(clicked).prop('src', "/images/2.png");
 });
 $('#char-3').click(function () {
+    $(clicked4).html("Amber");
+
     $(clicked).prop('src', "/images/3.png");
 });
 $('#char-4').click(function () {
+    $(clicked4).html("Scott");
+
     $(clicked).prop('src', "/images/4.png");
 });
 $('#char-6').click(function () {
+    $(clicked4).html("Chris");
+
     $(clicked).prop('src', "/images/6.png");
 });
 $('#char-7').click(function () {
+    $(clicked4).html("Brandon");
+
     $(clicked).prop('src', "/images/7.png");
 });
 $('#char-8').click(function () {
+    $(clicked4).html("Adam");
+
     $(clicked).prop('src', "/images/8.png");
 });
 $('#char-9').click(function () {
+    $(clicked4).html("Patty");
+
     $(clicked).prop('src', "/images/9.png");
 });
-$('#char-8').click(function () {
-    $(clicked).prop('src', "/images/8.png");
-});
-$('#char-9').click(function () {
-    $(clicked).prop('src', "/images/9.png");
-});
+// $('#char-8').click(function () {
+//     $(clicked4).html("Steve");
+
+//     $(clicked).prop('src', "/images/8.png");
+// });
+// $('#char-9').click(function () {
+//     $(clicked4).html("Andy");
+
+//     $(clicked).prop('src', "/images/9.png");
+// });
 $('#char-10').click(function () {
+    $(clicked4).html("Steve");
+
     $(clicked).prop('src', "/images/10.png");
 });
 $('#char-11').click(function () {
+    $(clicked4).html("Andy");
+
     $(clicked).prop('src', "/images/11.png");
+});
+$('#char-12').click(function () {
+    $(clicked4).html("Chuck");
+
+    $(clicked).prop('src', "/images/12.png");
+});
+$('#char-13').click(function () {
+    $(clicked4).html("Adrien");
+
+    $(clicked).prop('src', "/images/13.png");
 });
 
 // ADD ABILITY TO CLICK CARD
@@ -318,7 +374,8 @@ $('#abil10').click(function () {
 // ADD ITEM TO CLICK CARD
 // --------------------------------------
 $('#item1').click(function () {
-    $(clicked3).attr("value", "Item 1");
+    var text = document.getElementById("abil1").getElementsByTagName('p')[0].textContent;
+    $(clicked3).attr("value", text);
 });
 $('#item2').click(function () {
     $(clicked3).attr("value", "Item 2");
