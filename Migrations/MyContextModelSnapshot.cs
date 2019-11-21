@@ -25,7 +25,9 @@ namespace Hostility_Skirmish.Migrations
 
                     b.Property<int>("AttackPower");
 
-                    b.Property<string>("Avatar_Slot");
+                    b.Property<string>("Avatar_Image");
+
+                    b.Property<string>("Avatar_Name");
 
                     b.Property<int>("DefensePower");
 
@@ -39,6 +41,16 @@ namespace Hostility_Skirmish.Migrations
 
                     b.Property<bool>("TurnTaken");
 
+                    b.Property<int>("_AttackPower");
+
+                    b.Property<string>("_Avatar_Image");
+
+                    b.Property<int>("_DefensePower");
+
+                    b.Property<int>("_Health");
+
+                    b.Property<string>("_Item_Slot");
+
                     b.HasKey("CharacterId");
 
                     b.HasIndex("PartyId");
@@ -51,6 +63,8 @@ namespace Hostility_Skirmish.Migrations
                     b.Property<int>("PartyId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("GameStateId");
+
                     b.Property<string>("PartyName");
 
                     b.Property<int>("UserId");
@@ -59,9 +73,23 @@ namespace Hostility_Skirmish.Migrations
 
                     b.HasKey("PartyId");
 
+                    b.HasIndex("GameStateId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Parties");
+                });
+
+            modelBuilder.Entity("Hostility_Skirmish.Models.GameState", b =>
+                {
+                    b.Property<int>("GameStateId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CurrentTeam");
+
+                    b.HasKey("GameStateId");
+
+                    b.ToTable("GameStates");
                 });
 
             modelBuilder.Entity("Hostility_Skirmish.Models.User", b =>
@@ -100,6 +128,11 @@ namespace Hostility_Skirmish.Migrations
 
             modelBuilder.Entity("Hostility_Skirmish.Models.GameClasses.Party", b =>
                 {
+                    b.HasOne("Hostility_Skirmish.Models.GameState", "GameState")
+                        .WithMany("Parties")
+                        .HasForeignKey("GameStateId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("Hostility_Skirmish.Models.User", "User")
                         .WithMany("Parties")
                         .HasForeignKey("UserId")
