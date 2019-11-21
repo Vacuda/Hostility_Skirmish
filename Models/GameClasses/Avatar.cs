@@ -18,7 +18,7 @@ namespace Hostility_Skirmish.Models.GameClasses
 
 
         
-
+        //  ~/images/#.png
 
 
 
@@ -27,40 +27,40 @@ namespace Hostility_Skirmish.Models.GameClasses
 
         public static string GetAvatar(string code){
 
-            if (code == "char-1"){
+            if (code == "~/images/1.png"){
                 return "Brian";
             }
-            if (code == "char-2"){
+            if (code == "~/images/2.png"){
                 return "Yarn";
             }
-            if (code == "char-3"){
+            if (code == "~/images/3.png"){
                 return "Amber";
             }
-            if (code == "char-4"){
+            if (code == "~/images/4.png"){
                 return "Scott";
             }
-            if (code == "char-6"){
+            if (code == "~/images/6.png"){
                 return "Chris";
             }
-            if (code == "char-7"){
+            if (code == "~/images/7.png"){
                 return "Brandon";
             }
-            if (code == "char-8"){
+            if (code == "~/images/8.png"){
                 return "Adam";
             }
-            if (code == "char-9"){
+            if (code == "~/images/9.png"){
                 return "Patty";
             }
-            if (code == "char-10"){
+            if (code == "~/images/10.png"){
                 return "Steve";
             }
-            if (code == "char-11"){
+            if (code == "~/images/11.png"){
                 return "Andy";
             }
-            if (code == "char-12"){
+            if (code == "~/images/12.png"){
                 return "Chuck";
             }
-            if (code == "char-13"){
+            if (code == "~/images/13.png"){
                 return "Adrien";
             }
 

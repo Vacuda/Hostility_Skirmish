@@ -36,7 +36,9 @@ namespace Hostility_Skirmish.Models.GameClasses
         public string Ability_Slot {get;set;} = "";
 
 
-        public string Avatar_Slot {get;set;} = "";
+        public string Avatar_Name {get;set;} = "";
+        public string _Avatar_Image {get;set;} = "";
+        public string Avatar_Image {get;set;} = "";
 
 
 //RELATIONSHIPS

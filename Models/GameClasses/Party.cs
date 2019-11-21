@@ -23,10 +23,14 @@ namespace Hostility_Skirmish.Models.GameClasses
         
         public int UserId {get;set;}
 
+        public int GameStateId {get;set;}
+
 
 //NAVIGATION
 
         public User User {get;set;}
+
+        public GameState GameState {get;set;}
 
 
         public List<Character> Characters {get;set;}
