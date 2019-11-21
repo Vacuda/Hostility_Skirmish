@@ -41,20 +41,9 @@ namespace Hostility_Skirmish.Controllers
         }
 
         [HttpGet]
-        [Route("[controller]/{user_id}")] //challenge has been made waiting for acceptance!
-        public IActionResult ChallengeDeck(int user_id){
-            User ChallengedUser = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
-            ChallengedUser.Challenged = true;
-            dbContext.SaveChanges();
-            return View(ChallengedUser);
-        }
-
-        [HttpGet]
         [Route("[controller]/check_challengers")]
         public JsonResult GetChallenger(){
             string session_email = HttpContext.Session.GetString("Email");
-            System.Console.WriteLine($"####################{session_email}#######################");
-
             if ( session_email != null){
                 User CurrentUser = dbContext.Users.FirstOrDefault(a => a.Email == session_email);
                 if (CurrentUser != null){ //whether it's null or not we don't care!

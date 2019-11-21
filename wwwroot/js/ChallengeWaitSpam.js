@@ -1,11 +1,11 @@
 
     var unchallenged = true;
     var timer = 0;
-    var stop = false;
+    var start = false;
 
     setInterval(function()
     { 
-      if(stop == false){
+      if(start == false){
         fetch("/Lobby/check_challengers", {   //UPDATE CHALLENGER!
           headers: { "Content-Type": "application/json" },
           credentials: 'include'
@@ -20,18 +20,17 @@
             challenger= JSON.parse(json);
             console.log(challenger);
             console.log(challenger.Challenged);
-            if(challenger.Challenged){
+            if(!challenger.Challenged){
               document.getElementById("sorry").innerHTML = "";
               document.getElementById("game").innerHTML = "";
-              $('#game').append('<a href="/game">Go to game!</a>');
+              $('#game').append('<p href="/game">LET THE GAME BEGIN!!!</p>');
               }
           }).catch(response => console.log(response));
-
         }
     }, 1000);
 
     function increment_time(){
-      if(stop == false && unchallenged == true){
+      if(start == false && unchallenged == true){
         timer += 1;
         document.getElementById("timer").innerHTML = "Seconds: "+timer;
       }else{
@@ -45,6 +44,7 @@
 
     setInterval(function()
     { 
+      if(start == false){
       fetch("/Lobby/drop_challenge", { //times up bye!!!!
       headers: { "Content-Type": "application/json" },
       credentials: 'include'
@@ -57,8 +57,9 @@
     })
     .then(json => {
         challenger = JSON.parse(json);
-        stop = true;
+       start = true;
       })
       .catch(response => console.log(response));
+     }
     }, 10000);
     
