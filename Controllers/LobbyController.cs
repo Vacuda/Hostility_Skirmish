@@ -80,7 +80,8 @@ namespace Hostility_Skirmish.Controllers
         [HttpPost]
         [Route("[controller]/send_here")]
         public JsonResult ImHereJsonMe([FromBody] string json){
-            return Json("'well_done':well done!");
+            System.Console.WriteLine($"******************{json}*********************");
+            return Json(Newtonsoft.Json.JsonConvert.SerializeObject("ItJustWorks!"));
         }
 
         // [HttpGet]
