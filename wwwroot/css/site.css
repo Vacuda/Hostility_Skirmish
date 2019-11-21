@@ -103,6 +103,26 @@ input{
 .box{
   border: 1px solid black;
 }
+.lobby{
+  left: -111px;
+  width: 150px;
+  position: absolute;
+  padding: 0;
+}
+.lobby:hover{
+  left: -32px;
+  transition: .5s ease-in;
+
+
+}
+
+
+.lobby p{
+  transform: rotate(-90deg);
+  margin:20px 0 20px 0 ;
+  float: right;
+  font-weight: bold;
+}
 
 /* .char-card:hover {
   border: 3px solid red;
