@@ -31,16 +31,21 @@ namespace Hostility_Skirmish.Controllers
 
             //find users
             User UserA = dbContext.Users.FirstOrDefault(a => a.Email == session_email);
-            System.Console.WriteLine($"#############{UserA.LastName}#############333");
             User UserB = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
-            System.Console.WriteLine($"#############{UserB.LastName}#############333");
+
 
             //find parties
+            Party partyA = dbContext.Parties
+                                .Include(e=>e.Characters)
+                                .FirstOrDefault(e=>e.UserId == UserA.UserId);
+            Party partyB = dbContext.Parties
+                                .Include(e=>e.Characters)
+                                .FirstOrDefault(e=>e.UserId == UserB.UserId);
 
-            Party partyA = dbContext.Parties.FirstOrDefault(e=>e.UserId == UserA.UserId);
-            System.Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@{partyA.PartyName}@@@@@@@@@@@@@@@@@@@@");
-            Party partyB = dbContext.Parties.FirstOrDefault(e=>e.UserId == UserB.UserId);
-            System.Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@{partyB.PartyName}@@@@@@@@@@@@@@@@@@@@");
+
+            //reset parties
+            partyA.Reset();
+            partyB.Reset();
 
             //build gamestate
             GameState gamestate = new GameState();
@@ -55,7 +60,6 @@ namespace Hostility_Skirmish.Controllers
             partyB.GameStateId = gamestate_id;
             dbContext.SaveChanges();
 
-            System.Console.WriteLine($"@@@@@@@@@@88888@@@@@@@@@@@@@@@888888@@@@@@");
 
             //build big object
             GameState context = dbContext.GameStates
@@ -113,45 +117,6 @@ namespace Hostility_Skirmish.Controllers
             return Json("PLACEHOLDER");
         }
 
-        [HttpPost]
-        [Route("[controller]/character_action")]
-        public JsonResult UserOneCharacterAction([FromBody] string ActionTarget){
-        //parse string
-            
-            string Team = "XXX";
-            int break1 = 0;
-            string Character = "XXX";
-            int break2 = 0;
-            string Action = "XXX";
-            int break3 = 0;
-            string Target = "XXX";
-            int break4 = 0;
-
-            for(var x=0; x<ActionTarget.Length; x++){
-                if(ActionTarget == ":" && break1 == 0){ //team
-                    break1 = x;
-                }
-                if(ActionTarget == ":" && break2 == 0){ //character
-                    break2 = x;
-                }
-                if(ActionTarget == ":" && break3 == 0){ //action
-                    break3 += x;
-                }
-                Team = ActionTarget.Substring(0, break1);
-                Character = ActionTarget.Substring(break1 + 1, break2);
-                Action = ActionTarget.Substring(break2 + 1, break3);
-                Target = ActionTarget.Substring(break2 + 1, ActionTarget.Length);
-                System.Console.WriteLine($"{Team} {Character} {Action} {Target}");
-            }    
-        
-            //Team          (A or B)
-            //Character     (1,2,3,4,5)
-            //Action        (attack, defend, ability, item)
-            //Target        (A1,A2,A3,A4,A5,B1,B2,B3,B4,B5)
-            
-
-            return Json("PLACEHOLDER!!!!");
-        }
         //user1 turn
         //wait on user1 character/action/target
         //affect database

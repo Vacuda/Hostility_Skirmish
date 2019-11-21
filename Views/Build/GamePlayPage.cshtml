@@ -1,5 +1,5 @@
 
-
+@model GameState
 
 <script src="~/js/GamePlay.js"></script>
 
@@ -26,74 +26,74 @@
 <div class="card" >
 <img id="game-img2" src="~/images/fightbk.jpg" alt="">
 <div class="row">
-<div class="col"><h2>Team Name</h2>
+<div class="col"><h2>@Model.Parties[0].PartyName</h2>
     <div class="row">
         <div style="border:1px solid black">
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[0].AttackPower</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[0].Item_Slot</p></div>
             </div>
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[0].DefensePower</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[0].Health</p></div>
             </div>
         </div>
     </div>
     <div class="row">
         <div style="border:1px solid black">
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[1].AttackPower</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[1].Item_Slot</p></div>
             </div>
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div style="border:1px solid black">
-            <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
-            </div>
-            <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[1].DefensePower</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[1].Health</p></div>
             </div>
         </div>
     </div>
     <div class="row">
         <div style="border:1px solid black">
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[2].AttackPower</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[2].Item_Slot</p></div>
             </div>
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[2].DefensePower</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[2].Health</p></div>
             </div>
         </div>
     </div>
     <div class="row">
         <div style="border:1px solid black">
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[3].AttackPower</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[3].Item_Slot</p></div>
             </div>
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[3].DefensePower</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[3].Health</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="border:1px solid black">
+            <div class="row">
+                <div class="col player-item"><p>@Model.Parties[0].Characters[4].AttackPower</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[4].Item_Slot</p></div>
+            </div>
+            <div class="row">
+                <div class="col player-item"><p>@Model.Parties[0].Characters[4].DefensePower</p></div>
+                <div class="col player-item"><p>@Model.Parties[0].Characters[4].Health</p></div>
             </div>
         </div>
     </div>
 </div>
 <div class="col player-col">blah
-    <div id="P1Char1" class="row"><img  class="card-img-top char-img game-img" src="~/images/1.png" alt="Card image"></div>
-    <div id="P1Char2" class="row"><img class="card-img-top char-img game-img" src="~/images/2.png" alt="Card image"></div>
-    <div id="P1Char3" class="row"><img class="card-img-top char-img game-img" src="~/images/3.png" alt="Card image"></div>
-    <div id="P1Char4" class="row"><img class="card-img-top char-img game-img" src="~/images/4.png" alt="Card image"></div>
-    <div id="P1Char5" class="row"><img class="card-img-top char-img game-img" src="~/images/6.png" alt="Card image"></div>
+    <div id="P1Char1" class="row"><img  class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[0].Avatar_Image" alt="Card image"></div>
+    <div id="P1Char2" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[1].Avatar_Image" alt="Card image"></div>
+    <div id="P1Char3" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[2].Avatar_Image" alt="Card image"></div>
+    <div id="P1Char4" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[3].Avatar_Image" alt="Card image"></div>
+    <div id="P1Char5" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[4].Avatar_Image" alt="Card image"></div>
 </div>
 <div class="col">blah
     <div class="row">XXXXX</div>
@@ -112,72 +112,72 @@
 
 </div>
 <div class="col player-col">blah
-    <div id="P2Char1" class="row"><img class="card-img-top char-img game-img" src="~/images/1.png" alt="Card image"></div>
-    <div id="P2Char2" class="row"><img class="card-img-top char-img game-img" src="~/images/2.png" alt="Card image"></div>
-    <div id="P2Char3" class="row"><img class="card-img-top char-img game-img" src="~/images/3.png" alt="Card image"></div>
-    <div id="P2Char4" class="row"><img class="card-img-top char-img game-img" src="~/images/4.png" alt="Card image"></div>
-    <div id="P2Char5" class="row"><img class="card-img-top char-img game-img" src="~/images/6.png" alt="Card image"></div>
+    <div id="P2Char1" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[0].Avatar_Image" alt="Card image"></div>
+    <div id="P2Char2" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[1].Avatar_Image" alt="Card image"></div>
+    <div id="P2Char3" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[2].Avatar_Image" alt="Card image"></div>
+    <div id="P2Char4" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[3].Avatar_Image" alt="Card image"></div>
+    <div id="P2Char5" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[4].Avatar_Image" alt="Card image"></div>
 
 </div>
 
-<div class="col"><h2>Team Name</h2>
+<div class="col"><h2>@Model.Parties[1].PartyName</h2>
     <div class="row">
         <div style="border:1px solid black">
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[0].AttackPower</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[0].Item_Slot</p></div>
             </div>
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[0].DefensePower</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[0].Health</p></div>
             </div>
         </div>
     </div>
     <div class="row">
         <div style="border:1px solid black">
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[1].AttackPower</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[1].Item_Slot</p></div>
             </div>
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div style="border:1px solid black">
-            <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
-            </div>
-            <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[1].DefensePower</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[1].Health</p></div>
             </div>
         </div>
     </div>
     <div class="row">
         <div style="border:1px solid black">
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[2].AttackPower</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[2].Item_Slot</p></div>
             </div>
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[2].DefensePower</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[2].Health</p></div>
             </div>
         </div>
     </div>
     <div class="row">
         <div style="border:1px solid black">
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[3].AttackPower</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[3].Item_Slot</p></div>
             </div>
             <div class="row">
-                <div class="col player-item"><p>item</p></div>
-                <div class="col player-item"><p>item</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[3].DefensePower</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[3].Health</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="border:1px solid black">
+            <div class="row">
+                <div class="col player-item"><p>@Model.Parties[1].Characters[4].AttackPower</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[4].Item_Slot</p></div>
+            </div>
+            <div class="row">
+                <div class="col player-item"><p>@Model.Parties[1].Characters[4].DefensePower</p></div>
+                <div class="col player-item"><p>@Model.Parties[1].Characters[4].Health</p></div>
             </div>
         </div>
     </div>
