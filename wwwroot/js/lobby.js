@@ -37,8 +37,9 @@
           console.log(challenger);
           console.log(challenger.Challenged);
           if(user.Challenged){
-                $('.challenged').css({
-                    'display': 'block'
+                $('#test').css({
+                    'display': 'block',
+                    'z-index':'1'
                 });
             }
         }).catch(response => console.log(response));

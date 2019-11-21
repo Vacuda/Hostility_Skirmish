@@ -153,11 +153,11 @@ input{
   position: absolute;
 }
 
-.challenged{
+#test{
   display: none;
   position: absolute;
   z-index: 1;
-  top: 150px;
+  top: 550px;
   left: 500px;
 }
 
