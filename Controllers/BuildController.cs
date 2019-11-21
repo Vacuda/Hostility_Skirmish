@@ -30,10 +30,20 @@ namespace Hostility_Skirmish.Controllers {
         [HttpPost("Create_Party")]
         public IActionResult Create_Party (BuildParty party) {
 
+
+        if (dbContext.GameStates.FirstOrDefault() == null){
+            GameState gamestate = new GameState();
+            dbContext.GameStates.Add(gamestate);
+            System.Console.WriteLine("##################################3");
+            dbContext.SaveChanges();
+        }
+
+
         //build party
             Party party_build = new Party();
             party_build.PartyName = "NameOfParty";
             party_build.Wins = 0;
+            party_build.GameStateId = 1;
 
         //get userid
             string email = HttpContext.Session.GetString("Email");
