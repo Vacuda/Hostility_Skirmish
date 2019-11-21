@@ -39,12 +39,17 @@ namespace Hostility_Skirmish.Models.GameClasses
 //DISPLAY
 
 
+//METHODS
 
-
-
-
-
-
+        public void Reset(){
+            foreach(var c in Characters){
+                c.Health        = c._Health;
+                c.AttackPower   = c._AttackPower;
+                c.DefensePower  = c._DefensePower;
+                c.Avatar_Image  = c._Avatar_Image;
+                c.Item_Slot     = c._Item_Slot;
+            }
+        }
 
 
 

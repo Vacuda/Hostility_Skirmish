@@ -31,16 +31,21 @@ namespace Hostility_Skirmish.Controllers
 
             //find users
             User UserA = dbContext.Users.FirstOrDefault(a => a.Email == session_email);
-            System.Console.WriteLine($"#############{UserA.LastName}#############333");
             User UserB = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
-            System.Console.WriteLine($"#############{UserB.LastName}#############333");
+
 
             //find parties
+            Party partyA = dbContext.Parties
+                                .Include(e=>e.Characters)
+                                .FirstOrDefault(e=>e.UserId == UserA.UserId);
+            Party partyB = dbContext.Parties
+                                .Include(e=>e.Characters)
+                                .FirstOrDefault(e=>e.UserId == UserB.UserId);
 
-            Party partyA = dbContext.Parties.FirstOrDefault(e=>e.UserId == UserA.UserId);
-            System.Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@{partyA.PartyName}@@@@@@@@@@@@@@@@@@@@");
-            Party partyB = dbContext.Parties.FirstOrDefault(e=>e.UserId == UserB.UserId);
-            System.Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@{partyB.PartyName}@@@@@@@@@@@@@@@@@@@@");
+
+            //reset parties
+            partyA.Reset();
+            partyB.Reset();
 
             //build gamestate
             GameState gamestate = new GameState();
@@ -55,7 +60,6 @@ namespace Hostility_Skirmish.Controllers
             partyB.GameStateId = gamestate_id;
             dbContext.SaveChanges();
 
-            System.Console.WriteLine($"@@@@@@@@@@88888@@@@@@@@@@@@@@@888888@@@@@@");
 
             //build big object
             GameState context = dbContext.GameStates
@@ -113,6 +117,7 @@ namespace Hostility_Skirmish.Controllers
             return Json("PLACEHOLDER");
         }
 
+
         [Produces("application/json")] //for posts I guess?
         [HttpPost]
         [Route("[controller]/character_action")]
@@ -164,6 +169,7 @@ namespace Hostility_Skirmish.Controllers
             System.Console.WriteLine($"{Team} {Character} {Action} {Target}");
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject($"{Team} {Character} {Action} {Target}"));
         }
+
         //user1 turn
         //wait on user1 character/action/target
         //affect database
