@@ -1,22 +1,105 @@
+
+
 <div class="card">
     <h1>title</h1>
 </div>
 
+<script src="~/js/GamePlay.js"></script>
 
-<div id="game-stage" class="card" >
-    <img id="game-img" src="~/images/fightbk.jpg" alt="">
+<div>
+    <h1 id='char-form'></h1>
+</div>
+<div>
+    <h1 id="target-form"></h1>
+</div>
+
+
+<form action="">
+    <!-- Character -->
+    <input id='char-form' type="hidden"> 
+    <!-- Action -->
+    <input id="action-form" type="hidden">
+    <!-- Target -->
+    <input id="target-form" type="hidden">
+</form>
+
+
+<div class="card" >
+    <!-- <img id="game-img" src="~/images/fightbk.jpg" alt=""> -->
 <div class="row">
+<div class="col"><h2>Team Name</h2>
+    <div class="row">
+        <div style="border:1px solid black">
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="border:1px solid black">
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="border:1px solid black">
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="border:1px solid black">
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="border:1px solid black">
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="col">blah
-    <div class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
-    <div class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
-    <div class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
-    <div class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
-    <div class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
+    <div id="P1Char1" class="row"><img  class="card-img-top char-img" src="~/images/1.png" alt="Card image"></div>
+    <div id="P1Char2" class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
+    <div id="P1Char3" class="row"><img class="card-img-top char-img" src="~/images/3.png" alt="Card image"></div>
+    <div id="P1Char4" class="row"><img class="card-img-top char-img" src="~/images/4.png" alt="Card image"></div>
+    <div id="P1Char5" class="row"><img class="card-img-top char-img" src="~/images/6.png" alt="Card image"></div>
 </div>
 <div class="col">blah
     <div class="row">XXXXX</div>
     <div class="row">XXXXX</div>
-    <div class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
+    <div class="row"><img id="P1Fight" class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
     <div class="row">XXXXX</div>
     <div class="row">XXXXX</div>
 
@@ -24,19 +107,84 @@
 <div class="col">blah
     <div class="row">XXXXX</div>
     <div class="row">XXXXX</div>
-    <div class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
+    <div class="row"><img id="P2Fight" class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
     <div class="row">XXXXX</div>
     <div class="row">XXXXX</div>
 
 </div>
 <div class="col">blah
-    <div class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
-    <div class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
-    <div class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
-    <div class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
-    <div class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
+    <div id="P2Char1" class="row"><img class="card-img-top char-img" src="~/images/1.png" alt="Card image"></div>
+    <div id="P2Char2" class="row"><img class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
+    <div id="P2Char3" class="row"><img class="card-img-top char-img" src="~/images/3.png" alt="Card image"></div>
+    <div id="P2Char4" class="row"><img class="card-img-top char-img" src="~/images/4.png" alt="Card image"></div>
+    <div id="P2Char5" class="row"><img class="card-img-top char-img" src="~/images/6.png" alt="Card image"></div>
 
 </div>
+
+<div class="col"><h2>Team Name</h2>
+    <div class="row">
+        <div style="border:1px solid black">
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="border:1px solid black">
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="border:1px solid black">
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="border:1px solid black">
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="border:1px solid black">
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p>item</p></div>
+                <div class="col"><p>item</p></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </div>
 </div>
 
@@ -60,3 +208,7 @@
             </div>
     </div>
 </div>
+
+
+<script src="~/js/GamePlay.js"></script>
+

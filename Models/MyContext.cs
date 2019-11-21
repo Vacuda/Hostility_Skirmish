@@ -13,6 +13,7 @@ namespace Hostility_Skirmish.Models
          public DbSet<User> Users {get;set;}
          public DbSet<Party> Parties {get;set;}
          public DbSet<Character> Characters {get;set;}
+         public DbSet<GameState> GameStates {get;set;}
 
     }
 }
