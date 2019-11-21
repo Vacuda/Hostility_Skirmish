@@ -13,7 +13,7 @@ ViewData["Title"] = "Home Page";
         <div class="card char-card1">
             <img id="card-char-1" class="card-img-top char-img" src="~/images/1.png" alt="Card image">
             <div class="card-body">
-                <h4 class="card-title">John Doe</h4>
+                <h4 id="char-name1" class="card-title">Brian</h4>
                 <label asp-for="P1_Health">Health</label><br>
                 <input asp-for="P1_Health" id="HealthText1" value="50">
                 <label asp-for="P1_AttackPower">Attack</label><br>
@@ -34,7 +34,7 @@ ViewData["Title"] = "Home Page";
         <div class="card char-card2">
             <img id="card-char-2" class="card-img-top char-img" src="~/images/2.png" alt="Card image">
             <div class="card-body">
-                    <h4 class="card-title">John Doe</h4>
+                    <h4 id="char-name2" class="card-title">Yarn</h4>
                     <label asp-for="P2_Health">Health</label><br>
                     <input asp-for="P2_Health" id="HealthText2" type="text" value="50">
                     <label asp-for="P2_AttackPower">Attack</label><br>
@@ -53,7 +53,7 @@ ViewData["Title"] = "Home Page";
         <div class="card char-card3">
             <img id="card-char-3" class="card-img-top char-img" src="~/images/3.png" alt="Card image">
             <div class="card-body">
-                    <h4 class="card-title">John Doe</h4>
+                    <h4 id="char-name3" class="card-title">Amber</h4>
                     <label asp-for="P3_Health">Health</label><br>
                     <input asp-for="P3_Health" id="HealthText3" type="text" value="50">
                     <label asp-for="P3_AttackPower">Attack</label><br>
@@ -72,7 +72,7 @@ ViewData["Title"] = "Home Page";
             
             <img id="card-char-4" class="card-img-top char-img" src="~/images/4.png" alt="Card image">
             <div class="card-body">
-                    <h4 class="card-title">John Doe</h4>
+                    <h4 id="char-name4" class="card-title">Scott</h4>
                     <label asp-for="P4_Health">Health</label><br>
                     <input asp-for="P4_Health" id="HealthText4" type="text" value="50">
                     <label asp-for="P4_AttackPower">Attack</label><br>
@@ -92,7 +92,7 @@ ViewData["Title"] = "Home Page";
         <div class="card char-card6">
             <img id="card-char-6" class="card-img-top char-img" src="~/images/6.png" alt="Card image">
             <div class="card-body">
-                    <h4 class="card-title">John Doe</h4>
+                    <h4 id="char-name5" class="card-title">Chris</h4>
                     <label asp-for="P5_Health">Health</label><br>
                     <input asp-for="P5_Health" id="HealthText5" type="text" value="50">
                     <label asp-for="P5_AttackPower">Attack</label><br>
@@ -130,7 +130,7 @@ ViewData["Title"] = "Home Page";
 
                 <a id="check-btn" href="#" class="btn btn-danger">Check</a>
                 <a id="edit-btn" style="display: none;" href="#" class="btn btn-danger">Edit</a>
-                <button type="submit" id="build-btn" class="btn btn-danger">Build Team</button>
+                <button type="submit" id="build-btn" style="display:none;" class="btn btn-danger">Build Team</button>
             </div>
 
             </form>
@@ -203,7 +203,7 @@ ViewData["Title"] = "Home Page";
             <h4>Items</h4>
             <div class="row">
                 <div class="col">
-                    <div id="item1" class="abil item">Heal</div>
+                    <div id="item1" class="abil item"><p>Heal</p> </div>
                     <!-- <div id="item2" class="abil item">Item2</div>
                     <div id="item3" class="abil item">Item3</div>
                     <div id="item4" class="abil item">Item4</div>
