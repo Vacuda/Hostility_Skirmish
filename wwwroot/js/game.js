@@ -2,14 +2,14 @@
     // ***************************************
     // ***************************************
     // ***************************************
-
+    alert("test")
     let Char = "";
     let Tar = "";
     let Item = "";
 
     //from db
-    let Team = getElementById("Team").innerHTML; //from html elements
-    let gamestate_id = getElementById("gamestate_id").innerHTML;
+    //let Team = getElementById("Team").innerHTML; //from html elements
+    //let gamestate_id = getElementById("gamestate_id").innerHTML;
 
     // PLAYER One
     // ---------------------------
@@ -17,6 +17,7 @@
         $('#P1Fight').prop('src', "/images/1.png");
         if (Char == "") {
             Char = "A1";
+            console.log("HJVKUVKUVKYJYVKJV");
         }
         else {
             Tar = A1;
@@ -173,5 +174,5 @@
             }
       })
       .catch(response => console.log(response));
-    }, 2000);
+    }, 5000);
     
