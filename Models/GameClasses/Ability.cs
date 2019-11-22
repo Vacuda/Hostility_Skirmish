@@ -17,6 +17,9 @@ namespace Hostility_Skirmish.Models.GameClasses
             if(ability == "Attack"){
                 target.ChangeHealth(-40); //save db changes???
             }
+            else {
+                return 0;
+            }
 
         }
 

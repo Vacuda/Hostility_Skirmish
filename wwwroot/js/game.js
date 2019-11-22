@@ -327,8 +327,12 @@
           return response.json();
       })
       .then(json => { //main game loop
-            if (Team == "A"){
                 game_state = JSON.parse(json);
+
+            //set turn
+                Team = game_state.CurrentTeam
+
+            //read health values
                 var HealthHTMLId = "HealthP0C0";
                 document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[0].Health;
                 //console.log(game_state.Parties[0].Characters[0].Health);
@@ -360,7 +364,7 @@
                 console.log("Health Team A char 4: "+game_state.Parties[0].Characters[3].Avatar_Name);
                 console.log("Health Team A char 5: "+game_state.Parties[0].Characters[4].Avatar_Name);
             }
-      })
+      )
       .catch(response => console.log(response));
     }, 7000);
     
