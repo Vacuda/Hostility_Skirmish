@@ -17,11 +17,6 @@ namespace Hostility_Skirmish.Models.GameClasses
 
 
 
-        
-        //  ~/images/#.png
-
-
-
 
 
 
