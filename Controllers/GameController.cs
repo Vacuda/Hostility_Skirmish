@@ -189,21 +189,27 @@ namespace Hostility_Skirmish.Controllers
                             .ThenInclude(e=>e.Characters)
                             .FirstOrDefault(e=>e.GameStateId == gamestate_id);
                 if(Team == gamestate.CurrentTeam){
-                    if(Team == "A"){
-                        Ability.AbilityUse(gamestate.Parties[0].Characters[Int32.Parse(Character)], Action);
+                    if(Target[0]+"" == "A"+""){ //wow c#
+                        Ability.AbilityUse(gamestate.Parties[0].Characters[Int32.Parse(Target[1]+"")], Action);
                     }else{ //Team == "B"
                         Ability.AbilityUse(gamestate.Parties[1].Characters[Int32.Parse(Character)], Action);
                     }
                     System.Console.WriteLine($"TURN {Team} TAKEN");
-                     //switch turn
-                    if(gamestate.CurrentTeam == "A"){
+                     
+                    if(gamestate.CurrentTeam == "A"){ 
+                        //player's character loses a turn
+                        gamestate.Parties[0].Characters[Int32.Parse(Character)].TurnTaken = true;
+                        //switch turn
                         gamestate.CurrentTeam="B";
                     }
                     if(gamestate.CurrentTeam == "B"){
+                        gamestate.Parties[1].Characters[Int32.Parse(Character)].TurnTaken = true;
                         gamestate.CurrentTeam="A";
                     }
                     dbContext.SaveChanges();
                 }//else nothing happens
+
+                //reset all TurnTaken bools if all are true.
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject($"{Team} {Character} {Action} {Target}"));
         }
 

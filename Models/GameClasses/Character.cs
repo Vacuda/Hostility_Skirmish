@@ -9,8 +9,7 @@ namespace Hostility_Skirmish.Models.GameClasses
         [Key]
         public int CharacterId{get;set;}
 
-
-        public bool TurnTaken {get;set;}
+        public bool TurnTaken {get;set;} = false;
         public bool IsAlive {get;set;} = true;
 
 
