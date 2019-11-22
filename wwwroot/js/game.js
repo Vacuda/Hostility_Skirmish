@@ -331,6 +331,7 @@
 
             //set turn
                 Team = game_state.CurrentTeam
+                document.getElementById("turn").innerHtml = Team;
 
             //read health values
                 var HealthHTMLId = "HealthP0C0";
@@ -366,5 +367,5 @@
             }
       )
       .catch(response => console.log(response));
-    }, 7000);
+    }, 2000);
     
