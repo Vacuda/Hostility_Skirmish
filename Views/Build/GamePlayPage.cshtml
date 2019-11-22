@@ -1,7 +1,7 @@
 
 @model GameState
-
-<script src="~/js/GamePlay.js"></script>
+<div id="gamestate_id">@ViewBag.gamestate_id</div>
+<div id="Team">@ViewBag.PlayerTeam</div>
 
 <div>
     <h1 id='char-form'></h1>
@@ -22,7 +22,6 @@
     <input id="target-form" type="hidden">
 </form>
 
-
 <div class="card" >
 <img id="game-img2" src="~/images/fightbk.jpg" alt="">
 <div class="row">
@@ -35,7 +34,7 @@
             </div>
             <div class="row">
                 <div class="col player-item"><p>@Model.Parties[0].Characters[0].DefensePower</p></div>
-                <div class="col player-item"><p>@Model.Parties[0].Characters[0].Health</p></div>
+                <div class="col player-item" id="HealthP0C0"><p>@Model.Parties[0].Characters[0].Health</p></div>
             </div>
         </div>
     </div>
@@ -47,7 +46,7 @@
             </div>
             <div class="row">
                 <div class="col player-item"><p>@Model.Parties[0].Characters[1].DefensePower</p></div>
-                <div class="col player-item"><p>@Model.Parties[0].Characters[1].Health</p></div>
+                <div class="col player-item" id="HealthP0C1"><p>@Model.Parties[0].Characters[1].Health</p></div>
             </div>
         </div>
     </div>
@@ -59,7 +58,7 @@
             </div>
             <div class="row">
                 <div class="col player-item"><p>@Model.Parties[0].Characters[2].DefensePower</p></div>
-                <div class="col player-item"><p>@Model.Parties[0].Characters[2].Health</p></div>
+                <div class="col player-item" id="HealthP0C2"><p>@Model.Parties[0].Characters[2].Health</p></div>
             </div>
         </div>
     </div>
@@ -71,7 +70,7 @@
             </div>
             <div class="row">
                 <div class="col player-item"><p>@Model.Parties[0].Characters[3].DefensePower</p></div>
-                <div class="col player-item"><p>@Model.Parties[0].Characters[3].Health</p></div>
+                <div class="col player-item" id="HealthP0C3"><p>@Model.Parties[0].Characters[3].Health</p></div>
             </div>
         </div>
     </div>
@@ -83,7 +82,7 @@
             </div>
             <div class="row">
                 <div class="col player-item"><p>@Model.Parties[0].Characters[4].DefensePower</p></div>
-                <div class="col player-item"><p>@Model.Parties[0].Characters[4].Health</p></div>
+                <div class="col player-item" id="HealthP0C4"><p>@Model.Parties[0].Characters[4].Health</p></div>
             </div>
         </div>
     </div>
@@ -129,7 +128,7 @@
             </div>
             <div class="row">
                 <div class="col player-item"><p>@Model.Parties[1].Characters[0].DefensePower</p></div>
-                <div class="col player-item"><p>@Model.Parties[1].Characters[0].Health</p></div>
+                <div class="col player-item" id="HealthP1C0"><p>@Model.Parties[1].Characters[0].Health</p></div>
             </div>
         </div>
     </div>
@@ -141,7 +140,7 @@
             </div>
             <div class="row">
                 <div class="col player-item"><p>@Model.Parties[1].Characters[1].DefensePower</p></div>
-                <div class="col player-item"><p>@Model.Parties[1].Characters[1].Health</p></div>
+                <div class="col player-item" id="HealthP1C1"><p>@Model.Parties[1].Characters[1].Health</p></div>
             </div>
         </div>
     </div>
@@ -153,7 +152,7 @@
             </div>
             <div class="row">
                 <div class="col player-item"><p>@Model.Parties[1].Characters[2].DefensePower</p></div>
-                <div class="col player-item"><p>@Model.Parties[1].Characters[2].Health</p></div>
+                <div class="col player-item" id="HealthP1C2"><p>@Model.Parties[1].Characters[2].Health</p></div>
             </div>
         </div>
     </div>
@@ -165,7 +164,7 @@
             </div>
             <div class="row">
                 <div class="col player-item"><p>@Model.Parties[1].Characters[3].DefensePower</p></div>
-                <div class="col player-item"><p>@Model.Parties[1].Characters[3].Health</p></div>
+                <div class="col player-item" id="HealthP1C3"><p>@Model.Parties[1].Characters[3].Health</p></div>
             </div>
         </div>
     </div>
@@ -177,7 +176,7 @@
             </div>
             <div class="row">
                 <div class="col player-item"><p>@Model.Parties[1].Characters[4].DefensePower</p></div>
-                <div class="col player-item"><p>@Model.Parties[1].Characters[4].Health</p></div>
+                <div class="col player-item" id="HealthP1C4"><p>@Model.Parties[1].Characters[4].Health</p></div>
             </div>
         </div>
     </div>
@@ -206,6 +205,6 @@
     </div>
 </div>
 
-
 <script src="~/js/GamePlay.js"></script>
+<script src="~/js/game.js"></script>
 
