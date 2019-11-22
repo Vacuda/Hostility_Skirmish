@@ -126,12 +126,13 @@ namespace Hostility_Skirmish.Controllers
         [HttpGet] //send json to javascript
         [Route("[controller]/getstate/{gamestate_id}")]
         public JsonResult GetGameState(int gamestate_id){
+            //int gamestate_id = Int32.Parse(gamestate_id_string);
+            System.Console.WriteLine($"&&&&&&&&&&&&&&&&&&&&&&{gamestate_id}&&&&&&&&&&&&&&&&&&&");
             GameState context = dbContext.GameStates
                             .Include(e=>e.Parties)
                             .ThenInclude(e=>e.Characters)
-                            .Include(e=>e.Parties)
-                            .ThenInclude(e=>e.User)
                             .FirstOrDefault(e=>e.GameStateId == gamestate_id);
+            System.Console.WriteLine($"&&&&&&&&&&&&&&&&&&&&&&{context.Parties[0].Characters[0].IsAlive}&&&&&&&&&&&&&&&&&&&");
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(context));
         }
 
@@ -164,7 +165,7 @@ namespace Hostility_Skirmish.Controllers
                     System.Console.WriteLine($"Break3: {x}");
                     break3 = x;
                     Action = ActionTarget.Substring(break2 + 1, counter-1);
-                    Target = ActionTarget.Substring(break3+1);
+                    Target = ActionTarget.Substring(break3+1); //target
                     counter = 0;
                 }
                 
