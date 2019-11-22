@@ -123,6 +123,24 @@ input{
   float: right;
   font-weight: bold;
 }
+.logout{
+  left: -103px;
+  width: 150px;
+  top: 103px;
+  position: absolute;
+  padding: 0;
+  z-index: 1;
+}
+.logout:hover{
+  left: -32px;
+  transition: .5s ease-in;
+}
+.logout p{
+  transform: rotate(-90deg);
+  margin:20px 0 20px 0 ;
+  float: right;
+  font-weight: bold;
+}
 
 .build-team{
   left: -86px;
