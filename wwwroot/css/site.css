@@ -114,6 +114,31 @@ input{
   left: -32px;
   transition: .5s ease-in;
 }
+.lobby p{
+  transform: rotate(-90deg);
+  margin:20px 0 20px 0 ;
+  float: right;
+  font-weight: bold;
+}
+
+.build-team{
+  left: -86px;
+  width: 150px;
+  position: absolute;
+  height: 98px;
+  padding: 0;
+  z-index: 1;
+}
+.build-team:hover{
+  left: -32px;
+  transition: .5s ease-in;
+}
+.build-team p{
+  transform: rotate(-90deg);
+  margin:36px 0 20px 0 ;
+  float: right;
+  font-weight: bold;
+}
 
 .info-box{
   width: 250px;
@@ -131,12 +156,7 @@ input{
 }
 
 
-.lobby p{
-  transform: rotate(-90deg);
-  margin:20px 0 20px 0 ;
-  float: right;
-  font-weight: bold;
-}
+
 .col-1 p{
   transform: rotate(-90deg);
   margin:20px -20px 20px 0 ;
