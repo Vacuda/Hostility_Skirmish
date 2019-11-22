@@ -191,10 +191,10 @@ namespace Hostility_Skirmish.Controllers
                             .ThenInclude(e=>e.Characters)
                             .FirstOrDefault(e=>e.GameStateId == gamestate_id);
                 if(Team == gamestate.CurrentTeam){
-                    if(Target[0]+"" == "A"+""){ //wow c#
-                        Ability.AbilityUse(gamestate.Parties[0].Characters[Int32.Parse(Target[1]+"")], Action);
+                    if(Target[0]+"" == "A"+""){ //wow c#               
+                        gamestate.Parties[0].Characters[Int32.Parse(Target[1]+"")].Health -= 12;
                     }else{ //Team == "B"
-                        Ability.AbilityUse(gamestate.Parties[1].Characters[Int32.Parse(Character)], Action);
+                        gamestate.Parties[1].Characters[Int32.Parse(Target[1]+"")].Health -= 12; 
                     }
                     System.Console.WriteLine($"TURN {Team} TAKEN");
                      
