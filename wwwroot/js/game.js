@@ -364,7 +364,7 @@
                 console.log("Health Team A char 4: "+game_state.Parties[0].Characters[3].Avatar_Name);
                 console.log("Health Team A char 5: "+game_state.Parties[0].Characters[4].Avatar_Name);
             }
-      })
+      )
       .catch(response => console.log(response));
     }, 7000);
     
