@@ -11,10 +11,14 @@
     //let Team = getElementById("Team").innerHTML; //from html elements
     //let gamestate_id = getElementById("gamestate_id").innerHTML;
 
+
     // PLAYER One
     // ---------------------------
+    
+    let lava =  "";
     $('#P1Char1').click(function () {
-        $('#P1Fight').prop('src', "/images/1.png");
+        lava =  $('#charlineA1').prop('src')
+        $('#P1Fight').prop('src', lava);
         if (Char == "") {
             Char = "A1";
             console.log("HJVKUVKUVKYJYVKJV");
@@ -24,7 +28,8 @@
         }
     });
     $('#P1Char2').click(function () {
-        $('#P1Fight').prop('src', "/images/2.png");
+        lava =  $('#charlineA2').prop('src')
+        $('#P1Fight').prop('src', lava);
         if (Char == "") {
             Char = "A2";
         }
@@ -33,7 +38,8 @@
         }
     });
     $('#P1Char3').click(function () {
-        $('#P1Fight').prop('src', "/images/3.png");
+        lava =  $('#charlineA3').prop('src')
+        $('#P1Fight').prop('src', lava);
         if (Char == "") {
             Char = "A3";
         }
@@ -42,16 +48,21 @@
         }
     });
     $('#P1Char4').click(function () {
-        $('#P1Fight').prop('src', "/images/4.png");
+        lava =  $('#charlineA4').prop('src')
+        $('#P1Fight').prop('src', lava);
         if (Char == "") {
             Char = "A4";
         }
         else {
             Tar = "A4";
         }
+        // $('#P1Char4').css({
+        // 'opacity': '0'
+        // });
     });
     $('#P1Char5').click(function () {
-        $('#P1Fight').prop('src', "/images/6.png");
+        lava =  $('#charlineA5').prop('src')
+        $('#P1Fight').prop('src', lava);
         if (Char == "") {
             Char = "A5";
         }
@@ -64,7 +75,8 @@
     // PLAYER TWO
     // ----------------------------
     $('#P2Char1').click(function () {
-        $('#P2Fight').prop('src', "/images/1.png");
+        lava =  $('#charlineB1').prop('src')
+        $('#P2Fight').prop('src', lava);
         if (Char == "") {
             Char = "B1";
         }
@@ -73,7 +85,8 @@
         }
     });
     $('#P2Char2').click(function () {
-        $('#P2Fight').prop('src', "/images/2.png");
+        lava =  $('#charlineB2').prop('src')
+        $('#P2Fight').prop('src', lava);
     if (Char == "") {
             Char = "B2";
         }
@@ -82,7 +95,8 @@
         }
     });
     $('#P2Char3').click(function () {
-        $('#P2Fight').prop('src', "/images/3.png");
+        lava =  $('#charlineB3').prop('src')
+        $('#P2Fight').prop('src', lava);
         if (Char == "") {
             Char = "B3";
         }
@@ -91,16 +105,22 @@
         }
     });
     $('#P2Char4').click(function () {
-        $('#P2Fight').prop('src', "/images/4.png");
+        lava =  $('#charlineB4').prop('src')
+        $('#P2Fight').prop('src', lava);
     if (Char == "") {
             Char = "B4";
         }
         else {
             Tar = "B4";
         }
+
+    // $('#P2Char4').css({
+    //     'display': 'none'
+    // });
     });
     $('#P2Char5').click(function () {
-        $('#P2Fight').prop('src', "/images/6.png");
+        lava =  $('#charlineB5').prop('src')
+        $('#P2Fight').prop('src', lava);
     if (Char == "") {
             Char = "B5";
         }

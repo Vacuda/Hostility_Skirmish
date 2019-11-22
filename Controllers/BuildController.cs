@@ -53,6 +53,7 @@ namespace Hostility_Skirmish.Controllers {
             dbContext.SaveChanges();
             int party_id = dbContext.Parties.Last().PartyId;
 
+        System.Console.WriteLine($")))))))))))))))))))))))))){party.P1_Avatar}))))))))))))))))");
         //build each character
             Character char_1 = new Character();
             char_1._Health = party.P1_Health;
