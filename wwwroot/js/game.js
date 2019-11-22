@@ -344,23 +344,21 @@
                 var HealthHTMLId = "HealthP0C4";
                 document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[4].Health;
                 //console.log(game_state.Parties[0].Characters[4].Health);
-                // document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[x].Health;
-                // document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[x].Health;
-                // document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[x].Health;
-                // document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[x].Health;
-                // document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[x].Health;
-
-                for(var x=0; x<game_state.Parties[0].Characters.Length ;x++){ //for each character
-                        console.log(game_state.Parties[0].Characters[x].Avatar_Name);
-                        var HealthHTMLId = "HealthP"+0+"C"+x;
-                        document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[x].Health;
-                    }
-            }else{ //Team == "B"
-                // for(var x=0; x<game_state.Parties[1].Characters.Length ;x++){ //for each character
-                //         console.log(game_state.Parties[1].Characters[x].Name);
-                //         var HealthHTMLId = "HealthP"+1+"C"+x;
-                //         document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[x].Health;
-                //     }
+                var HealthHTMLId = "HealthP1C0";
+                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[0].Health;
+                var HealthHTMLId = "HealthP1C1";
+                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[1].Health;
+                var HealthHTMLId = "HealthP1C2";
+                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[2].Health;
+                var HealthHTMLId = "HealthP1C3";
+                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[3].Health;
+                var HealthHTMLId = "HealthP1C4";
+                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[4].Health;
+                console.log("Health Team A char 1: "+game_state.Parties[0].Characters[0].Avatar_Name);
+                console.log("Health Team A char 2: "+game_state.Parties[0].Characters[1].Avatar_Name);
+                console.log("Health Team A char 3: "+game_state.Parties[0].Characters[2].Avatar_Name);
+                console.log("Health Team A char 4: "+game_state.Parties[0].Characters[3].Avatar_Name);
+                console.log("Health Team A char 5: "+game_state.Parties[0].Characters[4].Avatar_Name);
             }
       })
       .catch(response => console.log(response));
