@@ -88,7 +88,7 @@
     </div>
 </div>
 <div class="col player-col">blah
-    <div id="P1Char1" class="row"><img  class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[0].Avatar_Image" alt="Card image"></div>
+    <div id="P1Char1" class="row"><img  class="card-img-top char-img game-img" asp-src-include="@Model.Parties[0].Characters[0].Avatar_Image" alt="Card image"></div>
     <div id="P1Char2" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[1].Avatar_Image" alt="Card image"></div>
     <div id="P1Char3" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[2].Avatar_Image" alt="Card image"></div>
     <div id="P1Char4" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[3].Avatar_Image" alt="Card image"></div>
@@ -205,6 +205,6 @@
     </div>
 </div>
 
-<script src="~/js/GamePlay.js"></script>
-<script src="~/js/game.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script asp-src-include="~/js/game.js"></script>
 
