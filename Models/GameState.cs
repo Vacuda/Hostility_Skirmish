@@ -14,5 +14,8 @@ namespace Hostility_Skirmish.Models
 //Navigations
         public List<Party> Parties {get;set;}
 
+
+        // public List<Log> Logs {get;set;}
+
     }
 }

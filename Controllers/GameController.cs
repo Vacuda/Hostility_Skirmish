@@ -211,6 +211,16 @@ namespace Hostility_Skirmish.Controllers
                     dbContext.SaveChanges();
                 }//else nothing happens
 
+                //make log
+                // Log new_log = new Log();
+                // new_log.GameStateId = gamestate_id;
+                // string char_name = gamestate.Parties[1].Characters[Int32.Parse(Character)].Avatar_Name;
+                // new_log.Content = $"{char_name} attacks!";
+                // dbContext.SaveChanges();
+
+
+
+
                 //reset all TurnTaken bools if all are true.
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject($"{Team} {Character} {Action} {Target}"));
         }
