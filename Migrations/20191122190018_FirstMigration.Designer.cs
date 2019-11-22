@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hostility_Skirmish.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20191121193455_FirstMigration")]
+    [Migration("20191122190018_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
