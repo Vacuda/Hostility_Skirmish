@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -92,6 +93,19 @@ namespace Hostility_Skirmish.Models.GameClasses
         public string ItemDescription(){
             string desc = Item.Description(Item_Slot);
             return desc;
+        }
+
+        public int Attack(Character target){
+            int min = 1;
+            int max = 8;
+            Random rand = new Random();
+            int amount = rand.Next(   min + ((AttackPower-1)*3),  max + ((AttackPower-1)*3)  );
+            amount = amount - target.GetDefense();
+            return amount;
+        }
+
+        public int GetDefense(){
+            return DefensePower;
         }
 
 
