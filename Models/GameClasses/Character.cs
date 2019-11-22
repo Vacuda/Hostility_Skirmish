@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace Hostility_Skirmish.Models.GameClasses
 {
@@ -48,7 +49,7 @@ namespace Hostility_Skirmish.Models.GameClasses
 
 //NAVIGATIONS
 
-        
+        [JsonIgnore] 
         public Party Party {get;set;}
 
 

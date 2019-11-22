@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Hostility_Skirmish.Models;
+using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hostility_Skirmish.Models.GameClasses
@@ -20,17 +21,15 @@ namespace Hostility_Skirmish.Models.GameClasses
 
 
 //RELATIONSHIPS
-
-        
         public int UserId {get;set;}
 
         public int GameStateId {get;set;}
 
-
 //NAVIGATION
-
+        [JsonIgnore]  
         public User User {get;set;}
 
+        [JsonIgnore]
         public GameState GameState {get;set;}
 
 
