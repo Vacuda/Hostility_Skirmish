@@ -47,6 +47,7 @@ namespace Hostility_Skirmish.Controllers
             //reset parties
             partyA.Reset();
             partyB.Reset();
+            dbContext.SaveChanges();
 
             //Assign client's team
             ViewBag.PlayerTeam = "A";
@@ -94,8 +95,6 @@ namespace Hostility_Skirmish.Controllers
             //find parties
             Party partyA = dbContext.Parties.FirstOrDefault(e=>e.UserId == UserA.UserId);
             Party partyB = dbContext.Parties.FirstOrDefault(e=>e.UserId == UserB.UserId);
-            System.Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@@@@@@{partyA.PartyId}@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-            System.Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@@@@@@{partyB.PartyId}@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
             //build big object
             GameState context = dbContext.GameStates

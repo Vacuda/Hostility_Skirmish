@@ -10,6 +10,7 @@ let clicked = "";
 let clicked2 = "";
 let clicked3 = "";
 let clicked4 = "";
+let clickedinput = "";
 let clickedCard = "";
 let newDefense1 = 0;
 let newDefense2 = 0;
@@ -49,6 +50,7 @@ $('.char-card1').click(function () {
     clicked2 = "#abilText1"
     clicked3 = "#ItemText1"
     clicked4 = "#char-name1"
+    clickedinput = "#image_value1"
     console.log(clicked)
     return clicked
 });
@@ -65,6 +67,7 @@ $('.char-card2').click(function () {
     clicked2 = "#abilText2"
     clicked3 = "#ItemText2"
     clicked4 = "#char-name2"
+    clickedinput = "#image_value2"
     console.log(clicked)
     return clicked
 });
@@ -80,6 +83,7 @@ $('.char-card3').click(function () {
     clicked2 = "#abilText3"
     clicked3 = "#ItemText3"
     clicked4 = "#char-name3"
+    clickedinput = "#image_value3"
     console.log(clicked)
     return clicked
 });
@@ -95,6 +99,7 @@ $('.char-card4').click(function () {
     clicked2 = "#abilText4"
     clicked3 = "#ItemText4"
     clicked4 = "#char-name4"
+    clickedinput = "#image_value4"
     console.log(clicked)
     return clicked
 });
@@ -110,6 +115,7 @@ $('.char-card6').click(function () {
     clicked2 = "#abilText5"
     clicked3 = "#ItemText5"
     clicked4 = "#char-name5"
+    clickedinput = "#image_value5"
     console.log(clicked)
     return clicked
 });
@@ -247,75 +253,64 @@ $('#edit-btn').click(function () {
 // ADD CHAR IMG TO CLICK CARD
 //-----------------------------
 $('#char-1').click(function () {
-    $(clicked4).html("Brian");
+    $(clicked4).html("Hosenbane");
     $(clicked).prop('src', "/images/1.png");
+    $(clickedinput).attr("value", "/images/1.png");
 });
 $('#char-2').click(function () {
-    $(clicked4).html("Yarn");
-
+    $(clicked4).html("Argenian");
     $(clicked).prop('src', "/images/2.png");
+    $(clickedinput).attr("value", "/images/2.png");
 });
 $('#char-3').click(function () {
-    $(clicked4).html("Amber");
-
+    $(clicked4).html("Jasper");
     $(clicked).prop('src', "/images/3.png");
+    $(clickedinput).attr("value", "/images/3.png");
 });
 $('#char-4').click(function () {
-    $(clicked4).html("Scott");
-
+    $(clicked4).html("Pitter");
     $(clicked).prop('src', "/images/4.png");
+    $(clickedinput).attr("value", "/images/4.png");
 });
 $('#char-6').click(function () {
-    $(clicked4).html("Chris");
-
+    $(clicked4).html("Orgon");
     $(clicked).prop('src', "/images/6.png");
+    $(clickedinput).attr("value", "/images/6.png");
 });
 $('#char-7').click(function () {
-    $(clicked4).html("Brandon");
-
-
-
+    $(clicked4).html("Kater");
     $(clicked).prop('src', "/images/7.png");
+    $(clickedinput).attr("value", "/images/7.png");
 });
 $('#char-8').click(function () {
-    $(clicked4).html("Adam");
-
+    $(clicked4).html("Arsen");
     $(clicked).prop('src', "/images/8.png");
+    $(clickedinput).attr("value", "/images/8.png");
 });
 $('#char-9').click(function () {
-    $(clicked4).html("Patty");
-
+    $(clicked4).html("Strike");
     $(clicked).prop('src', "/images/9.png");
+    $(clickedinput).attr("value", "/images/9.png");
 });
-// $('#char-8').click(function () {
-//     $(clicked4).html("Steve");
-
-//     $(clicked).prop('src', "/images/8.png");
-// });
-// $('#char-9').click(function () {
-//     $(clicked4).html("Andy");
-
-//     $(clicked).prop('src', "/images/9.png");
-// });
 $('#char-10').click(function () {
-    $(clicked4).html("Steve");
-
+    $(clicked4).html("Mango");
     $(clicked).prop('src', "/images/10.png");
+    $(clickedinput).attr("value", "/images/10.png");
 });
 $('#char-11').click(function () {
-    $(clicked4).html("Andy");
-
+    $(clicked4).html("Daphne");
     $(clicked).prop('src', "/images/11.png");
+    $(clickedinput).attr("value", "/images/11.png");
 });
 $('#char-12').click(function () {
-    $(clicked4).html("Chuck");
-
+    $(clicked4).html("Portisha");
     $(clicked).prop('src', "/images/12.png");
+    $(clickedinput).attr("value", "/images/12.png");
 });
 $('#char-13').click(function () {
-    $(clicked4).html("Adrien");
-
+    $(clicked4).html("Gheen");
     $(clicked).prop('src', "/images/13.png");
+    $(clickedinput).attr("value", "/images/13.png");
 });
 
 // ADD ABILITY TO CLICK CARD

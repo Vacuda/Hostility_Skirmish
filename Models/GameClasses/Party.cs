@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Hostility_Skirmish.Models;
 using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hostility_Skirmish.Models.GameClasses
 {
@@ -42,11 +43,14 @@ namespace Hostility_Skirmish.Models.GameClasses
 
         public void Reset(){
             foreach(var c in Characters){
+                System.Console.WriteLine("HEHEEHEEHEHEHEHEEHEHEHEHEHEHEHEHEHEHE");
                 c.Health        = c._Health;
+                System.Console.WriteLine($"HEHEEHEEHEHEHEH{c.Health}HEHEHEHEHEHEHEHE");
                 c.AttackPower   = c._AttackPower;
                 c.DefensePower  = c._DefensePower;
                 c.Avatar_Image  = c._Avatar_Image;
                 c.Item_Slot     = c._Item_Slot;
+                // SaveChanges();
             }
         }
 
