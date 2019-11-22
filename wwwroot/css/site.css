@@ -237,6 +237,14 @@ input{
 .player-col{
   margin-top: 64px;
 }
+.lobbybk{
+  height: 800px;
+}
+.logged-user{
+  position: absolute;
+  left: 680px;
+  top:430px;
+}
 
 
 /* .char-card:hover {
