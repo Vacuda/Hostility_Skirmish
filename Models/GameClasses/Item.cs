@@ -4,10 +4,14 @@ namespace Hostility_Skirmish.Models.GameClasses
     public class Item
     {
 
-        public static void ItemUse(Character target, string item){
+        public static int ItemUse(Character target, string item){
 
             if(item == "Heal"){
-                target.ChangeHealth(40);
+                int amount = target.ChangeHealth(40);
+                return amount;
+            }
+            else{
+                return 0;
             }
 
         }

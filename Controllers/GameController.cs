@@ -55,7 +55,6 @@ namespace Hostility_Skirmish.Controllers
             //build gamestate
             GameState gamestate = new GameState();
             gamestate.CurrentTeam = "A";
-            
             dbContext.GameStates.Add(gamestate);
             dbContext.SaveChanges();
 
@@ -64,6 +63,13 @@ namespace Hostility_Skirmish.Controllers
             partyA.GameStateId = gamestate_id;
             dbContext.SaveChanges();
             partyB.GameStateId = gamestate_id;
+            dbContext.SaveChanges();
+
+            //add initial log
+            Log new_log = new Log();
+            new_log.GameStateId = gamestate_id;
+            new_log.Content = "Begin The Battle!";
+            dbContext.Logs.Add(new_log);
             dbContext.SaveChanges();
 
             //Send to HTML DOM for later use by javascript.
@@ -75,6 +81,7 @@ namespace Hostility_Skirmish.Controllers
                             .ThenInclude(e=>e.Characters)
                             .Include(e=>e.Parties)
                             .ThenInclude(e=>e.User)
+                            .Include(e=>e.Logs)
                             .FirstOrDefault(e=>e.GameStateId == gamestate_id);
 
             return View("../Build/GamePlayPage", context);
@@ -102,6 +109,7 @@ namespace Hostility_Skirmish.Controllers
                                 .ThenInclude(e=>e.Characters)
                                 .Include(e=>e.Parties)
                                 .ThenInclude(e=>e.User)
+                                .Include(e=>e.Logs)
                                 .FirstOrDefault(e=>e.GameStateId == partyA.GameStateId);
 
             //Assign client's team
@@ -191,13 +199,67 @@ namespace Hostility_Skirmish.Controllers
                             .ThenInclude(e=>e.Characters)
                             .FirstOrDefault(e=>e.GameStateId == gamestate_id);
                 if(Team == gamestate.CurrentTeam){
-                    if(Target[0]+"" == "A"+""){ //wow c#
-                        Ability.AbilityUse(gamestate.Parties[0].Characters[Int32.Parse(Target[1]+"")], Action);
-                    }else{ //Team == "B"
-                        Ability.AbilityUse(gamestate.Parties[1].Characters[Int32.Parse(Character)], Action);
+
+                    //set doer
+                    int doer_team = 999;
+                    if(Team == "A"){doer_team = 0;}
+                    else{doer_team = 1;}
+                    int doer_char = Int32.Parse(Character)-1;
+                    Character doer = gamestate.Parties[doer_team].Characters[doer_char];
+
+                    //set victim
+                    int victim_team = 999;
+                    if (Target[0] == 'A'){victim_team = 0;}
+                    else {victim_team = 1;}
+                    int victim_char = 999;
+                    if(Target[1] == '1'){victim_char = 0;}
+                    if(Target[1] == '2'){victim_char = 1;}
+                    if(Target[1] == '3'){victim_char = 2;}
+                    if(Target[1] == '4'){victim_char = 3;}
+                    if(Target[1] == '5'){victim_char = 4;}
+                    Character victim = gamestate.Parties[victim_team].Characters[victim_char];
+
+                    //actions
+                    if(Action == "Attack"){
+                        int amount = doer.Attack(victim);
+                        dbContext.SaveChanges();
+
+                        //new log
+                        Log new_log = new Log();
+                        new_log.GameStateId = gamestate_id;
+                        new_log.Content = $"{doer.Avatar_Name} attacks {victim.Avatar_Name}! Health: {amount}";
+                        dbContext.Logs.Add(new_log);
+                        dbContext.SaveChanges();
+                        
                     }
+                    if(Action == "Item"){
+                        int amount = doer.ItemUse(victim);
+                        dbContext.SaveChanges();
+                        //Make Log
+                    }
+                    if(Action == "Ability"){
+                        int amount = doer.AbilityUse(victim);
+                        dbContext.SaveChanges();
+                        //Make Log
+                    }
+                    if(Action == "Defend"){
+                        // int amount = doer.ItemUse(victim);
+                        // dbContext.SaveChanges();
+                        //Make Log
+                    }
+
+
+
+
+
+                    // if(Target[0]+"" == "A"+""){ //wow c#
+                    //     // Ability.AbilityUse(gamestate.Parties[0].Characters[Int32.Parse(Target[1]+"")], Action);
+
+                    // }else{ //Team == "B"
+                    //     Ability.AbilityUse(gamestate.Parties[1].Characters[Int32.Parse(Character)], Action);
+                    // }
                     System.Console.WriteLine($"TURN {Team} TAKEN");
-                     
+
                     if(gamestate.CurrentTeam == "A"){ 
                         //player's character loses a turn
                         gamestate.Parties[0].Characters[Int32.Parse(Character)].TurnTaken = true;
@@ -211,12 +273,7 @@ namespace Hostility_Skirmish.Controllers
                     dbContext.SaveChanges();
                 }//else nothing happens
 
-                //make log
-                // Log new_log = new Log();
-                // new_log.GameStateId = gamestate_id;
-                // string char_name = gamestate.Parties[1].Characters[Int32.Parse(Character)].Avatar_Name;
-                // new_log.Content = $"{char_name} attacks!";
-                // dbContext.SaveChanges();
+
 
 
 
