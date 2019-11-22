@@ -35,8 +35,6 @@ function CheckItem() {
 
 }
 
-
-
 // SELECT CARD
 //-----------------------------
 $('.char-card1').click(function () {
@@ -388,125 +386,7 @@ $('#item5').click(function () {
 // ***************************************
 // ***************************************
 // ***************************************
-// ***************************************
-// ***************************************
-// ***************************************
 
-
-let Char = ""
-let Tar = ""
-let Item = ""
-// PLAYER One
-// ---------------------------
-$('#P1Char1').click(function () {
-    $('#P1Fight').prop('src', "/images/1.png");
-    if (Char == "") {
-        Char = A1;
-    }
-    else {
-        Tar = A1;
-    }
-});
-$('#P1Char2').click(function () {
-    $('#P1Fight').prop('src', "/images/2.png");
-    if (Char == "") {
-        Char = A2;
-    }
-    else {
-        Tar = A2;
-    }
-});
-$('#P1Char3').click(function () {
-    $('#P1Fight').prop('src', "/images/3.png");
-    if (Char == "") {
-        Char = A3;
-    }
-    else {
-        Tar = A3;
-    }
-});
-$('#P1Char4').click(function () {
-    $('#P1Fight').prop('src', "/images/4.png");
-    if (Char == "") {
-        Char = A4;
-    }
-    else {
-        Tar = A4;
-    }
-});
-$('#P1Char5').click(function () {
-    $('#P1Fight').prop('src', "/images/6.png");
-    if (Char == "") {
-        Char = A5;
-    }
-    else {
-        Tar = A5;
-    }
-});
-
-
-// PLAYER TWO
-// ----------------------------
-$('#P2Char1').click(function () {
-    $('#P2Fight').prop('src', "/images/1.png");
-    if (Char == "") {
-        Char = B1;
-    }
-    else {
-        Tar = B1;
-    }
-});
-$('#P2Char2').click(function () {
-    $('#P2Fight').prop('src', "/images/2.png");
-   if (Char == "") {
-        Char = B2;
-    }
-    else {
-        Tar = B2;
-    }
-});
-$('#P2Char3').click(function () {
-    $('#P2Fight').prop('src', "/images/3.png");
-    if (Char == "") {
-        Char = B3;
-    }
-    else {
-        Tar = B3;
-    }
-});
-$('#P2Char4').click(function () {
-    $('#P2Fight').prop('src', "/images/4.png");
-  if (Char == "") {
-        Char = B4;
-    }
-    else {
-        Tar = B4;
-    }
-});
-$('#P2Char5').click(function () {
-    $('#P2Fight').prop('src', "/images/6.png");
-   if (Char == "") {
-        Char = B5;
-    }
-    else {
-        Tar = B5;
-    }
-});
-
-// ITEM
-// -------------------------------
-$('#game-attack').click(function () {
-// Set Variable
-});
-$('#game-defend').click(function () {
-// Set Variable
-});
-$('#game-ability').click(function () {
-// Set Variable
-});
-$('#game-item').click(function () {
-// Set Variable
-});
 
 
 

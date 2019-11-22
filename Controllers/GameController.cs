@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using Hostility_Skirmish.Models.GameClasses;
+using System;
 
 namespace Hostility_Skirmish.Controllers
 {
@@ -47,9 +48,13 @@ namespace Hostility_Skirmish.Controllers
             partyA.Reset();
             partyB.Reset();
 
+            //Assign client's team
+            ViewBag.PlayerTeam = "A";
+
             //build gamestate
             GameState gamestate = new GameState();
             gamestate.CurrentTeam = "A";
+            
             dbContext.GameStates.Add(gamestate);
             dbContext.SaveChanges();
 
@@ -60,6 +65,8 @@ namespace Hostility_Skirmish.Controllers
             partyB.GameStateId = gamestate_id;
             dbContext.SaveChanges();
 
+            //Send to HTML DOM for later use by javascript.
+            ViewBag.gamestate_id = gamestate_id;
 
             //build big object
             GameState context = dbContext.GameStates
@@ -75,6 +82,9 @@ namespace Hostility_Skirmish.Controllers
         [HttpGet] //TEAM B
         [Route("[controller]")] //challenger has entered the arena! Let the game begin!
         public IActionResult EnterGame(){
+
+            //Assign client's team
+            ViewBag.PlayerTeam = "B";
 
             string session_email = HttpContext.Session.GetString("Email");
 
@@ -109,23 +119,31 @@ namespace Hostility_Skirmish.Controllers
 
             return View("../Build/GamePlayPage", context);
         }
-        //read game state whose turn is it? default user1's turn.
+        //read game state whose turn is it? default A's turn.
 
-        [HttpGet]
-        [Route("[controller]/get")]
-        public JsonResult GetGameState(){
-            return Json("PLACEHOLDER");
+        [HttpGet] //send json to javascript
+        [Route("[controller]/getstate/{gamestate_id}")]
+        public JsonResult GetGameState(int gamestate_id){
+            GameState context = dbContext.GameStates
+                            .Include(e=>e.Parties)
+                            .ThenInclude(e=>e.Characters)
+                            .Include(e=>e.Parties)
+                            .ThenInclude(e=>e.User)
+                            .FirstOrDefault(e=>e.GameStateId == gamestate_id);
+            return Json(Newtonsoft.Json.JsonConvert.SerializeObject(context));
         }
-
 
         [Produces("application/json")] //for posts I guess?
         [HttpPost]
-        [Route("[controller]/character_action")]
-        public JsonResult UserOneCharacterAction([FromBody] string ActionTarget){
+        [Route("[controller]/character_action/{gamestate_id}")]
+        public JsonResult UserOneCharacterAction([FromBody] string ActionTarget, int gamestate_id ){
           //Team          (A or B)
             //Character     (1,2,3,4,5)
             //Action        (attack, defend, ability, item)
             //Target        (A1,A2,A3,A4,A5,B1,B2,B3,B4,B5)
+
+        //just to be safe
+        System.Console.WriteLine($"$$$$$$$$$$$$$$$$${gamestate_id}$$$$$$$$$$$$$$$$$$");    
 
         //parse string
             string Team = "XXX";
@@ -138,7 +156,6 @@ namespace Hostility_Skirmish.Controllers
             int counter = 0;
 
             for(var x=0; x<ActionTarget.Length; x++){
-                
                 string cursor = "" + ActionTarget[x]; //make char a string you monsterous language
 
                 if(cursor == ":" && break3 == 0 && break2 != 0 && break1 != 0){ //action
@@ -163,10 +180,30 @@ namespace Hostility_Skirmish.Controllers
                     Team = ActionTarget.Substring(0, break1);
                 }
                 counter += 1;
-                System.Console.WriteLine("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+                System.Console.WriteLine("#########################################");
             }
-            
             System.Console.WriteLine($"{Team} {Character} {Action} {Target}");
+            //perform action
+                GameState gamestate = dbContext.GameStates
+                            .Include(e=>e.Parties)
+                            .ThenInclude(e=>e.Characters)
+                            .FirstOrDefault(e=>e.GameStateId == gamestate_id);
+                if(Team == gamestate.CurrentTeam){
+                    if(Team == "A"){
+                        Ability.AbilityUse(gamestate.Parties[0].Characters[Int32.Parse(Character)], Action);
+                    }else{ //Team == "B"
+                        Ability.AbilityUse(gamestate.Parties[1].Characters[Int32.Parse(Character)], Action);
+                    }
+                    System.Console.WriteLine($"TURN {Team} TAKEN");
+                     //switch turn
+                    if(gamestate.CurrentTeam == "A"){
+                        gamestate.CurrentTeam="B";
+                    }
+                    if(gamestate.CurrentTeam == "B"){
+                        gamestate.CurrentTeam="A";
+                    }
+                    dbContext.SaveChanges();
+                }//else nothing happens
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject($"{Team} {Character} {Action} {Target}"));
         }
 
