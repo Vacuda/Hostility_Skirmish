@@ -83,9 +83,6 @@ namespace Hostility_Skirmish.Controllers
         [Route("[controller]")] //challenger has entered the arena! Let the game begin!
         public IActionResult EnterGame(){
 
-            //Assign client's team
-            ViewBag.PlayerTeam = "B";
-
             string session_email = HttpContext.Session.GetString("Email");
 
             //find users
@@ -97,6 +94,8 @@ namespace Hostility_Skirmish.Controllers
             //find parties
             Party partyA = dbContext.Parties.FirstOrDefault(e=>e.UserId == UserA.UserId);
             Party partyB = dbContext.Parties.FirstOrDefault(e=>e.UserId == UserB.UserId);
+            System.Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@@@@@@{partyA.PartyId}@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            System.Console.WriteLine($"@@@@@@@@@@@@@@@@@@@@@@@@@@@@{partyB.PartyId}@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
             //build big object
             GameState context = dbContext.GameStates
@@ -104,9 +103,12 @@ namespace Hostility_Skirmish.Controllers
                                 .ThenInclude(e=>e.Characters)
                                 .Include(e=>e.Parties)
                                 .ThenInclude(e=>e.User)
-                                .Where(e=>e.Parties[0].PartyId == partyA.PartyId)
-                                .Where(e=>e.Parties[1].PartyId == partyB.PartyId)
-                                .FirstOrDefault();
+                                .FirstOrDefault(e=>e.GameStateId == partyA.GameStateId);
+
+            //Assign client's team
+            ViewBag.PlayerTeam = "B";
+            //Send to HTML DOM for later use by javascript.
+            ViewBag.gamestate_id = partyA.GameStateId;
 
             //unchallenge user field
             if ( session_email != null){
