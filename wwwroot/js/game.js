@@ -24,6 +24,22 @@
         else {
             Tar = "A1";
         }
+        $('#P1Char1').css({
+        'opacity': '0'
+        });
+        $('#P1Char2').css({
+        'opacity': '1'
+        });
+        $('#P1Char3').css({
+        'opacity': '1'
+        });
+        $('#P1Char4').css({
+        'opacity': '1'
+        });
+        $('#P1Char5').css({
+        'opacity': '1'
+        });
+     
     });
     $('#P1Char2').click(function () {
         lava =  $('#charlineA2').prop('src')
@@ -34,6 +50,22 @@
         else {
             Tar = "A2";
         }
+            $('#P1Char1').css({
+            'opacity': '1'
+            });
+            $('#P1Char2').css({
+            'opacity': '0'
+            });
+            $('#P1Char3').css({
+            'opacity': '1'
+            });
+            $('#P1Char4').css({
+            'opacity': '1'
+            });
+            $('#P1Char5').css({
+            'opacity': '1'
+            })
+    
     });
     $('#P1Char3').click(function () {
         lava =  $('#charlineA3').prop('src')
@@ -44,6 +76,21 @@
         else {
             Tar = "A3";
         }
+        $('#P1Char1').css({
+            'opacity': '1'
+            });
+            $('#P1Char2').css({
+            'opacity': '1'
+            });
+            $('#P1Char3').css({
+            'opacity': '0'
+            });
+            $('#P1Char4').css({
+            'opacity': '1'
+            });
+            $('#P1Char5').css({
+            'opacity': '1'
+            })
     });
     $('#P1Char4').click(function () {
         lava =  $('#charlineA4').prop('src')
@@ -54,9 +101,22 @@
         else {
             Tar = "A4";
         }
-        // $('#P1Char4').css({
-        // 'opacity': '0'
-        // });
+        $('#P1Char1').css({
+            'opacity': '1'
+            });
+            $('#P1Char2').css({
+            'opacity': '1'
+            });
+            $('#P1Char3').css({
+            'opacity': '1'
+            });
+            $('#P1Char4').css({
+            'opacity': '0'
+            });
+            $('#P1Char5').css({
+            'opacity': '1'
+            })
+      
     });
     $('#P1Char5').click(function () {
         lava =  $('#charlineA5').prop('src')
@@ -67,6 +127,21 @@
         else {
             Tar = "A5";
         }
+        $('#P1Char1').css({
+            'opacity': '1'
+            });
+            $('#P1Char2').css({
+            'opacity': '1'
+            });
+            $('#P1Char3').css({
+            'opacity': '1'
+            });
+            $('#P1Char4').css({
+            'opacity': '1'
+            });
+            $('#P1Char5').css({
+            'opacity': '0'
+            })
     });
 
 
@@ -81,6 +156,21 @@
         else {
             Tar = "B1";
         }
+        $('#P2Char1').css({
+            'opacity': '0'
+            });
+            $('#P2Char2').css({
+            'opacity': '1'
+            });
+            $('#P2Char3').css({
+            'opacity': '1'
+            });
+            $('#P2Char4').css({
+            'opacity': '1'
+            });
+            $('#P2Char5').css({
+            'opacity': '1'
+            })
     });
     $('#P2Char2').click(function () {
         lava =  $('#charlineB2').prop('src')
@@ -91,6 +181,21 @@
         else {
             Tar = "B2";
         }
+        $('#P2Char1').css({
+            'opacity': '1'
+            });
+            $('#P2Char2').css({
+            'opacity': '0'
+            });
+            $('#P2Char3').css({
+            'opacity': '1'
+            });
+            $('#P2Char4').css({
+            'opacity': '1'
+            });
+            $('#P2Char5').css({
+            'opacity': '1'
+            })
     });
     $('#P2Char3').click(function () {
         lava =  $('#charlineB3').prop('src')
@@ -101,6 +206,21 @@
         else {
             Tar = "B3";
         }
+        $('#P2Char1').css({
+            'opacity': '1'
+            });
+            $('#P2Char2').css({
+            'opacity': '1'
+            });
+            $('#P2Char3').css({
+            'opacity': '0'
+            });
+            $('#P2Char4').css({
+            'opacity': '1'
+            });
+            $('#P2Char5').css({
+            'opacity': '1'
+            })
     });
     $('#P2Char4').click(function () {
         lava =  $('#charlineB4').prop('src')
@@ -111,10 +231,23 @@
         else {
             Tar = "B4";
         }
+        $('#P2Char1').css({
+            'opacity': '1'
+            });
+            $('#P2Char2').css({
+            'opacity': '1'
+            });
+            $('#P2Char3').css({
+            'opacity': '1'
+            });
+            $('#P2Char4').css({
+            'opacity': '0'
+            });
+            $('#P2Char5').css({
+            'opacity': '1'
+            })
 
-    // $('#P2Char4').css({
-    //     'display': 'none'
-    // });
+
     });
     $('#P2Char5').click(function () {
         lava =  $('#charlineB5').prop('src')
@@ -125,6 +258,21 @@
         else {
             Tar = "B5";
         }
+        $('#P2Char1').css({
+            'opacity': '1'
+            });
+            $('#P2Char2').css({
+            'opacity': '1'
+            });
+            $('#P2Char3').css({
+            'opacity': '1'
+            });
+            $('#P2Char4').css({
+            'opacity': '1'
+            });
+            $('#P2Char5').css({
+            'opacity': '0'
+            })
     });
 
     // Actions
@@ -179,8 +327,12 @@
           return response.json();
       })
       .then(json => { //main game loop
-            if (Team == "A"){
                 game_state = JSON.parse(json);
+
+            //set turn
+                Team = game_state.CurrentTeam
+
+            //read health values
                 var HealthHTMLId = "HealthP0C0";
                 document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[0].Health;
                 //console.log(game_state.Parties[0].Characters[0].Health);
@@ -196,25 +348,23 @@
                 var HealthHTMLId = "HealthP0C4";
                 document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[4].Health;
                 //console.log(game_state.Parties[0].Characters[4].Health);
-                // document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[x].Health;
-                // document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[x].Health;
-                // document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[x].Health;
-                // document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[x].Health;
-                // document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[x].Health;
-
-                for(var x=0; x<game_state.Parties[0].Characters.Length ;x++){ //for each character
-                        console.log(game_state.Parties[0].Characters[x].Avatar_Name);
-                        var HealthHTMLId = "HealthP"+0+"C"+x;
-                        document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[x].Health;
-                    }
-            }else{ //Team == "B"
-                // for(var x=0; x<game_state.Parties[1].Characters.Length ;x++){ //for each character
-                //         console.log(game_state.Parties[1].Characters[x].Name);
-                //         var HealthHTMLId = "HealthP"+1+"C"+x;
-                //         document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[x].Health;
-                //     }
+                var HealthHTMLId = "HealthP1C0";
+                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[0].Health;
+                var HealthHTMLId = "HealthP1C1";
+                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[1].Health;
+                var HealthHTMLId = "HealthP1C2";
+                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[2].Health;
+                var HealthHTMLId = "HealthP1C3";
+                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[3].Health;
+                var HealthHTMLId = "HealthP1C4";
+                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[4].Health;
+                console.log("Health Team A char 1: "+game_state.Parties[0].Characters[0].Avatar_Name);
+                console.log("Health Team A char 2: "+game_state.Parties[0].Characters[1].Avatar_Name);
+                console.log("Health Team A char 3: "+game_state.Parties[0].Characters[2].Avatar_Name);
+                console.log("Health Team A char 4: "+game_state.Parties[0].Characters[3].Avatar_Name);
+                console.log("Health Team A char 5: "+game_state.Parties[0].Characters[4].Avatar_Name);
             }
-      })
+      )
       .catch(response => console.log(response));
     }, 7000);
     
