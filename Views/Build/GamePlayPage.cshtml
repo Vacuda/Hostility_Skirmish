@@ -87,35 +87,35 @@
         </div>
     </div>
 </div>
-<div class="col player-col">blah
-    <div id="P1Char1" class="row"><img  class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[0].Avatar_Image" alt="Card image"></div>
-    <div id="P1Char2" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[1].Avatar_Image" alt="Card image"></div>
-    <div id="P1Char3" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[2].Avatar_Image" alt="Card image"></div>
-    <div id="P1Char4" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[3].Avatar_Image" alt="Card image"></div>
-    <div id="P1Char5" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[4].Avatar_Image" alt="Card image"></div>
+<div class="col player-col">
+    <div id="P1Char1" class="row"><img id="charlineA1" class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[0].Avatar_Image" alt="Card image"></div>
+    <div id="P1Char2" class="row"><img id="charlineA2" class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[1].Avatar_Image" alt="Card image"></div>
+    <div id="P1Char3" class="row"><img id="charlineA3" class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[2].Avatar_Image" alt="Card image"></div>
+    <div id="P1Char4" class="row"><img id="charlineA4" class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[3].Avatar_Image" alt="Card image"></div>
+    <div id="P1Char5" class="row"><img id="charlineA5" class="card-img-top char-img game-img" src="@Model.Parties[0].Characters[4].Avatar_Image" alt="Card image"></div>
 </div>
-<div class="col">blah
-    <div class="row">XXXXX</div>
-    <div class="row">XXXXX</div>
-    <div class="row"><img id="P1Fight" class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
-    <div class="row">XXXXX</div>
-    <div class="row">XXXXX</div>
+<div class="col">
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"><img id="P1Fight" class="card-img-top char-img" src=""></div>
+    <div class="row"></div>
+    <div class="row"></div>
 
 </div>
-<div class="col">blah
-    <div class="row">XXXXX</div>
-    <div class="row">XXXXX</div>
-    <div class="row"><img id="P2Fight" class="card-img-top char-img" src="~/images/2.png" alt="Card image"></div>
-    <div class="row">XXXXX</div>
-    <div class="row">XXXXX</div>
+<div class="col">
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"><img id="P2Fight" class="card-img-top char-img" src=""></div>
+    <div class="row"></div>
+    <div class="row"></div>
 
 </div>
-<div class="col player-col">blah
-    <div id="P2Char1" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[0].Avatar_Image" alt="Card image"></div>
-    <div id="P2Char2" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[1].Avatar_Image" alt="Card image"></div>
-    <div id="P2Char3" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[2].Avatar_Image" alt="Card image"></div>
-    <div id="P2Char4" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[3].Avatar_Image" alt="Card image"></div>
-    <div id="P2Char5" class="row"><img class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[4].Avatar_Image" alt="Card image"></div>
+<div class="col player-col">
+    <div id="P2Char1" class="row"><img id="charlineB1" class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[0].Avatar_Image" alt="Card image"></div>
+    <div id="P2Char2" class="row"><img id="charlineB2" class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[1].Avatar_Image" alt="Card image"></div>
+    <div id="P2Char3" class="row"><img id="charlineB3" class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[2].Avatar_Image" alt="Card image"></div>
+    <div id="P2Char4" class="row"><img id="charlineB4" class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[3].Avatar_Image" alt="Card image"></div>
+    <div id="P2Char5" class="row"><img id="charlineB5" class="card-img-top char-img game-img" src="@Model.Parties[1].Characters[4].Avatar_Image" alt="Card image"></div>
 
 </div>
 
@@ -205,6 +205,5 @@
     </div>
 </div>
 
-<script src="~/js/GamePlay.js"></script>
-<script src="~/js/game.js"></script>
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script asp-src-include="~/js/game.js"></script>

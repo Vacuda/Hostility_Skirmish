@@ -27,41 +27,41 @@ namespace Hostility_Skirmish.Models.GameClasses
 
         public static string GetAvatar(string code){
 
-            if (code == "~/images/1.png"){
-                return "Brian";
+            if (code == "/images/1.png"){
+                return "Hosenbane";
             }
-            if (code == "~/images/2.png"){
-                return "Yarn";
+            if (code == "/images/2.png"){
+                return "Argenian";
             }
-            if (code == "~/images/3.png"){
-                return "Amber";
+            if (code == "/images/3.png"){
+                return "Jasper";
             }
-            if (code == "~/images/4.png"){
-                return "Scott";
+            if (code == "/images/4.png"){
+                return "Pitter";
             }
-            if (code == "~/images/6.png"){
-                return "Chris";
+            if (code == "/images/6.png"){
+                return "Orgon";
             }
-            if (code == "~/images/7.png"){
-                return "Brandon";
+            if (code == "/images/7.png"){
+                return "Kater";
             }
-            if (code == "~/images/8.png"){
-                return "Adam";
+            if (code == "/images/8.png"){
+                return "Arsen";
             }
-            if (code == "~/images/9.png"){
-                return "Patty";
+            if (code == "/images/9.png"){
+                return "Strike";
             }
-            if (code == "~/images/10.png"){
-                return "Steve";
+            if (code == "/images/10.png"){
+                return "Mango";
             }
-            if (code == "~/images/11.png"){
-                return "Andy";
+            if (code == "/images/11.png"){
+                return "Daphne";
             }
-            if (code == "~/images/12.png"){
-                return "Chuck";
+            if (code == "/images/12.png"){
+                return "Portisha";
             }
-            if (code == "~/images/13.png"){
-                return "Adrien";
+            if (code == "/images/13.png"){
+                return "Gheen";
             }
 
             return "FALSE";

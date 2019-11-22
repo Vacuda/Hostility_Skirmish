@@ -89,6 +89,9 @@ input {
 
 .abil{
   margin-top: 10px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 15px;
   border: 2px solid black;
 }
 
@@ -246,6 +249,34 @@ input{
   top:430px;
 }
 
+.card-title {
+    font-size: 18px;
+    margin: 10px auto;
+    display: block;
+    /* padding: -10px; */
+}
+
+.card-size {
+    width: 160px;
+    padding: 5px;
+}
+
+div.card-size img {
+    margin: 0px auto;
+}
+
+div.card-size input {
+    margin: 0px 0px 15px 0px;
+    text-align: center;
+}
+
+div.card-size label {
+    margin: 0px;
+}
+
+.container {
+    padding: 15px;
+}
 
 /* .char-card:hover {
   border: 3px solid red;
