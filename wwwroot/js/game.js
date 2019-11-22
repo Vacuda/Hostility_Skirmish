@@ -26,6 +26,22 @@
         else {
             Tar = A1;
         }
+        $('#P1Char1').css({
+        'opacity': '0'
+        });
+        $('#P1Char2').css({
+        'opacity': '1'
+        });
+        $('#P1Char3').css({
+        'opacity': '1'
+        });
+        $('#P1Char4').css({
+        'opacity': '1'
+        });
+        $('#P1Char5').css({
+        'opacity': '1'
+        });
+     
     });
     $('#P1Char2').click(function () {
         lava =  $('#charlineA2').prop('src')
@@ -36,6 +52,22 @@
         else {
             Tar = "A2";
         }
+            $('#P1Char1').css({
+            'opacity': '1'
+            });
+            $('#P1Char2').css({
+            'opacity': '0'
+            });
+            $('#P1Char3').css({
+            'opacity': '1'
+            });
+            $('#P1Char4').css({
+            'opacity': '1'
+            });
+            $('#P1Char5').css({
+            'opacity': '1'
+            })
+    
     });
     $('#P1Char3').click(function () {
         lava =  $('#charlineA3').prop('src')
@@ -46,6 +78,21 @@
         else {
             Tar = "A3";
         }
+        $('#P1Char1').css({
+            'opacity': '1'
+            });
+            $('#P1Char2').css({
+            'opacity': '1'
+            });
+            $('#P1Char3').css({
+            'opacity': '0'
+            });
+            $('#P1Char4').css({
+            'opacity': '1'
+            });
+            $('#P1Char5').css({
+            'opacity': '1'
+            })
     });
     $('#P1Char4').click(function () {
         lava =  $('#charlineA4').prop('src')
@@ -56,9 +103,22 @@
         else {
             Tar = "A4";
         }
-        // $('#P1Char4').css({
-        // 'opacity': '0'
-        // });
+        $('#P1Char1').css({
+            'opacity': '1'
+            });
+            $('#P1Char2').css({
+            'opacity': '1'
+            });
+            $('#P1Char3').css({
+            'opacity': '1'
+            });
+            $('#P1Char4').css({
+            'opacity': '0'
+            });
+            $('#P1Char5').css({
+            'opacity': '1'
+            })
+      
     });
     $('#P1Char5').click(function () {
         lava =  $('#charlineA5').prop('src')
@@ -69,6 +129,21 @@
         else {
             Tar = "A5";
         }
+        $('#P1Char1').css({
+            'opacity': '1'
+            });
+            $('#P1Char2').css({
+            'opacity': '1'
+            });
+            $('#P1Char3').css({
+            'opacity': '1'
+            });
+            $('#P1Char4').css({
+            'opacity': '1'
+            });
+            $('#P1Char5').css({
+            'opacity': '0'
+            })
     });
 
 
@@ -83,6 +158,21 @@
         else {
             Tar = "B1";
         }
+        $('#P2Char1').css({
+            'opacity': '0'
+            });
+            $('#P2Char2').css({
+            'opacity': '1'
+            });
+            $('#P2Char3').css({
+            'opacity': '1'
+            });
+            $('#P2Char4').css({
+            'opacity': '1'
+            });
+            $('#P2Char5').css({
+            'opacity': '1'
+            })
     });
     $('#P2Char2').click(function () {
         lava =  $('#charlineB2').prop('src')
@@ -93,6 +183,21 @@
         else {
             Tar = "B2";
         }
+        $('#P2Char1').css({
+            'opacity': '1'
+            });
+            $('#P2Char2').css({
+            'opacity': '0'
+            });
+            $('#P2Char3').css({
+            'opacity': '1'
+            });
+            $('#P2Char4').css({
+            'opacity': '1'
+            });
+            $('#P2Char5').css({
+            'opacity': '1'
+            })
     });
     $('#P2Char3').click(function () {
         lava =  $('#charlineB3').prop('src')
@@ -103,6 +208,21 @@
         else {
             Tar = "B3";
         }
+        $('#P2Char1').css({
+            'opacity': '1'
+            });
+            $('#P2Char2').css({
+            'opacity': '1'
+            });
+            $('#P2Char3').css({
+            'opacity': '0'
+            });
+            $('#P2Char4').css({
+            'opacity': '1'
+            });
+            $('#P2Char5').css({
+            'opacity': '1'
+            })
     });
     $('#P2Char4').click(function () {
         lava =  $('#charlineB4').prop('src')
@@ -113,10 +233,23 @@
         else {
             Tar = "B4";
         }
+        $('#P2Char1').css({
+            'opacity': '1'
+            });
+            $('#P2Char2').css({
+            'opacity': '1'
+            });
+            $('#P2Char3').css({
+            'opacity': '1'
+            });
+            $('#P2Char4').css({
+            'opacity': '0'
+            });
+            $('#P2Char5').css({
+            'opacity': '1'
+            })
 
-    // $('#P2Char4').css({
-    //     'display': 'none'
-    // });
+
     });
     $('#P2Char5').click(function () {
         lava =  $('#charlineB5').prop('src')
@@ -127,6 +260,21 @@
         else {
             Tar = "B5";
         }
+        $('#P2Char1').css({
+            'opacity': '1'
+            });
+            $('#P2Char2').css({
+            'opacity': '1'
+            });
+            $('#P2Char3').css({
+            'opacity': '1'
+            });
+            $('#P2Char4').css({
+            'opacity': '1'
+            });
+            $('#P2Char5').css({
+            'opacity': '0'
+            })
     });
 
     // Actions
