@@ -298,15 +298,53 @@
                 Tar = "";
             })
             .catch(response => console.log(response));
-            
     });
-    $('#game-defend').click(function () {
-    // Set Variable
-    });
+
     $('#game-ability').click(function () {
-    // Set Variable
+        fetch("/Game/character_action/"+gamestate_id, { 
+            headers: { "Content-Type": "application/json" },
+            credentials: 'include',
+            method: "POST",
+            body: Team+":"+Char+":Ability:"+Tar //of the form xxx:xxx:xxx:xxx ex. 
+          })
+            .then(response => {
+                if (!response.ok) {
+                    throw response;
+                }
+                return response.json();
+            })
+            .then(json => {
+                console.log(json);
+                console.log(Team+":"+Char+":Ability:"+Tar)
+                json = JSON.parse(json);
+                Char = "";
+                Tar = "";
+            })
+            .catch(response => console.log(response));
     });
     $('#game-item').click(function () {
+        fetch("/Game/character_action/"+gamestate_id, { 
+            headers: { "Content-Type": "application/json" },
+            credentials: 'include',
+            method: "POST",
+            body: Team+":"+Char+":Item:"+Tar //of the form xxx:xxx:xxx:xxx ex. 
+          })
+            .then(response => {
+                if (!response.ok) {
+                    throw response;
+                }
+                return response.json();
+            })
+            .then(json => {
+                console.log(json);
+                console.log(Team+":"+Char+":Item:"+Tar)
+                json = JSON.parse(json);
+                Char = "";
+                Tar = "";
+            })
+            .catch(response => console.log(response));
+    });
+    $('#game-defend').click(function () {
     // Set Variable
     });
 
