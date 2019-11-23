@@ -76,6 +76,7 @@ namespace Hostility_Skirmish.Models.GameClasses
 
         public void Death(){
             IsAlive = false;
+            TurnTaken = true;
             Avatar_Image = String.Concat(_Avatar_Image, "B");
             System.Console.WriteLine(Avatar_Image);
             Health = 0;

@@ -49,9 +49,6 @@ namespace Hostility_Skirmish.Controllers
             partyB.Reset();
             dbContext.SaveChanges();
 
-            //Assign client's team
-            ViewBag.PlayerTeam = "A";
-
             //build gamestate
             GameState gamestate = new GameState();
             gamestate.CurrentTeam = "A";
@@ -72,7 +69,8 @@ namespace Hostility_Skirmish.Controllers
             dbContext.Logs.Add(new_log);
             dbContext.SaveChanges();
 
-            //Send to HTML DOM for later use by javascript.
+            //Assign client's team, and current gamestate_id
+            ViewBag.PlayerTeam = "A";
             ViewBag.gamestate_id = gamestate_id;
 
             //build big object
@@ -193,11 +191,15 @@ namespace Hostility_Skirmish.Controllers
                 System.Console.WriteLine("#########################################");
             }
             System.Console.WriteLine($"{Team} {Character} {Action} {Target}");
+
+
             //perform action
                 GameState gamestate = dbContext.GameStates
                             .Include(e=>e.Parties)
                             .ThenInclude(e=>e.Characters)
                             .FirstOrDefault(e=>e.GameStateId == gamestate_id);
+
+                //only current team can send actions
                 if(Team == gamestate.CurrentTeam){
 
                     //set doer
@@ -221,6 +223,9 @@ namespace Hostility_Skirmish.Controllers
 
                     //actions
                     if(Action == "Attack"){
+                        System.Console.WriteLine($"######################{doer}");
+                        System.Console.WriteLine($"######################{Action}");
+                        System.Console.WriteLine($"######################{victim}");
                         int amount = doer.Attack(victim);
                         dbContext.SaveChanges();
 
@@ -235,44 +240,45 @@ namespace Hostility_Skirmish.Controllers
                     if(Action == "Item"){
                         int amount = doer.ItemUse(victim);
                         dbContext.SaveChanges();
-                        //Make Log
+
+                        //new log
+                        Log new_log = new Log();
+                        new_log.GameStateId = gamestate_id;
+                        new_log.Content = $"{doer.Avatar_Name} uses their item on {victim.Avatar_Name}! Health: {amount}";
+                        dbContext.Logs.Add(new_log);
+                        dbContext.SaveChanges();
                     }
                     if(Action == "Ability"){
                         int amount = doer.AbilityUse(victim);
                         dbContext.SaveChanges();
-                        //Make Log
+
+                        //new log
+                        Log new_log = new Log();
+                        new_log.GameStateId = gamestate_id;
+                        new_log.Content = $"{doer.Avatar_Name} uses their ability on {victim.Avatar_Name}! Health: {amount}";
+                        dbContext.Logs.Add(new_log);
+                        dbContext.SaveChanges();
                     }
                     if(Action == "Defend"){
                         // int amount = doer.ItemUse(victim);
                         // dbContext.SaveChanges();
                         //Make Log
                     }
+                    System.Console.WriteLine("JJDFJKADJFKSJDKFSDJFKSDJFKSJKFJ");
 
-
-
-
-
-                    // if(Target[0]+"" == "A"+""){ //wow c#
-                    //     // Ability.AbilityUse(gamestate.Parties[0].Characters[Int32.Parse(Target[1]+"")], Action);
-
-                    // }else{ //Team == "B"
-                    //     Ability.AbilityUse(gamestate.Parties[1].Characters[Int32.Parse(Character)], Action);
-                    // }
-                    System.Console.WriteLine($"TURN {Team} TAKEN");
-
+                    //change turn taken on character, change current team's turn
+                    doer.TurnTaken = true;
                     if(gamestate.CurrentTeam == "A"){ 
-                        //player's character loses a turn
-                        gamestate.Parties[0].Characters[Int32.Parse(Character)].TurnTaken = true;
-                        //switch turn
                         gamestate.CurrentTeam="B";
                     }
                     if(gamestate.CurrentTeam == "B"){
-                        gamestate.Parties[1].Characters[Int32.Parse(Character)].TurnTaken = true;
                         gamestate.CurrentTeam="A";
                     }
+                    System.Console.WriteLine($"TURN {Team} TAKEN");
                     dbContext.SaveChanges();
                 }//else nothing happens
 
+                //check if all turns have been taken
 
 
 

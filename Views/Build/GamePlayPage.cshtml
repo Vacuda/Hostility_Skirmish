@@ -11,7 +11,16 @@
 </div>
 <a class="lobby btn btn-info" href="/lobby"><p>Lobby</p></a>
 
+@{
+    if (@ViewBag.PlayerTeam == @Model.CurrentTeam){
+        <h1>Your Turn</h1>
+    }
+    else{
+        <h1>Enemy's Turn</h1>
+    }
+}
 
+<h1></h1>
 
 <form action="">
     <!-- Character -->
@@ -186,7 +195,7 @@
 
 <div  class="row bottom">
     <div class="col">
-        <div class="card"><h4>@Model.Logs[Logs.Length-1]</h4></div>
+        <div class="card"><h4>@Model.Logs[0].Content</h4></div>
     </div>
     <div class="col">
             <div class="card">

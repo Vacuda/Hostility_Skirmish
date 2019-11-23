@@ -105,7 +105,7 @@ namespace Hostility_Skirmish.Migrations
 
                     b.HasIndex("GameStateId");
 
-                    b.ToTable("Log");
+                    b.ToTable("Logs");
                 });
 
             modelBuilder.Entity("Hostility_Skirmish.Models.User", b =>
