@@ -15,6 +15,8 @@ namespace Hostility_Skirmish.Models.GameClasses
         public bool IsAlive {get;set;} = true;
 
 
+        //fields with _ are not changed during a match
+
         public int _Health {get;set;}
         public int Health {get;set;}
 
@@ -107,7 +109,7 @@ namespace Hostility_Skirmish.Models.GameClasses
             int max = 8;
             Random rand = new Random();
             int amount = rand.Next(   min + ((AttackPower-1)*3),  max + ((AttackPower-1)*3)  );
-            amount = amount - target.GetDefense();
+            amount = -1 * (amount - target.GetDefense());
             target.ChangeHealth(amount);
             return amount;
         }

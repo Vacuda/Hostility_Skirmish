@@ -19,20 +19,20 @@ namespace Hostility_Skirmish.Controllers
         }
 
         [HttpGet] //TEAM A
-        [Route("[controller]/{user_id}")] //challenge has been made waiting for acceptance!
-        public IActionResult ChallengeDeck(int user_id){
+        [Route("[controller]/{current_user_id}/{challenger_id}")] //challenge has been made waiting for acceptance!
+        public IActionResult ChallengeDeck(int current_user_id, int challenger_id){
             string session_email = HttpContext.Session.GetString("Email");
             if ( session_email != null){
-                var CurrentUser = dbContext.Users.FirstOrDefault(a => a.Email == session_email);
+                var CurrentUser = dbContext.Users.FirstOrDefault(a=>a.UserId == current_user_id);
                 CurrentUser.Challenged = true;
             }
-            User ChallengedUser = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
+            User ChallengedUser = dbContext.Users.FirstOrDefault(x=>x.UserId == challenger_id);
             ChallengedUser.Challenged = true;
             dbContext.SaveChanges();
 
             //find users
-            User UserA = dbContext.Users.FirstOrDefault(a => a.Email == session_email);
-            User UserB = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
+            User UserA = dbContext.Users.FirstOrDefault(a=>a.UserId == current_user_id);
+            User UserB = dbContext.Users.FirstOrDefault(x=>x.UserId == challenger_id);
 
 
             //find parties
@@ -223,9 +223,9 @@ namespace Hostility_Skirmish.Controllers
 
                     //actions
                     if(Action == "Attack"){
-                        System.Console.WriteLine($"######################{doer}");
+                        System.Console.WriteLine($"######################{doer.Avatar_Name}");
                         System.Console.WriteLine($"######################{Action}");
-                        System.Console.WriteLine($"######################{victim}");
+                        System.Console.WriteLine($"######################{victim.Avatar_Name}");
                         int amount = doer.Attack(victim);
                         dbContext.SaveChanges();
 

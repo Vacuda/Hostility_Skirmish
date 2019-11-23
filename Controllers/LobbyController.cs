@@ -36,6 +36,9 @@ namespace Hostility_Skirmish.Controllers
                 CurrentUser.Challenged = false;
                 dbContext.SaveChanges();
             }
+            //send current user
+            ViewBag.CurrentUserId = dbContext.Users.FirstOrDefault(a => a.Email == session_email).UserId;
+            
             List<User> AllUsers = dbContext.Users.Where(x=>x.Logged==true).ToList();
             return View("Lobby", AllUsers);
         }
