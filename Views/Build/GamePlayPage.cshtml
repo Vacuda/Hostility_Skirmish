@@ -195,7 +195,7 @@
 
 <div  class="row bottom">
     <div class="col">
-        <div class="card"><h4>@Model.Logs[0].Content</h4></div>
+        <div class="card"><h4>@Model.Logs[@Model.Logs.Count-1].Content</h4></div>
     </div>
     <div class="col">
             <div class="card">
