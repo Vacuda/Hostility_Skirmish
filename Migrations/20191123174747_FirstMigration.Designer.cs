@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hostility_Skirmish.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20191122205502_FirstMig")]
-    partial class FirstMig
+    [Migration("20191123174747_FirstMigration")]
+    partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -107,7 +107,7 @@ namespace Hostility_Skirmish.Migrations
 
                     b.HasIndex("GameStateId");
 
-                    b.ToTable("Log");
+                    b.ToTable("Logs");
                 });
 
             modelBuilder.Entity("Hostility_Skirmish.Models.User", b =>

@@ -39,6 +39,26 @@ namespace Hostility_Skirmish.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Logs",
+                columns: table => new
+                {
+                    LogId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Content = table.Column<string>(nullable: true),
+                    GameStateId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Logs", x => x.LogId);
+                    table.ForeignKey(
+                        name: "FK_Logs_GameStates_GameStateId",
+                        column: x => x.GameStateId,
+                        principalTable: "GameStates",
+                        principalColumn: "GameStateId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Parties",
                 columns: table => new
                 {
@@ -105,6 +125,11 @@ namespace Hostility_Skirmish.Migrations
                 column: "PartyId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Logs_GameStateId",
+                table: "Logs",
+                column: "GameStateId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Parties_GameStateId",
                 table: "Parties",
                 column: "GameStateId");
@@ -119,6 +144,9 @@ namespace Hostility_Skirmish.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Characters");
+
+            migrationBuilder.DropTable(
+                name: "Logs");
 
             migrationBuilder.DropTable(
                 name: "Parties");
