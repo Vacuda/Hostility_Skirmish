@@ -72,6 +72,9 @@ span{
 .char-img {
   left: 20px;
   width: 46px;
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
   /* background: url('~/images/finalfantasy6sheet1.gif') 0 0; */
 }
 
@@ -295,6 +298,15 @@ div.card-size label {
 .container {
     padding: 15px;
 }
+
+.yourturn {
+    color: green;
+}
+
+.notyourturn {
+    color: red;
+}
+
 
 /* .char-card:hover {
   border: 3px solid red;

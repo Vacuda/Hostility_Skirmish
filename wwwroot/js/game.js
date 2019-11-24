@@ -410,7 +410,13 @@
                 game_state = JSON.parse(json);
 
             //set turn
-                Team = game_state.CurrentTeam
+                if (Team == game_state.CurrentTeam){
+                    document.getElementById("whoseturn").innerHTML = "<h1 class='yourturn'>Your Turn!</h1>"
+                }
+                else{
+                    document.getElementById("whoseturn").innerHTML = "<h1 class='notyourturn'>It is not your turn!</h1>"
+                }
+                // Team = game_state.CurrentTeam
 
             //read health values                   
                 document.getElementById("HealthP0C0").innerHTML = game_state.Parties[0].Characters[0].Health;
@@ -418,12 +424,23 @@
                 document.getElementById("HealthP0C2").innerHTML = game_state.Parties[0].Characters[2].Health;                
                 document.getElementById("HealthP0C3").innerHTML = game_state.Parties[0].Characters[3].Health;            
                 document.getElementById("HealthP0C4").innerHTML = game_state.Parties[0].Characters[4].Health;
-                
                 document.getElementById("HealthP1C0").innerHTML = game_state.Parties[1].Characters[0].Health;
                 document.getElementById("HealthP1C1").innerHTML = game_state.Parties[1].Characters[1].Health;
                 document.getElementById("HealthP1C2").innerHTML = game_state.Parties[1].Characters[2].Health;
                 document.getElementById("HealthP1C3").innerHTML = game_state.Parties[1].Characters[3].Health;
                 document.getElementById("HealthP1C4").innerHTML = game_state.Parties[1].Characters[4].Health;
+
+            //read avatar images
+                document.getElementById("charlineA1").src       = game_state.Parties[0].Characters[0].Avatar_Image;
+                document.getElementById("charlineA2").src       = game_state.Parties[0].Characters[1].Avatar_Image;
+                document.getElementById("charlineA3").src       = game_state.Parties[0].Characters[2].Avatar_Image;
+                document.getElementById("charlineA4").src       = game_state.Parties[0].Characters[3].Avatar_Image;
+                document.getElementById("charlineA5").src       = game_state.Parties[0].Characters[4].Avatar_Image;
+                document.getElementById("charlineB1").src       = game_state.Parties[1].Characters[0].Avatar_Image;
+                document.getElementById("charlineB2").src       = game_state.Parties[1].Characters[1].Avatar_Image;
+                document.getElementById("charlineB3").src       = game_state.Parties[1].Characters[2].Avatar_Image;
+                document.getElementById("charlineB4").src       = game_state.Parties[1].Characters[3].Avatar_Image;
+                document.getElementById("charlineB5").src       = game_state.Parties[1].Characters[4].Avatar_Image;
                 
             //read log
                 document.getElementById("logblock").innerHTML = "<h4>" + game_state.Logs[game_state.Logs.length-1].Content + "</h4>";
