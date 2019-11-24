@@ -34,6 +34,10 @@ namespace Hostility_Skirmish.Controllers
         [HttpGet("LoginPage")]
         public IActionResult LoginPage()
         {            
+            if(HttpContext.Session.GetString("Email")==null){
+                HttpContext.Session.SetString("Email", "");
+            }
+            
             return View("LoginPage");
         }
         // [HttpGet("Success")]
@@ -121,7 +125,7 @@ namespace Hostility_Skirmish.Controllers
                 CurrentUser.Logged = true;
                 dbContext.SaveChanges();
 
-                return RedirectToAction("BuildTeam","Build");
+                return RedirectToAction("Lobby","Lobby");
             }
                return View("LoginPage",NewLogin);
         }

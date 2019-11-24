@@ -38,9 +38,9 @@ namespace Hostility_Skirmish.Controllers
             //find parties
             Party partyA = dbContext.Parties
                                 .Include(e=>e.Characters)
-                                .FirstOrDefault(e=>e.UserId == UserA.UserId);
+                                .FirstOrDefault(f=>f.UserId == UserA.UserId);
             Party partyB = dbContext.Parties
-                                .Include(e=>e.Characters)
+                                .Include(f=>f.Characters)
                                 .FirstOrDefault(e=>e.UserId == UserB.UserId);
 
 
@@ -223,9 +223,6 @@ namespace Hostility_Skirmish.Controllers
 
                     //actions
                     if(Action == "Attack"){
-                        System.Console.WriteLine($"######################{doer.Avatar_Name}");
-                        System.Console.WriteLine($"######################{Action}");
-                        System.Console.WriteLine($"######################{victim.Avatar_Name}");
                         int amount = doer.Attack(victim);
                         dbContext.SaveChanges();
 
@@ -264,18 +261,27 @@ namespace Hostility_Skirmish.Controllers
                         // dbContext.SaveChanges();
                         //Make Log
                     }
-                    System.Console.WriteLine("JJDFJKADJFKSJDKFSDJFKSDJFKSJKFJ");
+                    System.Console.WriteLine("______________________________________________________________________________________________________________________");
+                    System.Console.WriteLine($"TURN {Team} TAKEN");
+                    System.Console.WriteLine($"---{gamestate.CurrentTeam}---");
 
                     //change turn taken on character, change current team's turn
                     doer.TurnTaken = true;
                     if(gamestate.CurrentTeam == "A"){ 
                         gamestate.CurrentTeam="B";
+                        System.Console.WriteLine("_____________________________________________***************************************_______________________________________");
+                        System.Console.WriteLine($"---{gamestate.CurrentTeam}---");
+                        dbContext.SaveChanges();
                     }
-                    if(gamestate.CurrentTeam == "B"){
+                    else{
                         gamestate.CurrentTeam="A";
+                        dbContext.SaveChanges();
                     }
+
+                    System.Console.WriteLine("______________________________________________________________________________________________________________________");
                     System.Console.WriteLine($"TURN {Team} TAKEN");
-                    dbContext.SaveChanges();
+                    System.Console.WriteLine($"---{gamestate.CurrentTeam}---");
+                    
                 }//else nothing happens
 
                 //check if all turns have been taken
