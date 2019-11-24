@@ -370,37 +370,38 @@
             //set turn
                 Team = game_state.CurrentTeam
 
-            //read health values
-                var HealthHTMLId = "HealthP0C0";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[0].Health;
+            //read health values                   
+                document.getElementById("HealthP0C0").innerHTML = game_state.Parties[0].Characters[0].Health;
+                document.getElementById("HealthP0C1").innerHTML = game_state.Parties[0].Characters[1].Health;                
+                document.getElementById("HealthP0C2").innerHTML = game_state.Parties[0].Characters[2].Health;                
+                document.getElementById("HealthP0C3").innerHTML = game_state.Parties[0].Characters[3].Health;            
+                document.getElementById("HealthP0C4").innerHTML = game_state.Parties[0].Characters[4].Health;
+                
+                document.getElementById("HealthP1C0").innerHTML = game_state.Parties[1].Characters[0].Health;
+                document.getElementById("HealthP1C1").innerHTML = game_state.Parties[1].Characters[1].Health;
+                document.getElementById("HealthP1C2").innerHTML = game_state.Parties[1].Characters[2].Health;
+                document.getElementById("HealthP1C3").innerHTML = game_state.Parties[1].Characters[3].Health;
+                document.getElementById("HealthP1C4").innerHTML = game_state.Parties[1].Characters[4].Health;
+                
+            //read log
+                document.getElementById("logblock").innerHTML = game_state.Logs[game_state.Logs.length-1].Content;
+
                 //console.log(game_state.Parties[0].Characters[0].Health);
-                var HealthHTMLId = "HealthP0C1";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[1].Health;
                 //console.log(game_state.Parties[0].Characters[1].Health);
-                var HealthHTMLId = "HealthP0C2";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[2].Health;
                 //console.log(game_state.Parties[0].Characters[2].Health);
-                var HealthHTMLId = "HealthP0C3";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[3].Health;
                 //console.log(game_state.Parties[0].Characters[3].Health);
-                var HealthHTMLId = "HealthP0C4";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[4].Health;
                 //console.log(game_state.Parties[0].Characters[4].Health);
-                var HealthHTMLId = "HealthP1C0";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[0].Health;
-                var HealthHTMLId = "HealthP1C1";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[1].Health;
-                var HealthHTMLId = "HealthP1C2";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[2].Health;
-                var HealthHTMLId = "HealthP1C3";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[3].Health;
-                var HealthHTMLId = "HealthP1C4";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[4].Health;
-                console.log("Health Team A char 1: "+game_state.Parties[0].Characters[0].Avatar_Name);
-                console.log("Health Team A char 2: "+game_state.Parties[0].Characters[1].Avatar_Name);
-                console.log("Health Team A char 3: "+game_state.Parties[0].Characters[2].Avatar_Name);
-                console.log("Health Team A char 4: "+game_state.Parties[0].Characters[3].Avatar_Name);
-                console.log("Health Team A char 5: "+game_state.Parties[0].Characters[4].Avatar_Name);
+                // console.log("Health Team A char 1: "+game_state.Parties[0].Characters[0].Avatar_Name);
+                // console.log("Health Team A char 2: "+game_state.Parties[0].Characters[1].Avatar_Name);
+                // console.log("Health Team A char 3: "+game_state.Parties[0].Characters[2].Avatar_Name);
+                // console.log("Health Team A char 4: "+game_state.Parties[0].Characters[3].Avatar_Name);
+                // console.log("Health Team A char 5: "+game_state.Parties[0].Characters[4].Avatar_Name);
+
+                console.log("Values Refilled!");
+            
+
+
+
             }
       )
       .catch(response => console.log(response));
