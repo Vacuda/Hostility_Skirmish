@@ -61,6 +61,19 @@ namespace Hostility_Skirmish.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet("LogOutAll")]
+        public IActionResult LogOutAll()
+        {
+            var AllUsers = dbContext.Users;  
+            foreach(var i in AllUsers){
+                i.Logged = false;
+                i.Challenged = false;
+            }   
+            dbContext.SaveChanges();   
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index");
+        }
+
         // ---------------------------------------------
 
         [HttpPost("Register")]
