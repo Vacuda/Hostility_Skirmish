@@ -50,21 +50,21 @@
         else {
             Tar = "A2";
         }
-            $('#P1Char1').css({
-            'opacity': '1'
-            });
-            $('#P1Char2').css({
-            'opacity': '0'
-            });
-            $('#P1Char3').css({
-            'opacity': '1'
-            });
-            $('#P1Char4').css({
-            'opacity': '1'
-            });
-            $('#P1Char5').css({
-            'opacity': '1'
-            })
+        $('#P1Char1').css({
+        'opacity': '1'
+        });
+        $('#P1Char2').css({
+        'opacity': '0'
+        });
+        $('#P1Char3').css({
+        'opacity': '1'
+        });
+        $('#P1Char4').css({
+        'opacity': '1'
+        });
+        $('#P1Char5').css({
+        'opacity': '1'
+        })
     
     });
     $('#P1Char3').click(function () {
@@ -77,20 +77,20 @@
             Tar = "A3";
         }
         $('#P1Char1').css({
-            'opacity': '1'
-            });
-            $('#P1Char2').css({
-            'opacity': '1'
-            });
-            $('#P1Char3').css({
-            'opacity': '0'
-            });
-            $('#P1Char4').css({
-            'opacity': '1'
-            });
-            $('#P1Char5').css({
-            'opacity': '1'
-            })
+        'opacity': '1'
+        });
+        $('#P1Char2').css({
+        'opacity': '1'
+        });
+        $('#P1Char3').css({
+        'opacity': '0'
+        });
+        $('#P1Char4').css({
+        'opacity': '1'
+        });
+        $('#P1Char5').css({
+        'opacity': '1'
+        })
     });
     $('#P1Char4').click(function () {
         lava =  $('#charlineA4').prop('src')
@@ -102,20 +102,20 @@
             Tar = "A4";
         }
         $('#P1Char1').css({
-            'opacity': '1'
-            });
-            $('#P1Char2').css({
-            'opacity': '1'
-            });
-            $('#P1Char3').css({
-            'opacity': '1'
-            });
-            $('#P1Char4').css({
-            'opacity': '0'
-            });
-            $('#P1Char5').css({
-            'opacity': '1'
-            })
+        'opacity': '1'
+        });
+        $('#P1Char2').css({
+        'opacity': '1'
+        });
+        $('#P1Char3').css({
+        'opacity': '1'
+        });
+        $('#P1Char4').css({
+        'opacity': '0'
+        });
+        $('#P1Char5').css({
+        'opacity': '1'
+        })
       
     });
     $('#P1Char5').click(function () {
@@ -128,20 +128,20 @@
             Tar = "A5";
         }
         $('#P1Char1').css({
-            'opacity': '1'
-            });
-            $('#P1Char2').css({
-            'opacity': '1'
-            });
-            $('#P1Char3').css({
-            'opacity': '1'
-            });
-            $('#P1Char4').css({
-            'opacity': '1'
-            });
-            $('#P1Char5').css({
-            'opacity': '0'
-            })
+        'opacity': '1'
+        });
+        $('#P1Char2').css({
+        'opacity': '1'
+        });
+        $('#P1Char3').css({
+        'opacity': '1'
+        });
+        $('#P1Char4').css({
+        'opacity': '1'
+        });
+        $('#P1Char5').css({
+        'opacity': '0'
+        })
     });
 
 
@@ -157,20 +157,20 @@
             Tar = "B1";
         }
         $('#P2Char1').css({
-            'opacity': '0'
-            });
-            $('#P2Char2').css({
-            'opacity': '1'
-            });
-            $('#P2Char3').css({
-            'opacity': '1'
-            });
-            $('#P2Char4').css({
-            'opacity': '1'
-            });
-            $('#P2Char5').css({
-            'opacity': '1'
-            })
+        'opacity': '0'
+        });
+        $('#P2Char2').css({
+        'opacity': '1'
+        });
+        $('#P2Char3').css({
+        'opacity': '1'
+        });
+        $('#P2Char4').css({
+        'opacity': '1'
+        });
+        $('#P2Char5').css({
+        'opacity': '1'
+        })
     });
     $('#P2Char2').click(function () {
         lava =  $('#charlineB2').prop('src')
@@ -182,20 +182,20 @@
             Tar = "B2";
         }
         $('#P2Char1').css({
-            'opacity': '1'
-            });
-            $('#P2Char2').css({
-            'opacity': '0'
-            });
-            $('#P2Char3').css({
-            'opacity': '1'
-            });
-            $('#P2Char4').css({
-            'opacity': '1'
-            });
-            $('#P2Char5').css({
-            'opacity': '1'
-            })
+        'opacity': '1'
+        });
+        $('#P2Char2').css({
+        'opacity': '0'
+        });
+        $('#P2Char3').css({
+        'opacity': '1'
+        });
+        $('#P2Char4').css({
+        'opacity': '1'
+        });
+        $('#P2Char5').css({
+        'opacity': '1'
+        })
     });
     $('#P2Char3').click(function () {
         lava =  $('#charlineB3').prop('src')
@@ -207,20 +207,20 @@
             Tar = "B3";
         }
         $('#P2Char1').css({
-            'opacity': '1'
-            });
-            $('#P2Char2').css({
-            'opacity': '1'
-            });
-            $('#P2Char3').css({
-            'opacity': '0'
-            });
-            $('#P2Char4').css({
-            'opacity': '1'
-            });
-            $('#P2Char5').css({
-            'opacity': '1'
-            })
+        'opacity': '1'
+        });
+        $('#P2Char2').css({
+        'opacity': '1'
+        });
+        $('#P2Char3').css({
+        'opacity': '0'
+        });
+        $('#P2Char4').css({
+        'opacity': '1'
+        });
+        $('#P2Char5').css({
+        'opacity': '1'
+        })
     });
     $('#P2Char4').click(function () {
         lava =  $('#charlineB4').prop('src')
@@ -232,20 +232,20 @@
             Tar = "B4";
         }
         $('#P2Char1').css({
-            'opacity': '1'
-            });
-            $('#P2Char2').css({
-            'opacity': '1'
-            });
-            $('#P2Char3').css({
-            'opacity': '1'
-            });
-            $('#P2Char4').css({
-            'opacity': '0'
-            });
-            $('#P2Char5').css({
-            'opacity': '1'
-            })
+        'opacity': '1'
+        });
+        $('#P2Char2').css({
+        'opacity': '1'
+        });
+        $('#P2Char3').css({
+        'opacity': '1'
+        });
+        $('#P2Char4').css({
+        'opacity': '0'
+        });
+        $('#P2Char5').css({
+        'opacity': '1'
+        })
 
 
     });
@@ -259,25 +259,67 @@
             Tar = "B5";
         }
         $('#P2Char1').css({
-            'opacity': '1'
-            });
-            $('#P2Char2').css({
-            'opacity': '1'
-            });
-            $('#P2Char3').css({
-            'opacity': '1'
-            });
-            $('#P2Char4').css({
-            'opacity': '1'
-            });
-            $('#P2Char5').css({
-            'opacity': '0'
-            })
+        'opacity': '1'
+        });
+        $('#P2Char2').css({
+        'opacity': '1'
+        });
+        $('#P2Char3').css({
+        'opacity': '1'
+        });
+        $('#P2Char4').css({
+        'opacity': '1'
+        });
+        $('#P2Char5').css({
+        'opacity': '0'
+        })
     });
+
+    function ResetPlayerLocations(){
+
+        $('#P1Fight').prop('src', "");
+        $('#P2Fight').prop('src', "");
+
+        $('#P1Char1').css({
+        'opacity': '1'
+        });
+        $('#P1Char2').css({
+        'opacity': '1'
+        });
+        $('#P1Char3').css({
+        'opacity': '1'
+        });
+        $('#P1Char4').css({
+        'opacity': '1'
+        });
+        $('#P1Char5').css({
+        'opacity': '1'
+        });
+        
+        $('#P2Char1').css({
+        'opacity': '1'
+        });
+        $('#P2Char2').css({
+        'opacity': '1'
+        });
+        $('#P2Char3').css({
+        'opacity': '1'
+        });
+        $('#P2Char4').css({
+        'opacity': '1'
+        });
+        $('#P2Char5').css({
+        'opacity': '1'
+        });
+    };
 
     // Actions
     // -------------------------------
     $('#game-attack').click(function () { //attack option
+
+        //reset player locations
+        ResetPlayerLocations();
+
         fetch("/Game/character_action/"+gamestate_id, { 
             headers: { "Content-Type": "application/json" },
             credentials: 'include',
@@ -314,7 +356,7 @@
                 return response.json();
             })
             .then(json => {
-                console.log(json);
+                // console.log(json);
                 console.log(Team+":"+Char+":Ability:"+Tar)
                 json = JSON.parse(json);
                 Char = "";
