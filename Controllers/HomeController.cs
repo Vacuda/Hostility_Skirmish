@@ -34,6 +34,10 @@ namespace Hostility_Skirmish.Controllers
         [HttpGet("LoginPage")]
         public IActionResult LoginPage()
         {            
+            if(HttpContext.Session.GetString("Email")==null){
+                HttpContext.Session.SetString("Email", "");
+            }
+            
             return View("LoginPage");
         }
         // [HttpGet("Success")]
