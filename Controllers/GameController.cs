@@ -136,6 +136,7 @@ namespace Hostility_Skirmish.Controllers
             GameState context = dbContext.GameStates
                             .Include(e=>e.Parties)
                             .ThenInclude(e=>e.Characters)
+                            .Include(e=>e.Logs)
                             .FirstOrDefault(e=>e.GameStateId == gamestate_id);
             System.Console.WriteLine($"&&&&&&&&&&&&&&&&&&&&&&{context.Parties[0].Characters[0].IsAlive}&&&&&&&&&&&&&&&&&&&");
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(context));

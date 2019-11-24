@@ -16,6 +16,7 @@ namespace Hostility_Skirmish.Models
 
     //Navigation
 
+        [JsonIgnore]
         public GameState GameState {get;set;}
 
 
