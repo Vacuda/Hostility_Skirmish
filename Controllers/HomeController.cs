@@ -125,7 +125,7 @@ namespace Hostility_Skirmish.Controllers
                 CurrentUser.Logged = true;
                 dbContext.SaveChanges();
 
-                return RedirectToAction("BuildTeam","Build");
+                return RedirectToAction("Lobby","Lobby");
             }
                return View("LoginPage",NewLogin);
         }
