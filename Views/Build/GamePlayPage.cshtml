@@ -11,16 +11,11 @@
 </div>
 <a class="lobby btn btn-info" href="/lobby"><p>Lobby</p></a>
 
+<div id="whoseturn">
+    <h1>Get Ready!</h1>
+</div>
 
-<!-- This is not gonna work.  Need to update through js -->
-@{
-    if (@ViewBag.PlayerTeam == @Model.CurrentTeam){
-        <h1>Your Turn</h1>
-    }    
-    else{
-        <h1>Enemy's Turn</h1>
-    }
-}
+
 
 <h1></h1>
 
