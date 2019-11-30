@@ -1,4 +1,6 @@
 
+    //See APIREADME.txt for more information
+
     setInterval(function()
     { 
       fetch("/Lobby/getlogs", {    //UPDATE LOGINS
@@ -47,21 +49,3 @@
             }
         }).catch(response => console.log(response));
     }, 1000);
-
-    // fetch("/Lobby/send_here", { 
-    //   headers: { "Content-Type": "application/json" },
-    //   credentials: 'include',
-    //   method: "POST",
-    //   body: "RAW STRING MADAFAKA!"
-    // })
-    //   .then(response => {
-    //       if (!response.ok) {
-    //           throw response;
-    //       }
-    //       return response.json();
-    //   })
-    //   .then(json => {
-    //       json = JSON.parse(json);
-    //       console.log(json);
-    //   })
-    //   .catch(response => console.log(response));

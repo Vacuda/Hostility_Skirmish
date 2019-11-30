@@ -1,4 +1,7 @@
 
+    //**not currently implemented. delete if desired**
+    //intended to kick the challenger back to the lobby if the challenged player does not accept.
+    
     var unchallenged = true;
     var timer = 0;
     var start = false;
