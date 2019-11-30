@@ -1,7 +1,4 @@
 
-    // ***************************************
-    // ***************************************
-    // ***************************************
     let Char = "";
     let Tar = "";
     let Item = "";
@@ -445,6 +442,7 @@
             //read log
                 document.getElementById("logblock").innerHTML = "<h4>" + game_state.Logs[game_state.Logs.length-1].Content + "</h4>";
 
+
                 //console.log(game_state.Parties[0].Characters[0].Health);
                 //console.log(game_state.Parties[0].Characters[1].Health);
                 //console.log(game_state.Parties[0].Characters[2].Health);
@@ -464,5 +462,5 @@
             }
       )
       .catch(response => console.log(response));
-    }, 7000);
+    }, 2000);
     
