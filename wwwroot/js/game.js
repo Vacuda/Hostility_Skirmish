@@ -410,10 +410,6 @@
                 game_state = JSON.parse(json);
 
             //set turn
-<<<<<<< HEAD
-                Team = game_state.CurrentTeam
-                document.getElementById("turn").innerHtml = Team;
-=======
                 if (Team == game_state.CurrentTeam){
                     document.getElementById("whoseturn").innerHTML = "<h1 class='yourturn'>Your Turn!</h1>"
                 }
@@ -448,7 +444,6 @@
                 
             //read log
                 document.getElementById("logblock").innerHTML = "<h4>" + game_state.Logs[game_state.Logs.length-1].Content + "</h4>";
->>>>>>> 9926d8f5677a323d9e9e02ffa54b46c319e67569
 
                 //console.log(game_state.Parties[0].Characters[0].Health);
                 //console.log(game_state.Parties[0].Characters[1].Health);
