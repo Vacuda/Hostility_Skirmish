@@ -1,7 +1,4 @@
 
-    // ***************************************
-    // ***************************************
-    // ***************************************
     let Char = "";
     let Tar = "";
     let Item = "";
@@ -50,21 +47,21 @@
         else {
             Tar = "A2";
         }
-            $('#P1Char1').css({
-            'opacity': '1'
-            });
-            $('#P1Char2').css({
-            'opacity': '0'
-            });
-            $('#P1Char3').css({
-            'opacity': '1'
-            });
-            $('#P1Char4').css({
-            'opacity': '1'
-            });
-            $('#P1Char5').css({
-            'opacity': '1'
-            })
+        $('#P1Char1').css({
+        'opacity': '1'
+        });
+        $('#P1Char2').css({
+        'opacity': '0'
+        });
+        $('#P1Char3').css({
+        'opacity': '1'
+        });
+        $('#P1Char4').css({
+        'opacity': '1'
+        });
+        $('#P1Char5').css({
+        'opacity': '1'
+        })
     
     });
     $('#P1Char3').click(function () {
@@ -77,20 +74,20 @@
             Tar = "A3";
         }
         $('#P1Char1').css({
-            'opacity': '1'
-            });
-            $('#P1Char2').css({
-            'opacity': '1'
-            });
-            $('#P1Char3').css({
-            'opacity': '0'
-            });
-            $('#P1Char4').css({
-            'opacity': '1'
-            });
-            $('#P1Char5').css({
-            'opacity': '1'
-            })
+        'opacity': '1'
+        });
+        $('#P1Char2').css({
+        'opacity': '1'
+        });
+        $('#P1Char3').css({
+        'opacity': '0'
+        });
+        $('#P1Char4').css({
+        'opacity': '1'
+        });
+        $('#P1Char5').css({
+        'opacity': '1'
+        })
     });
     $('#P1Char4').click(function () {
         lava =  $('#charlineA4').prop('src')
@@ -102,20 +99,20 @@
             Tar = "A4";
         }
         $('#P1Char1').css({
-            'opacity': '1'
-            });
-            $('#P1Char2').css({
-            'opacity': '1'
-            });
-            $('#P1Char3').css({
-            'opacity': '1'
-            });
-            $('#P1Char4').css({
-            'opacity': '0'
-            });
-            $('#P1Char5').css({
-            'opacity': '1'
-            })
+        'opacity': '1'
+        });
+        $('#P1Char2').css({
+        'opacity': '1'
+        });
+        $('#P1Char3').css({
+        'opacity': '1'
+        });
+        $('#P1Char4').css({
+        'opacity': '0'
+        });
+        $('#P1Char5').css({
+        'opacity': '1'
+        })
       
     });
     $('#P1Char5').click(function () {
@@ -128,20 +125,20 @@
             Tar = "A5";
         }
         $('#P1Char1').css({
-            'opacity': '1'
-            });
-            $('#P1Char2').css({
-            'opacity': '1'
-            });
-            $('#P1Char3').css({
-            'opacity': '1'
-            });
-            $('#P1Char4').css({
-            'opacity': '1'
-            });
-            $('#P1Char5').css({
-            'opacity': '0'
-            })
+        'opacity': '1'
+        });
+        $('#P1Char2').css({
+        'opacity': '1'
+        });
+        $('#P1Char3').css({
+        'opacity': '1'
+        });
+        $('#P1Char4').css({
+        'opacity': '1'
+        });
+        $('#P1Char5').css({
+        'opacity': '0'
+        })
     });
 
 
@@ -157,20 +154,20 @@
             Tar = "B1";
         }
         $('#P2Char1').css({
-            'opacity': '0'
-            });
-            $('#P2Char2').css({
-            'opacity': '1'
-            });
-            $('#P2Char3').css({
-            'opacity': '1'
-            });
-            $('#P2Char4').css({
-            'opacity': '1'
-            });
-            $('#P2Char5').css({
-            'opacity': '1'
-            })
+        'opacity': '0'
+        });
+        $('#P2Char2').css({
+        'opacity': '1'
+        });
+        $('#P2Char3').css({
+        'opacity': '1'
+        });
+        $('#P2Char4').css({
+        'opacity': '1'
+        });
+        $('#P2Char5').css({
+        'opacity': '1'
+        })
     });
     $('#P2Char2').click(function () {
         lava =  $('#charlineB2').prop('src')
@@ -182,20 +179,20 @@
             Tar = "B2";
         }
         $('#P2Char1').css({
-            'opacity': '1'
-            });
-            $('#P2Char2').css({
-            'opacity': '0'
-            });
-            $('#P2Char3').css({
-            'opacity': '1'
-            });
-            $('#P2Char4').css({
-            'opacity': '1'
-            });
-            $('#P2Char5').css({
-            'opacity': '1'
-            })
+        'opacity': '1'
+        });
+        $('#P2Char2').css({
+        'opacity': '0'
+        });
+        $('#P2Char3').css({
+        'opacity': '1'
+        });
+        $('#P2Char4').css({
+        'opacity': '1'
+        });
+        $('#P2Char5').css({
+        'opacity': '1'
+        })
     });
     $('#P2Char3').click(function () {
         lava =  $('#charlineB3').prop('src')
@@ -207,20 +204,20 @@
             Tar = "B3";
         }
         $('#P2Char1').css({
-            'opacity': '1'
-            });
-            $('#P2Char2').css({
-            'opacity': '1'
-            });
-            $('#P2Char3').css({
-            'opacity': '0'
-            });
-            $('#P2Char4').css({
-            'opacity': '1'
-            });
-            $('#P2Char5').css({
-            'opacity': '1'
-            })
+        'opacity': '1'
+        });
+        $('#P2Char2').css({
+        'opacity': '1'
+        });
+        $('#P2Char3').css({
+        'opacity': '0'
+        });
+        $('#P2Char4').css({
+        'opacity': '1'
+        });
+        $('#P2Char5').css({
+        'opacity': '1'
+        })
     });
     $('#P2Char4').click(function () {
         lava =  $('#charlineB4').prop('src')
@@ -232,20 +229,20 @@
             Tar = "B4";
         }
         $('#P2Char1').css({
-            'opacity': '1'
-            });
-            $('#P2Char2').css({
-            'opacity': '1'
-            });
-            $('#P2Char3').css({
-            'opacity': '1'
-            });
-            $('#P2Char4').css({
-            'opacity': '0'
-            });
-            $('#P2Char5').css({
-            'opacity': '1'
-            })
+        'opacity': '1'
+        });
+        $('#P2Char2').css({
+        'opacity': '1'
+        });
+        $('#P2Char3').css({
+        'opacity': '1'
+        });
+        $('#P2Char4').css({
+        'opacity': '0'
+        });
+        $('#P2Char5').css({
+        'opacity': '1'
+        })
 
 
     });
@@ -259,25 +256,67 @@
             Tar = "B5";
         }
         $('#P2Char1').css({
-            'opacity': '1'
-            });
-            $('#P2Char2').css({
-            'opacity': '1'
-            });
-            $('#P2Char3').css({
-            'opacity': '1'
-            });
-            $('#P2Char4').css({
-            'opacity': '1'
-            });
-            $('#P2Char5').css({
-            'opacity': '0'
-            })
+        'opacity': '1'
+        });
+        $('#P2Char2').css({
+        'opacity': '1'
+        });
+        $('#P2Char3').css({
+        'opacity': '1'
+        });
+        $('#P2Char4').css({
+        'opacity': '1'
+        });
+        $('#P2Char5').css({
+        'opacity': '0'
+        })
     });
+
+    function ResetPlayerLocations(){
+
+        $('#P1Fight').prop('src', "");
+        $('#P2Fight').prop('src', "");
+
+        $('#P1Char1').css({
+        'opacity': '1'
+        });
+        $('#P1Char2').css({
+        'opacity': '1'
+        });
+        $('#P1Char3').css({
+        'opacity': '1'
+        });
+        $('#P1Char4').css({
+        'opacity': '1'
+        });
+        $('#P1Char5').css({
+        'opacity': '1'
+        });
+        
+        $('#P2Char1').css({
+        'opacity': '1'
+        });
+        $('#P2Char2').css({
+        'opacity': '1'
+        });
+        $('#P2Char3').css({
+        'opacity': '1'
+        });
+        $('#P2Char4').css({
+        'opacity': '1'
+        });
+        $('#P2Char5').css({
+        'opacity': '1'
+        });
+    };
 
     // Actions
     // -------------------------------
     $('#game-attack').click(function () { //attack option
+
+        //reset player locations
+        ResetPlayerLocations();
+
         fetch("/Game/character_action/"+gamestate_id, { 
             headers: { "Content-Type": "application/json" },
             credentials: 'include',
@@ -298,15 +337,53 @@
                 Tar = "";
             })
             .catch(response => console.log(response));
-            
     });
-    $('#game-defend').click(function () {
-    // Set Variable
-    });
+
     $('#game-ability').click(function () {
-    // Set Variable
+        fetch("/Game/character_action/"+gamestate_id, { 
+            headers: { "Content-Type": "application/json" },
+            credentials: 'include',
+            method: "POST",
+            body: Team+":"+Char+":Ability:"+Tar //of the form xxx:xxx:xxx:xxx ex. 
+          })
+            .then(response => {
+                if (!response.ok) {
+                    throw response;
+                }
+                return response.json();
+            })
+            .then(json => {
+                // console.log(json);
+                console.log(Team+":"+Char+":Ability:"+Tar)
+                json = JSON.parse(json);
+                Char = "";
+                Tar = "";
+            })
+            .catch(response => console.log(response));
     });
     $('#game-item').click(function () {
+        fetch("/Game/character_action/"+gamestate_id, { 
+            headers: { "Content-Type": "application/json" },
+            credentials: 'include',
+            method: "POST",
+            body: Team+":"+Char+":Item:"+Tar //of the form xxx:xxx:xxx:xxx ex. 
+          })
+            .then(response => {
+                if (!response.ok) {
+                    throw response;
+                }
+                return response.json();
+            })
+            .then(json => {
+                console.log(json);
+                console.log(Team+":"+Char+":Item:"+Tar)
+                json = JSON.parse(json);
+                Char = "";
+                Tar = "";
+            })
+            .catch(response => console.log(response));
+    });
+    $('#game-defend').click(function () {
     // Set Variable
     });
 
@@ -330,40 +407,58 @@
                 game_state = JSON.parse(json);
 
             //set turn
-                Team = game_state.CurrentTeam
-                document.getElementById("turn").innerHtml = Team;
+                if (Team == game_state.CurrentTeam){
+                    document.getElementById("whoseturn").innerHTML = "<h1 class='yourturn'>Your Turn!</h1>"
+                }
+                else{
+                    document.getElementById("whoseturn").innerHTML = "<h1 class='notyourturn'>It is not your turn!</h1>"
+                }
+                // Team = game_state.CurrentTeam
 
-            //read health values
-                var HealthHTMLId = "HealthP0C0";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[0].Health;
+            //read health values                   
+                document.getElementById("HealthP0C0").innerHTML = game_state.Parties[0].Characters[0].Health;
+                document.getElementById("HealthP0C1").innerHTML = game_state.Parties[0].Characters[1].Health;                
+                document.getElementById("HealthP0C2").innerHTML = game_state.Parties[0].Characters[2].Health;                
+                document.getElementById("HealthP0C3").innerHTML = game_state.Parties[0].Characters[3].Health;            
+                document.getElementById("HealthP0C4").innerHTML = game_state.Parties[0].Characters[4].Health;
+                document.getElementById("HealthP1C0").innerHTML = game_state.Parties[1].Characters[0].Health;
+                document.getElementById("HealthP1C1").innerHTML = game_state.Parties[1].Characters[1].Health;
+                document.getElementById("HealthP1C2").innerHTML = game_state.Parties[1].Characters[2].Health;
+                document.getElementById("HealthP1C3").innerHTML = game_state.Parties[1].Characters[3].Health;
+                document.getElementById("HealthP1C4").innerHTML = game_state.Parties[1].Characters[4].Health;
+
+            //read avatar images
+                document.getElementById("charlineA1").src       = game_state.Parties[0].Characters[0].Avatar_Image;
+                document.getElementById("charlineA2").src       = game_state.Parties[0].Characters[1].Avatar_Image;
+                document.getElementById("charlineA3").src       = game_state.Parties[0].Characters[2].Avatar_Image;
+                document.getElementById("charlineA4").src       = game_state.Parties[0].Characters[3].Avatar_Image;
+                document.getElementById("charlineA5").src       = game_state.Parties[0].Characters[4].Avatar_Image;
+                document.getElementById("charlineB1").src       = game_state.Parties[1].Characters[0].Avatar_Image;
+                document.getElementById("charlineB2").src       = game_state.Parties[1].Characters[1].Avatar_Image;
+                document.getElementById("charlineB3").src       = game_state.Parties[1].Characters[2].Avatar_Image;
+                document.getElementById("charlineB4").src       = game_state.Parties[1].Characters[3].Avatar_Image;
+                document.getElementById("charlineB5").src       = game_state.Parties[1].Characters[4].Avatar_Image;
+                
+            //read log
+                document.getElementById("logblock").innerHTML = "<h4>" + game_state.Logs[game_state.Logs.length-1].Content + "</h4>";
+
+
                 //console.log(game_state.Parties[0].Characters[0].Health);
-                var HealthHTMLId = "HealthP0C1";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[1].Health;
                 //console.log(game_state.Parties[0].Characters[1].Health);
-                var HealthHTMLId = "HealthP0C2";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[2].Health;
                 //console.log(game_state.Parties[0].Characters[2].Health);
-                var HealthHTMLId = "HealthP0C3";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[3].Health;
                 //console.log(game_state.Parties[0].Characters[3].Health);
-                var HealthHTMLId = "HealthP0C4";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[0].Characters[4].Health;
                 //console.log(game_state.Parties[0].Characters[4].Health);
-                var HealthHTMLId = "HealthP1C0";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[0].Health;
-                var HealthHTMLId = "HealthP1C1";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[1].Health;
-                var HealthHTMLId = "HealthP1C2";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[2].Health;
-                var HealthHTMLId = "HealthP1C3";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[3].Health;
-                var HealthHTMLId = "HealthP1C4";
-                document.getElementById(HealthHTMLId).innerHTML = game_state.Parties[1].Characters[4].Health;
-                console.log("Health Team A char 1: "+game_state.Parties[0].Characters[0].Avatar_Name);
-                console.log("Health Team A char 2: "+game_state.Parties[0].Characters[1].Avatar_Name);
-                console.log("Health Team A char 3: "+game_state.Parties[0].Characters[2].Avatar_Name);
-                console.log("Health Team A char 4: "+game_state.Parties[0].Characters[3].Avatar_Name);
-                console.log("Health Team A char 5: "+game_state.Parties[0].Characters[4].Avatar_Name);
+                // console.log("Health Team A char 1: "+game_state.Parties[0].Characters[0].Avatar_Name);
+                // console.log("Health Team A char 2: "+game_state.Parties[0].Characters[1].Avatar_Name);
+                // console.log("Health Team A char 3: "+game_state.Parties[0].Characters[2].Avatar_Name);
+                // console.log("Health Team A char 4: "+game_state.Parties[0].Characters[3].Avatar_Name);
+                // console.log("Health Team A char 5: "+game_state.Parties[0].Characters[4].Avatar_Name);
+
+                console.log("Values Refilled!");
+            
+
+
+
             }
       )
       .catch(response => console.log(response));

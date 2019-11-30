@@ -34,6 +34,10 @@ namespace Hostility_Skirmish.Controllers
         [HttpGet("LoginPage")]
         public IActionResult LoginPage()
         {            
+            if(HttpContext.Session.GetString("Email")==null){
+                HttpContext.Session.SetString("Email", "");
+            }
+            
             return View("LoginPage");
         }
         // [HttpGet("Success")]
@@ -57,6 +61,19 @@ namespace Hostility_Skirmish.Controllers
                 CurrentUser.Challenged = false;
                 dbContext.SaveChanges();
             }
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet("LogOutAll")]
+        public IActionResult LogOutAll()
+        {
+            var AllUsers = dbContext.Users;  
+            foreach(var i in AllUsers){
+                i.Logged = false;
+                i.Challenged = false;
+            }   
+            dbContext.SaveChanges();   
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
         }
@@ -108,7 +125,7 @@ namespace Hostility_Skirmish.Controllers
                 CurrentUser.Logged = true;
                 dbContext.SaveChanges();
 
-                return RedirectToAction("BuildTeam","Build");
+                return RedirectToAction("Lobby","Lobby");
             }
                return View("LoginPage",NewLogin);
         }

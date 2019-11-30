@@ -11,9 +11,13 @@
 </div>
 <a class="lobby btn btn-info" href="/lobby"><p>Lobby</p></a>
 
-<h3 >Current Turn: <div id="turn"></div></h3>
+
+<div id="whoseturn">
+    <h1>Get Ready!</h1>
+</div>
 
 
+<h1></h1>
 
 <form action="">
     <!-- Character -->
@@ -188,7 +192,7 @@
 
 <div  class="row bottom">
     <div class="col">
-        <div class="card"><h4>hhh</h4></div>
+        <div class="card" id="logblock"><h4>@Model.Logs[@Model.Logs.Count-1].Content</h4></div>
     </div>
     <div class="col">
             <div class="card">

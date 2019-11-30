@@ -5,6 +5,10 @@ namespace Hostility_Skirmish.Models.GameClasses
     public class BuildParty
     {
 
+        //250 Health divided between 5 characters
+        //15 Attack Power divided between 5 characters
+        //10 Defense Power divided between 5 characters
+
 ///////
 
         [NotMapped]
