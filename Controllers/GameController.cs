@@ -19,28 +19,28 @@ namespace Hostility_Skirmish.Controllers
         }
 
         [HttpGet] //TEAM A
-        [Route("[controller]/{user_id}")] //challenge has been made waiting for acceptance!
-        public IActionResult ChallengeDeck(int user_id){
+        [Route("[controller]/{current_user_id}/{challenger_id}")] //challenge has been made waiting for acceptance!
+        public IActionResult ChallengeDeck(int current_user_id, int challenger_id){
             string session_email = HttpContext.Session.GetString("Email");
             if ( session_email != null){
-                var CurrentUser = dbContext.Users.FirstOrDefault(a => a.Email == session_email);
+                var CurrentUser = dbContext.Users.FirstOrDefault(a=>a.UserId == current_user_id);
                 CurrentUser.Challenged = true;
             }
-            User ChallengedUser = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
+            User ChallengedUser = dbContext.Users.FirstOrDefault(x=>x.UserId == challenger_id);
             ChallengedUser.Challenged = true;
             dbContext.SaveChanges();
 
             //find users
-            User UserA = dbContext.Users.FirstOrDefault(a => a.Email == session_email);
-            User UserB = dbContext.Users.FirstOrDefault(x=>x.UserId == user_id);
+            User UserA = dbContext.Users.FirstOrDefault(a=>a.UserId == current_user_id);
+            User UserB = dbContext.Users.FirstOrDefault(x=>x.UserId == challenger_id);
 
 
             //find parties
             Party partyA = dbContext.Parties
                                 .Include(e=>e.Characters)
-                                .FirstOrDefault(e=>e.UserId == UserA.UserId);
+                                .FirstOrDefault(f=>f.UserId == UserA.UserId);
             Party partyB = dbContext.Parties
-                                .Include(e=>e.Characters)
+                                .Include(f=>f.Characters)
                                 .FirstOrDefault(e=>e.UserId == UserB.UserId);
 
 
@@ -49,13 +49,9 @@ namespace Hostility_Skirmish.Controllers
             partyB.Reset();
             dbContext.SaveChanges();
 
-            //Assign client's team
-            ViewBag.PlayerTeam = "A";
-
             //build gamestate
             GameState gamestate = new GameState();
             gamestate.CurrentTeam = "A";
-            
             dbContext.GameStates.Add(gamestate);
             dbContext.SaveChanges();
 
@@ -66,7 +62,15 @@ namespace Hostility_Skirmish.Controllers
             partyB.GameStateId = gamestate_id;
             dbContext.SaveChanges();
 
-            //Send to HTML DOM for later use by javascript.
+            //add initial log
+            Log new_log = new Log();
+            new_log.GameStateId = gamestate_id;
+            new_log.Content = "Begin The Battle!";
+            dbContext.Logs.Add(new_log);
+            dbContext.SaveChanges();
+
+            //Assign client's team, and current gamestate_id
+            ViewBag.PlayerTeam = "A";
             ViewBag.gamestate_id = gamestate_id;
 
             //build big object
@@ -75,6 +79,7 @@ namespace Hostility_Skirmish.Controllers
                             .ThenInclude(e=>e.Characters)
                             .Include(e=>e.Parties)
                             .ThenInclude(e=>e.User)
+                            .Include(e=>e.Logs)
                             .FirstOrDefault(e=>e.GameStateId == gamestate_id);
 
             return View("../Build/GamePlayPage", context);
@@ -102,6 +107,7 @@ namespace Hostility_Skirmish.Controllers
                                 .ThenInclude(e=>e.Characters)
                                 .Include(e=>e.Parties)
                                 .ThenInclude(e=>e.User)
+                                .Include(e=>e.Logs)
                                 .FirstOrDefault(e=>e.GameStateId == partyA.GameStateId);
 
             //Assign client's team
@@ -130,6 +136,7 @@ namespace Hostility_Skirmish.Controllers
             GameState context = dbContext.GameStates
                             .Include(e=>e.Parties)
                             .ThenInclude(e=>e.Characters)
+                            .Include(e=>e.Logs)
                             .FirstOrDefault(e=>e.GameStateId == gamestate_id);
             System.Console.WriteLine($"&&&&&&&&&&&&&&&&&&&&&&{context.Parties[0].Characters[0].IsAlive}&&&&&&&&&&&&&&&&&&&");
             return Json(Newtonsoft.Json.JsonConvert.SerializeObject(context));
@@ -185,39 +192,102 @@ namespace Hostility_Skirmish.Controllers
                 System.Console.WriteLine("#########################################");
             }
             System.Console.WriteLine($"{Team} {Character} {Action} {Target}");
+
+
             //perform action
                 GameState gamestate = dbContext.GameStates
                             .Include(e=>e.Parties)
                             .ThenInclude(e=>e.Characters)
                             .FirstOrDefault(e=>e.GameStateId == gamestate_id);
+
+                //only current team can send actions
                 if(Team == gamestate.CurrentTeam){
-                    if(Target[0]+"" == "A"+""){ //wow c#               
-                        gamestate.Parties[0].Characters[Int32.Parse(Target[1]+"")].Health -= 12;
-                    }else{ //Team == "B"
-                        gamestate.Parties[1].Characters[Int32.Parse(Target[1]+"")].Health -= 12; 
+
+                    //set doer
+                    int doer_team = 999;
+                    if(Team == "A"){doer_team = 0;}
+                    else{doer_team = 1;}
+                    int doer_char = Int32.Parse(Character)-1;
+                    Character doer = gamestate.Parties[doer_team].Characters[doer_char];
+
+                    //set victim
+                    int victim_team = 999;
+                    if (Target[0] == 'A'){victim_team = 0;}
+                    else {victim_team = 1;}
+                    int victim_char = 999;
+                    if(Target[1] == '1'){victim_char = 0;}
+                    if(Target[1] == '2'){victim_char = 1;}
+                    if(Target[1] == '3'){victim_char = 2;}
+                    if(Target[1] == '4'){victim_char = 3;}
+                    if(Target[1] == '5'){victim_char = 4;}
+                    Character victim = gamestate.Parties[victim_team].Characters[victim_char];
+
+                    //actions
+                    if(Action == "Attack"){
+                        int amount = doer.Attack(victim);
+                        dbContext.SaveChanges();
+
+                        //new log
+                        Log new_log = new Log();
+                        new_log.GameStateId = gamestate_id;
+                        new_log.Content = $"{doer.Avatar_Name} attacks {victim.Avatar_Name}! Health: {amount}";
+                        dbContext.Logs.Add(new_log);
+                        dbContext.SaveChanges();
+                        
                     }
+                    if(Action == "Item"){
+                        int amount = doer.ItemUse(victim);
+                        dbContext.SaveChanges();
+
+                        //new log
+                        Log new_log = new Log();
+                        new_log.GameStateId = gamestate_id;
+                        new_log.Content = $"{doer.Avatar_Name} uses their item on {victim.Avatar_Name}! Health: {amount}";
+                        dbContext.Logs.Add(new_log);
+                        dbContext.SaveChanges();
+                    }
+                    if(Action == "Ability"){
+                        int amount = doer.AbilityUse(victim);
+                        dbContext.SaveChanges();
+
+                        //new log
+                        Log new_log = new Log();
+                        new_log.GameStateId = gamestate_id;
+                        new_log.Content = $"{doer.Avatar_Name} uses their ability on {victim.Avatar_Name}! Health: {amount}";
+                        dbContext.Logs.Add(new_log);
+                        dbContext.SaveChanges();
+                    }
+                    if(Action == "Defend"){
+                        // int amount = doer.ItemUse(victim);
+                        // dbContext.SaveChanges();
+                        //Make Log
+                    }
+                    System.Console.WriteLine("______________________________________________________________________________________________________________________");
                     System.Console.WriteLine($"TURN {Team} TAKEN");
-                     
+                    System.Console.WriteLine($"---{gamestate.CurrentTeam}---");
+
+                    //change turn taken on character, change current team's turn
+                    doer.TurnTaken = true;
                     if(gamestate.CurrentTeam == "A"){ 
-                        //player's character loses a turn
-                        gamestate.Parties[0].Characters[Int32.Parse(Character)].TurnTaken = true;
-                        //switch turn
                         gamestate.CurrentTeam="B";
+                        System.Console.WriteLine("_____________________________________________***************************************_______________________________________");
+                        System.Console.WriteLine($"---{gamestate.CurrentTeam}---");
+                        dbContext.SaveChanges();
                     }
-                    if(gamestate.CurrentTeam == "B"){
-                        gamestate.Parties[1].Characters[Int32.Parse(Character)].TurnTaken = true;
+                    else{
                         gamestate.CurrentTeam="A";
+                        dbContext.SaveChanges();
                     }
-                    dbContext.SaveChanges();
+
+                    System.Console.WriteLine("______________________________________________________________________________________________________________________");
+                    System.Console.WriteLine($"TURN {Team} TAKEN");
+                    System.Console.WriteLine($"---{gamestate.CurrentTeam}---");
+                    
                 }//else nothing happens
 
-                //make log
-                // Log new_log = new Log();
-                // new_log.GameStateId = gamestate_id;
-                // string char_name = gamestate.Parties[1].Characters[Int32.Parse(Character)].Avatar_Name;
-                // new_log.Content = $"{char_name} attacks!";
-                // dbContext.SaveChanges();
+                //check if all turns have been taken
 
+                // checkcheck();
 
 
 

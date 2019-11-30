@@ -4,13 +4,19 @@ namespace Hostility_Skirmish.Models.GameClasses
     public class Ability
     {
 
-        public static void AbilityUse(Character target, string ability){
+        public static int AbilityUse(Character target, string ability){
 
             if(ability == "Heal"){
-                target.ChangeHealth(30);
+                int amount = 30;
+                target.ChangeHealth(amount);
+                return amount;
             }
             if(ability == "Attack"){
-                target.ChangeHealth(-40); //save db changes???
+                int amount = target.ChangeHealth(-40); //save db changes???
+                return amount;
+            }
+            else {
+                return 0;
             }
 
         }

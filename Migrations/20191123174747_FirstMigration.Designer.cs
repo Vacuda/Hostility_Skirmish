@@ -2,14 +2,16 @@
 using Hostility_Skirmish.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Hostility_Skirmish.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20191123174747_FirstMigration")]
+    partial class FirstMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,6 +94,22 @@ namespace Hostility_Skirmish.Migrations
                     b.ToTable("GameStates");
                 });
 
+            modelBuilder.Entity("Hostility_Skirmish.Models.Log", b =>
+                {
+                    b.Property<int>("LogId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Content");
+
+                    b.Property<int>("GameStateId");
+
+                    b.HasKey("LogId");
+
+                    b.HasIndex("GameStateId");
+
+                    b.ToTable("Logs");
+                });
+
             modelBuilder.Entity("Hostility_Skirmish.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -136,6 +154,14 @@ namespace Hostility_Skirmish.Migrations
                     b.HasOne("Hostility_Skirmish.Models.User", "User")
                         .WithMany("Parties")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Hostility_Skirmish.Models.Log", b =>
+                {
+                    b.HasOne("Hostility_Skirmish.Models.GameState", "GameState")
+                        .WithMany("Logs")
+                        .HasForeignKey("GameStateId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

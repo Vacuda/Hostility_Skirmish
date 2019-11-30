@@ -15,6 +15,8 @@ namespace Hostility_Skirmish.Models.GameClasses
         public bool IsAlive {get;set;} = true;
 
 
+        //fields with _ are not changed during a match
+
         public int _Health {get;set;}
         public int Health {get;set;}
 
@@ -66,20 +68,25 @@ namespace Hostility_Skirmish.Models.GameClasses
 
 
 
-        public void ChangeHealth(int amount){
+        public int ChangeHealth(int amount){
             if (Health + amount < 0){
                 Death();
             }
             Health = Health + amount;
+            return amount;
         }
 
         public void Death(){
             IsAlive = false;
+            TurnTaken = true;
+            Avatar_Image = String.Concat("/images", _Avatar_Image);
+            System.Console.WriteLine(Avatar_Image);
             Health = 0;
         }
 
-        public void AbilityUse(Character target){
-            Ability.AbilityUse(target, Ability_Slot);
+        public int AbilityUse(Character target){
+            int amount = Ability.AbilityUse(target, Ability_Slot);
+            return amount;
         }
 
         public string AbilityDescription(){
@@ -87,8 +94,9 @@ namespace Hostility_Skirmish.Models.GameClasses
             return desc;
         }
 
-        public void ItemUse(Character target){
-            Item.ItemUse(target, Item_Slot);
+        public int ItemUse(Character target){
+            int amount = Item.ItemUse(target, Item_Slot);
+            return amount;
         }
 
         public string ItemDescription(){
@@ -101,7 +109,8 @@ namespace Hostility_Skirmish.Models.GameClasses
             int max = 8;
             Random rand = new Random();
             int amount = rand.Next(   min + ((AttackPower-1)*3),  max + ((AttackPower-1)*3)  );
-            amount = amount - target.GetDefense();
+            amount = -1 * (amount - target.GetDefense());
+            target.ChangeHealth(amount);
             return amount;
         }
 

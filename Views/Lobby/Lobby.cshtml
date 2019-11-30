@@ -6,6 +6,8 @@ ViewData["Title"] = "Home Page";
 
 <a class="build-team btn btn-info" href="/build/buildteam"><p>Build Team</p></a>
 <a class="logout btn btn-info" href="/logout"><p>LogOut</p></a>
+<!-- hidden input needed to pass logged in user id to javascript -->
+<input type="hidden" id="logged_in_user_id" value="@ViewBag.CurrentUserId">
 
 
 <div id="test"  class="challenged">
@@ -21,6 +23,6 @@ ViewData["Title"] = "Home Page";
         </div> -->
 
        
-      </div>
+      
 
       <script src="~/js/lobby.js"></script>
