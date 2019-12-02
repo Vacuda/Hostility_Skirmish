@@ -1,5 +1,6 @@
   //See APIREADME.txt for more information
   
+
     let Char = "";
     let Tar = "";
     let Item = "";
@@ -476,6 +477,7 @@
                 
             //read log
                 document.getElementById("logblock").innerHTML = "<h4>" + game_state.Logs[game_state.Logs.length-1].Content + "</h4>";
+
 
                 //console.log(game_state.Parties[0].Characters[0].Health);
                 //console.log(game_state.Parties[0].Characters[1].Health);
