@@ -3,6 +3,8 @@
     let Char = "";
     let Tar = "";
     let Item = "";
+    //[[party[0]character[0], party[1]character[0], ...]
+    let dead_bools = [[0,0],[0,0],[0,0],[0,0],[0,0]]; // 0 for alive 1 for dead
 
     //from db
     let Team = document.getElementById("Team").innerHTML; //from html elements
@@ -428,6 +430,7 @@
                 document.getElementById("HealthP1C3").innerHTML = game_state.Parties[1].Characters[3].Health;
                 document.getElementById("HealthP1C4").innerHTML = game_state.Parties[1].Characters[4].Health;
 
+            
             //read avatar images
                 document.getElementById("charlineA1").src       = game_state.Parties[0].Characters[0].Avatar_Image;
                 document.getElementById("charlineA2").src       = game_state.Parties[0].Characters[1].Avatar_Image;
@@ -439,6 +442,37 @@
                 document.getElementById("charlineB3").src       = game_state.Parties[1].Characters[2].Avatar_Image;
                 document.getElementById("charlineB4").src       = game_state.Parties[1].Characters[3].Avatar_Image;
                 document.getElementById("charlineB5").src       = game_state.Parties[1].Characters[4].Avatar_Image;
+              
+            //check dead, rotate image and win condition
+            
+                for(var i=0; i<2 ;i++){ //iterate parties
+                    var PartyTeam;
+                    var dead_count=0;
+                    if(i== 0){
+                        PartyTeam = "A";
+                    }else{ //i == 1
+                        PartyTeam = "B";
+                    }
+                    
+                    for(var j=0; j<5 ;j++){ //iterate characters
+                        if(gamestate.Parties[i].Characters[j].Health < 0){ //check health
+                            dead_count += 1; //count dead for given party, 5 flags a winner/loser
+                            if(dead_bools[i][j] == 0){
+                                dead_bools[i][j] = 1;
+                                var id = "charline"+PartyTeam+j;
+                                //css modified with rotate90 class
+                                document.getElementById(id).className = "rotate90";
+                            }
+                    }
+                    //Any parties dead?
+                    if(deadcount >= 5){ 
+                        if(PartyTeam == "A"){ //Team A dead
+                            document.body.getElementById("whoseturn").innerHTML = "<h1>TEAM B WINS!!</h1>";
+                        }else{ //Team B dead
+                            document.body.getElementById("whoseturn").innerHTML = "<h1>TEAM A WINS!!</h1>";
+                        }
+                    }
+                }
                 
             //read log
                 document.getElementById("logblock").innerHTML = "<h4>" + game_state.Logs[game_state.Logs.length-1].Content + "</h4>";
@@ -457,10 +491,7 @@
                 console.log("Values Refilled!");
             
 
-
-
             }
-      )
-      .catch(response => console.log(response));
+        }).catch(response => console.log(response));
     }, 2000);
     
